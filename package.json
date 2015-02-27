@@ -1,0 +1,22 @@
+{
+  "name": "jr-xv-i",
+  "version": "1.0.0",
+  "description": "This is just my personal site / playground.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshuarrr/jr-xv-i.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshuarrr/jr-xv-i/issues"
+  },
+  "homepage": "https://github.com/joshuarrr/jr-xv-i",
+  "devDependencies": {
+    "webpack": "^1.6.0"
+  }
+}
