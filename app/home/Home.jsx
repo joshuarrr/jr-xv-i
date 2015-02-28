@@ -4,7 +4,7 @@ var React = require('react');
 var Component = React.createClass({
   render: function () {
     return (
-      <h1>Coming soon, maybe.</h1>
+      <h1>Coming eventually...</h1>
     );
   }
 });
