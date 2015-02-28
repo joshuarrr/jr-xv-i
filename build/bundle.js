@@ -73,7 +73,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "29be0a9649191e10accd";
+/******/ 	var hotCurrentHash = "fdaf05d7685871283d11";
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = [];
 /******/
@@ -583,12 +583,47 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
-	module.exports = __webpack_require__(2);
+	__webpack_require__(2);
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
 /* 1 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// require('./main.css');
+	__webpack_require__(6);
+
+	var React = __webpack_require__(5);
+
+	var route = function () {
+
+	  if (!location.hash || location.hash.length === 1) {
+	    __webpack_require__.e/* nsure */(1, function (require) {
+	      var Home = __webpack_require__(3);
+	      React.render(Home(), document.getElementById('app'));
+	    });
+	  } else {
+	    __webpack_require__.e/* nsure */(2, function (require) {
+	      var Admin = __webpack_require__(4);
+	      React.render(Admin(), document.getElementById('app'));
+	    });
+	  }
+	};
+
+	window.onhashchange = route;
+
+	route();
+
+	if (true) {
+	  module.hot.accept(function () {
+	    route();
+	  });
+	}
+
+
+/***/ },
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	if(true) {
@@ -654,41 +689,6 @@
 
 
 /***/ },
-/* 2 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// require('./main.css');
-	__webpack_require__(6);
-
-	var React = __webpack_require__(5);
-
-	var route = function () {
-
-	  if (!location.hash || location.hash.length === 1) {
-	    __webpack_require__.e/* nsure */(1, function (require) {
-	      var Home = __webpack_require__(3);
-	      React.render(Home(), document.getElementById('app'));
-	    });
-	  } else {
-	    __webpack_require__.e/* nsure */(2, function (require) {
-	      var Admin = __webpack_require__(4);
-	      React.render(Admin(), document.getElementById('app'));
-	    });
-	  }
-	};
-
-	window.onhashchange = route;
-
-	route();
-
-	if (true) {
-	  module.hot.accept(function () {
-	    route();
-	  });
-	}
-
-
-/***/ },
 /* 3 */,
 /* 4 */,
 /* 5 */
@@ -721,7 +721,7 @@
 	var content = __webpack_require__(7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(10)(content, {});
+	var update = __webpack_require__(8)(content, {});
 	// Hot Module Replacement
 	if(true) {
 		// When the styles change, update the <style> tags
@@ -742,19 +742,7 @@
 	exports.push([module.id, "body {\n  background: #efefef; }\n", ""]);
 
 /***/ },
-/* 8 */,
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = {
-	  someSharedMethod: function () {
-	    
-	  }
-	}
-
-
-/***/ },
-/* 10 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -946,6 +934,18 @@
 			}
 			styleElement.appendChild(document.createTextNode(css));
 		}
+	}
+
+
+/***/ },
+/* 9 */,
+/* 10 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+	  someSharedMethod: function () {
+	    
+	  }
 	}
 
 
