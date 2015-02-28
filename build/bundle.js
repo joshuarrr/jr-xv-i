@@ -73,7 +73,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fdaf05d7685871283d11";
+/******/ 	var hotCurrentHash = "8624a626b17161eb99b6";
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = [];
 /******/
@@ -583,47 +583,12 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(2);
-	module.exports = __webpack_require__(1);
+	__webpack_require__(1);
+	module.exports = __webpack_require__(2);
 
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// require('./main.css');
-	__webpack_require__(6);
-
-	var React = __webpack_require__(5);
-
-	var route = function () {
-
-	  if (!location.hash || location.hash.length === 1) {
-	    __webpack_require__.e/* nsure */(1, function (require) {
-	      var Home = __webpack_require__(3);
-	      React.render(Home(), document.getElementById('app'));
-	    });
-	  } else {
-	    __webpack_require__.e/* nsure */(2, function (require) {
-	      var Admin = __webpack_require__(4);
-	      React.render(Admin(), document.getElementById('app'));
-	    });
-	  }
-	};
-
-	window.onhashchange = route;
-
-	route();
-
-	if (true) {
-	  module.hot.accept(function () {
-	    route();
-	  });
-	}
-
-
-/***/ },
-/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	if(true) {
@@ -685,6 +650,41 @@
 		console.log("[HMR] Waiting for update signal from WDS...");
 	} else {
 		throw new Error("[HMR] Hot Module Replacement is disabled.");
+	}
+
+
+/***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// require('./main.css');
+	__webpack_require__(6);
+
+	var React = __webpack_require__(5);
+
+	var route = function () {
+
+	  if (!location.hash || location.hash.length === 1) {
+	    __webpack_require__.e/* nsure */(1, function (require) {
+	      var Home = __webpack_require__(3);
+	      React.render(Home(), document.getElementById('app'));
+	    });
+	  } else {
+	    __webpack_require__.e/* nsure */(2, function (require) {
+	      var Admin = __webpack_require__(4);
+	      React.render(Admin(), document.getElementById('app'));
+	    });
+	  }
+	};
+
+	window.onhashchange = route;
+
+	route();
+
+	if (true) {
+	  module.hot.accept(function () {
+	    route();
+	  });
 	}
 
 

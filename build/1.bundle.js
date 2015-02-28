@@ -9,7 +9,7 @@ webpackJsonp([1],{
 	var Component = React.createClass({displayName: "Component",
 	  render: function () {
 	    return (
-	      React.createElement("h1", null, "Coming soon... Maybe.")
+	      React.createElement("h1", null, "Coming soon, maybe.")
 	    );
 	  }
 	});
