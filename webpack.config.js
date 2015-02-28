@@ -23,7 +23,7 @@
   module: {
     noParse: [],
     loaders: [{
-      test: /\.js$/,
+      test: /\.js|.jsx$/,
       loader: 'jsx-loader',
       exclude: [bower_dir, node_modules_dir]
     }, {
@@ -37,7 +37,7 @@
       "includePaths[]=" +
       (path.resolve(__dirname, "./node_modules"))
     }, {
-      test: /\.(woff|png)$/,
+      test: /\.(woff|png|jpeg)$/,
       loader: 'url-loader?limit=100000'
     }]
   },

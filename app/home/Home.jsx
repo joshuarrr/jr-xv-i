@@ -4,7 +4,7 @@ var React = require('react');
 var Component = React.createClass({
   render: function () {
     return (
-      <h1>Hello HOME world 5!</h1>
+      <h1>Hello!</h1>
     );
   }
 });
