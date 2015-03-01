@@ -1,4 +1,4 @@
-var InnerHome = require('./InnerHome.js');
+var InnerHome = require('./inner-home.js');
 var React = require('react');
 
 var Component = React.createClass({
