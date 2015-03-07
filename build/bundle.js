@@ -73,7 +73,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "270fd701810a1f158e14";
+/******/ 	var hotCurrentHash = "3918044954424c4a1c60";
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = [];
 /******/
@@ -739,7 +739,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(11)();
-	exports.push([module.id, "html {\n  font-size: 62.5%; }\n\nbody {\n  background: #efefef;\n  font-family: 'EB Garamond', serif;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: normal; }\n\n.name {\n  background-color: transparent;\n  border: 0;\n  color: transparent;\n  font: 0/0 a;\n  text-shadow: none; }\n\n.logo {\n  width: 78px;\n  height: 78px;\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  border-radius: 40px;\n  box-shadow: 0 0 0 2px #efefef, 0 0 0 3px rgba(0, 0, 0, 0.25);\n  display: block;\n  font-weight: 400;\n  margin: -40px auto 0;\n  position: absolute;\n  top: 50%;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition-duration: .4s;\n  transition-property: background-color;\n  transition-timing-function: ease-out;\n  z-index: 2; }\n  .logo:after {\n    color: white;\n    content: 'j';\n    font-size: 4rem;\n    font-weight: 400;\n    left: 44%;\n    line-height: 0;\n    position: absolute;\n    text-rendering: geometricPrecision;\n    top: 38%; }\n  .logo:hover {\n    background: black;\n    cursor: pointer; }\n\nnav, main {\n  display: none; }\n", ""]);
+	exports.push([module.id, "html {\n  font-size: 62.5%; }\n\nbody {\n  background: #efefef;\n  font-family: 'EB Garamond', serif;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: normal; }\n\n.name {\n  background-color: transparent;\n  border: 0;\n  color: transparent;\n  font: 0/0 a;\n  text-shadow: none; }\n\n.logo {\n  width: 78px;\n  height: 78px;\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  border-radius: 40px;\n  box-shadow: 0 0 0 2px #efefef, 0 0 0 3px rgba(0, 0, 0, 0.25);\n  display: block;\n  font-weight: 400;\n  margin: -40px auto 0;\n  position: absolute;\n  top: 50%;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  transition-duration: .4s;\n  transition-property: background-color;\n  transition-timing-function: ease-out;\n  z-index: 2; }\n  .logo:after {\n    color: white;\n    content: 'j';\n    font-size: 4rem;\n    font-weight: 400;\n    left: 44%;\n    line-height: 0;\n    position: absolute;\n    text-rendering: geometricPrecision;\n    top: 38%; }\n  .logo:hover {\n    background: black;\n    cursor: pointer; }\n", ""]);
 
 /***/ },
 /* 8 */
