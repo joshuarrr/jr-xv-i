@@ -73,7 +73,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4c6c5b90d02f195cb3bb";
+/******/ 	var hotCurrentHash = "ced7651ff9ddb8ca535e";
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = [];
 /******/
@@ -583,47 +583,12 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(2);
-	module.exports = __webpack_require__(1);
+	__webpack_require__(1);
+	module.exports = __webpack_require__(2);
 
 
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// require('./main.css');
-	__webpack_require__(6);
-
-	var React = __webpack_require__(5);
-
-	var route = function () {
-
-	  if (!location.hash || location.hash.length === 1) {
-	    __webpack_require__.e/* nsure */(1, function (require) {
-	      var Home = __webpack_require__(3);
-	      React.render(Home(), document.getElementById('app'));
-	    });
-	  } else {
-	    __webpack_require__.e/* nsure */(2, function (require) {
-	      var Admin = __webpack_require__(4);
-	      React.render(Admin(), document.getElementById('app'));
-	    });
-	  }
-	};
-
-	window.onhashchange = route;
-
-	route();
-
-	if (true) {
-	  module.hot.accept(function () {
-	    route();
-	  });
-	}
-
-
-/***/ },
-/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	if(true) {
@@ -689,6 +654,41 @@
 
 
 /***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// require('./main.css');
+	__webpack_require__(6);
+
+	var React = __webpack_require__(5);
+
+	var route = function () {
+
+	  if (!location.hash || location.hash.length === 1) {
+	    __webpack_require__.e/* nsure */(1, function (require) {
+	      var Home = __webpack_require__(3);
+	      React.render(Home(), document.getElementById('app'));
+	    });
+	  } else {
+	    __webpack_require__.e/* nsure */(2, function (require) {
+	      var Admin = __webpack_require__(4);
+	      React.render(Admin(), document.getElementById('app'));
+	    });
+	  }
+	};
+
+	window.onhashchange = route;
+
+	route();
+
+	if (true) {
+	  module.hot.accept(function () {
+	    route();
+	  });
+	}
+
+
+/***/ },
 /* 3 */,
 /* 4 */,
 /* 5 */
@@ -721,7 +721,7 @@
 	var content = __webpack_require__(7);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(8)(content, {});
+	var update = __webpack_require__(10)(content, {});
 	// Hot Module Replacement
 	if(true) {
 		// When the styles change, update the <style> tags
@@ -739,10 +739,22 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(11)();
-	exports.push([module.id, "body {\n  background: #efefef; }\n", ""]);
+	exports.push([module.id, "html {\n  font-size: 62.5%; }\n\nbody {\n  background: #efefef;\n  font-family: 'EB Garamond', serif;\n  font-style: normal;\n  font-variant: normal;\n  font-weight: normal; }\n\n.hidden-text {\n  background-color: transparent;\n  border: 0;\n  color: transparent;\n  font: 0/0 a;\n  text-shadow: none; }\n\n.logo {\n  width: 78px;\n  height: 78px;\n  background: rgba(0, 0, 0, 0.7);\n  border: 1px solid rgba(0, 0, 0, 0.5);\n  border-radius: 40px;\n  transition-duration: .5s;\n  transition-property: background-color;\n  transition-timing-function: ease-out;\n  display: block;\n  font-weight: 400;\n  margin: 0 auto;\n  position: absolute;\n  z-index: 2;\n  left: 0;\n  top: 5%;\n  right: 0;\n  bottom: 0; }\n  .logo:after {\n    color: white;\n    content: 'j';\n    font-size: 4rem;\n    font-weight: 400;\n    left: 44%;\n    line-height: 0;\n    position: absolute;\n    text-rendering: geometricPrecision;\n    top: 38%; }\n  .logo:hover {\n    background: black;\n    cursor: pointer; }\n", ""]);
 
 /***/ },
-/* 8 */
+/* 8 */,
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = {
+	  someSharedMethod: function () {
+	    
+	  }
+	}
+
+
+/***/ },
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -934,18 +946,6 @@
 			}
 			styleElement.appendChild(document.createTextNode(css));
 		}
-	}
-
-
-/***/ },
-/* 9 */,
-/* 10 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = {
-	  someSharedMethod: function () {
-	    
-	  }
 	}
 
 

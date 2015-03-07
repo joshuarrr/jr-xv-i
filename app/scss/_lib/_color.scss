@@ -1,0 +1,10 @@
+// Color functions ----------------------------------------------------------//
+@function gray($lightness) {
+    @return lighten(black, $lightness);
+}
+
+// Transparent Black
+@function black($opacity) { @return rgba(0, 0, 0, $opacity); }
+
+// Transparent White
+@function white($opacity) { @return rgba(255, 255, 255, $opacity); }

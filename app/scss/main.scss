@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+@import 'lib';
+
+html { font-size: 62.5%; }
+
+body {
+    background: $page-background-color;
+    font: {
+        family: 'EB Garamond', serif;
+        style: normal;
+        variant: normal;
+        weight: normal;
+    }
+}
+
+// Header -------------------------------------------------------------------//
+$logo-width: 80px;
+
+.name { @include hidden-text; }
+
+.logo {
+    @include circle(
+        $width: $logo-width,
+        $border-width: 1px,
+        $border-color: black(.5),
+        $color: black(.7)
+    );
+    box-shadow: 0 0 0 2px $page-background-color,
+                0 0 0 3px black(.25);
+    display: block;
+    font-weight: 400;
+    margin: -($logo-width/2) auto 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition-duration: .5s;
+    transition-property: background-color;
+    transition-timing-function: ease-out;
+    z-index: index($elements, logo);
+
+    &:after {
+        color: white;
+        content: 'j';
+        font: {
+            size: 4rem;
+            weight: 400;
+        }
+        left: 44%;
+        line-height: 0;
+        position: absolute;
+        text-rendering: geometricPrecision;
+        top: 38%;
+    }
+
+    &:hover {
+        background: black;
+        cursor: pointer;
+    }
+}
+
+// Content ------------------------------------------------------------------//
+// Temporarily hide the navigation and content
+nav,
+main { display: none; }
