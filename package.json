@@ -17,5 +17,7 @@
     "webpack": "^1.4.13",
     "webpack-dev-server": "^1.6.6"
   },
-  "dependencies": {}
+  "dependencies": {
+    "jsx-loader": "^0.12.2"
+  }
 }

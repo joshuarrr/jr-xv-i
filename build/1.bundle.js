@@ -1,10 +1,10 @@
 webpackJsonp([1],{
 
-/***/ 3:
+/***/ 4:
 /***/ function(module, exports, __webpack_require__) {
 
-	var InnerHome = __webpack_require__(9);
-	var React = __webpack_require__(5);
+	var InnerHome = __webpack_require__(6);
+	var React = __webpack_require__(3);
 
 	var Component = React.createClass({displayName: "Component",
 	  render: function () {
@@ -19,10 +19,10 @@ webpackJsonp([1],{
 
 /***/ },
 
-/***/ 9:
+/***/ 6:
 /***/ function(module, exports, __webpack_require__) {
 
-	var Shared = __webpack_require__(10);
+	var Shared = __webpack_require__(7);
 
 	module.exports = {};
 
