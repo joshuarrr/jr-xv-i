@@ -1,3 +1,5 @@
+require("./scss/main.scss");
+
 var React = require('react');
 
 var route = function () {

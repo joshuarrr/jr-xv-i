@@ -18,6 +18,6 @@
     "webpack-dev-server": "^1.6.6"
   },
   "dependencies": {
-    "jsx-loader": "^0.12.2"
+    "sass-loader": "^0.4.1"
   }
 }
