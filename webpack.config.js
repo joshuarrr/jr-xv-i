@@ -28,7 +28,7 @@ var config = {
             exclude: [node_modules_dir]
         }, {
             test: /\.jsx$/,
-            loader: 'babel-loader!react-hot-loader',
+            loader: 'react-hot-loader!babel-loader',
             exclude: [node_modules_dir]
         }, {
             test: /\.css$/,
@@ -44,7 +44,6 @@ var config = {
         }]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.optimize.CommonsChunkPlugin('app', null, false)
     ]
 };
