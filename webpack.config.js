@@ -10,7 +10,7 @@ var config = {
     },
     context: __dirname,
     entry: {
-        app: ['webpack/hot/dev-server', './app/main.js']
+        app: ['webpack/hot/dev-server?http://localhost:8080', './app/main.js']
     },
     output: {
         publicPath: '/',
@@ -23,17 +23,19 @@ var config = {
     module: {
         noParse: [],
         loaders: [{
-            test: /\.js|.jsx$/,
-            loader: 'jsx-loader',
-            exclude: [bower_dir, node_modules_dir]
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: [node_modules_dir]
+        }, {
+            test: /\.jsx$/,
+            loader: 'babel-loader!react-hot-loader',
+            exclude: [node_modules_dir]
         }, {
             test: /\.css$/,
             loader: 'style-loader!css-loader'
         }, {
             test: /\.scss$/,
             loader: "style!css!sass?outputStyle=expanded&" +
-            "includePaths[]=" +
-            (path.resolve(__dirname, "./bower_components")) + "&" +
             "includePaths[]=" +
             (path.resolve(__dirname, "./node_modules"))
         }, {
@@ -46,7 +48,5 @@ var config = {
         new webpack.optimize.CommonsChunkPlugin('app', null, false)
     ]
 };
-
-config.addVendor('react', path.resolve(bower_dir, 'react/react.min.js'));
 
 module.exports = config;

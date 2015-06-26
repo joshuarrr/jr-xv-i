@@ -3,9 +3,10 @@ var React = require('react');
 
 var Component = React.createClass({
   render: function () {
-    return (
-      <h1>Hello.</h1>
-    );
+    return (<div>
+      <h1>¡Hello, my fucking friend?!</h1>
+      <p>YO YOoo</p>
+    </div>);
   }
 });
 
