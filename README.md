@@ -6,3 +6,5 @@ This is just my personal site / playground.
 - [Webpack](http://webpack.github.io/)
 - [drd/react-isomorphic-boilerplate](https://github.com/drd/react-isomorphic-boilerplate)
 - [Sass](http://sass-lang.com/)
+
+- [DRD](https://github.com/drd) helped.

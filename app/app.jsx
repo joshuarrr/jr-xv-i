@@ -17,25 +17,30 @@ var App = React.createClass({
 
 var Nav = React.createClass({
     render() {
-      return <nav>
-        <Link to="home">home</Link>
-        <Link to="about">about</Link>
-      </nav>
+      return (
+        <nav>
+          <Link to="home">home</Link>
+          <Link to="about">about</Link>
+        </nav>
+      );
     }
 });
 
 var Logo = React.createClass({
     className() {
-        return this.props.squished ? 'clicked' : 'original';
+        return this.props.squished ? 'original' : 'clicked';
     },
 
     render() {
-      return <header className="site-header">
-        <a className={'logo ' + this.className()} id="logo"
-           href="#about">
-          <h1 className="name">Joshua Richey</h1>
-        </a>
-      </header>
+      return (
+        <header className="site-header">
+          <a className={'logo ' + this.className()}
+             id="logo"
+             href="#about">
+            <h1 className="name">Joshua Richey</h1>
+          </a>
+        </header>
+      );
     }
 });
 

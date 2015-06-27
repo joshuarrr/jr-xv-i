@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 @import 'lib';
 
@@ -42,8 +42,8 @@ $logo-width: 80px;
     z-index: index($elements, logo);
 
     &.clicked {
-        transform: translateY(-43vh);
         height: 1rem;
+        transform: translateY(-43vh);
     }
 
     &:after {
@@ -74,6 +74,6 @@ $logo-width: 80px;
     }
 }
 
-nav a { margin-right: 1vw}
+nav a { margin-right: 1vw; }
 
 // Content ------------------------------------------------------------------//
