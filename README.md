@@ -7,4 +7,4 @@ This is just my personal site / playground.
 - [drd/react-isomorphic-boilerplate](https://github.com/drd/react-isomorphic-boilerplate)
 - [Sass](http://sass-lang.com/)
 
-- [DRD](https://github.com/drd) helped.
+- [DRD](https://github.com/drd)
