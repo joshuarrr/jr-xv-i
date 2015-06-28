@@ -13,7 +13,7 @@
     $height: 100,
     $border-width: 0,
     $border-color: black,
-   $color: black
+    $color: black
     ) {
     width: $width - $border-width*2;
     height: $height - $border-width*2;
@@ -23,6 +23,7 @@
     @if ($width == $height) {
         border-radius: ($width/2);
     }
+
     @else {
         border-radius: ($width/2, $height/2);
     }
@@ -34,5 +35,11 @@
     $border-color: black,
     $color: black
 ) {
-    @include ellipse($width, $width, $border-width, $border-color, $color);
+    @include ellipse(
+        $width,
+        $width,
+        $border-width,
+        $border-color,
+        $color
+    );
 }

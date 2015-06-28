@@ -1,17 +1,10 @@
 @charset 'UTF-8';
 
 @import 'lib';
-
-html { font-size: 62.5%; }
+@import 'elements';
 
 body {
     background: $page-background-color;
-    font: {
-        family: 'EB Garamond', serif;
-        style: normal;
-        variant: normal;
-        weight: normal;
-    }
 }
 
 // Header -------------------------------------------------------------------//
@@ -44,6 +37,10 @@ $logo-width: 80px;
     &.clicked {
         height: 1rem;
         transform: translateY(-43vh);
+
+        &:after {
+            opacity: 0;
+        }
     }
 
     &:after {
@@ -64,12 +61,10 @@ $logo-width: 80px;
         transition-timing-function: ease-out;
     }
 
-    &.clicked:after {
-        opacity: 0;
-    }
-
     &:hover {
-        background: black;
+        background: #000;
+        background: red;
+        background: red;
         cursor: pointer;
     }
 }
