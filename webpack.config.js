@@ -30,13 +30,10 @@ var config = {
             loader: 'react-hot-loader!babel-loader',
             exclude: [node_modules_dir]
         }, {
-            test: /\.css$/,
-            loader: 'style-loader!css-loader'
-        }, {
             test: /\.scss$/,
-            loader: "style!css!sass?outputStyle=expanded&" +
-            "includePaths[]=" +
-            (path.resolve(__dirname, "./node_modules"))
+            loader: 'style!css!sass?outputStyle=expanded&' +
+            'includePaths[]=' +
+                (path.resolve(__dirname, './node_modules', './app/scss'))
         }, {
             test: /\.(woff|png|jpeg)$/,
             loader: 'url-loader?limit=100000'
