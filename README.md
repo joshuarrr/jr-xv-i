@@ -1,10 +1,11 @@
 # jr-xv-i
 
-This is just my personal site / playground.
-
-- [React](http://facebook.github.io/react/)
+This is just my personal site / playground, which utilizes:
 - [Webpack](http://webpack.github.io/)
+- [React](http://facebook.github.io/react/)
+- [React-router](https://github.com/rackt/react-router)
+- [PostCSS](https://github.com/postcss/)
+- [cssnext](https://github.com/cssnext/cssnext)
 - [drd/react-isomorphic-boilerplate](https://github.com/drd/react-isomorphic-boilerplate)
-- [Sass](http://sass-lang.com/)
 
-- [DRD](https://github.com/drd)
+Special thanks to [DRD](https://github.com/drd).
