@@ -1,0 +1,15 @@
+/* Custom min-width media queries */
+@custom-media --phone (width >= 320px);
+@custom-media --fablet (width >= 568px);
+@custom-media --tablet (width >= 768px);
+@custom-media --laptop (width >= 1024px);
+@custom-media --desktop (width >= 1280px);
+@custom-media --highRes (width >= 1440px);
+
+/* Custom max-width media queries */
+@custom-media --phone-max (width <= 320px);
+@custom-media --fablet-max (width <= 568px);
+@custom-media --tablet-max (width <= 768px);
+@custom-media --laptop-max (width <= 1024px);
+@custom-media --desktop-max (width <= 1280px);
+@custom-media --highRes-max (width <= 1440px);

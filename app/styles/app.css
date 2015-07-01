@@ -1,7 +1,17 @@
+/* Import Library */
+@import "./_lib.css";
+
+/* Import Elements */
+@import "./_elements.css";
+
 body {
-    background: white;
-    box-shadow: 0, 0, 0, 1px, black;
+    background: $main-background-color;
 }
 
-@import "./_elements/_reset.css";
-@import "./_elements/transitions.css";
+/* Header */
+.site-header {
+    width: 100%;
+    background: $gray;
+    border-bottom: 1px solid $dark-gray;
+    padding: $grid-padding;
+}

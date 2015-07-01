@@ -1,3 +1,5 @@
+/*! Transitions --------------------------------------------------------------*/
+
 .fade-in-appear {
     opacity: .01;
     transition: opacity .5s ease-in;

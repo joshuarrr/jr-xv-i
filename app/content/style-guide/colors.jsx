@@ -30,8 +30,13 @@ var Colors = React.createClass({
             <h2 className="color-category-name">Grays</h2>
             <ul className="color-variants">
               <li className="color-variant">
-                <div className="color-swatch gray">
-                  <h3>Gray</h3>
+                <div className="color-swatch lightest-gray">
+                  <h3>Lightest Gray</h3>
+                </div>
+              </li>
+              <li className="color-variant">
+                <div className="color-swatch lighter-gray">
+                  <h3>Lighter Gray</h3>
                 </div>
               </li>
               <li className="color-variant">
@@ -40,8 +45,8 @@ var Colors = React.createClass({
                 </div>
               </li>
               <li className="color-variant">
-                <div className="color-swatch lighter-gray">
-                  <h3>Lighter Gray</h3>
+                <div className="color-swatch gray">
+                  <h3>Gray</h3>
                 </div>
               </li>
               <li className="color-variant">

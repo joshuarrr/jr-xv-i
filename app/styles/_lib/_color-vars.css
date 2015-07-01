@@ -1,12 +1,16 @@
+/* Reds */
 $red: #cc0033;
 $light-red: color(#cc0033 lightness(50%));
 $dark-red: color(#cc0033 lightness(30%));
 
+/* Grays */
 $gray: color(black lightness(60%));
+$lightest-gray: color(black lightness(97%));
 $lighter-gray: color(black lightness(90%));
 $light-gray: color(black lightness(80%));
 $dark-gray: color(black lightness(40%));
 
+/* Transparent Black */
 $black-01: color(black a(10%));
 $black-02: color(black a(20%));
 $black-03: color(black a(30%));

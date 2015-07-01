@@ -1,6 +1,7 @@
 var React = require('react');
 import { Link, RouteHandler } from 'react-router';
 import store from './store';
+require('./styles/app.css');
 
 // Main //
 var App = React.createClass({

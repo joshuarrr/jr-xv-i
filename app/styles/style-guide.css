@@ -1,5 +1,4 @@
-@import './_lib/_vars.css';
-@import './_elements/type.css';
+@import './_lib.css';
 @import './dev-mode.css';
 
 .style-guide {
@@ -30,12 +29,13 @@
     box-shadow: 0 1px 5px 0 $black-03;
     float: left;
     width: 9vw;
-    height: 10vw;
+    height: 10vw;_lib.cs
 
     &.red { background: $red; }
     &.light-red { background: $light-red; }
     &.dark-red { background: $dark-red; }
     &.gray { background: $gray; }
+    &.lightest-gray { background: $lightest-gray; }
     &.lighter-gray { background: $lighter-gray; }
     &.light-gray { background: $light-gray; }
     &.dark-gray { background: $dark-gray; }

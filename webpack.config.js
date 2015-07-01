@@ -5,10 +5,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var cssimport = require('postcss-import');
 var mixins = require('postcss-mixins');
+var customProperties = require('postcss-custom-properties');
 var simpleVars = require('postcss-simple-vars');
 var nested = require('postcss-nested');
 var autoprefixer = require('autoprefixer-core');
-var colorfunction = require('postcss-color-function');
+var grid = require('postcss-grid');
+var discardComments = require('postcss-discard-comments');
 const AUTOPREFIXER_BROWSERS = [
   'Android 2.3',
   'Android >= 4',
@@ -34,6 +36,9 @@ var config = {
         path: path.resolve(__dirname, process.env.NODE_ENV === 'production' ? './dist/' : './build'),
         filename: 'bundle.js'
     },
+    cssnext: {
+        browsers: "last 2 versions",
+    },
     resolve: {
         alias: {}
     },
@@ -54,7 +59,7 @@ var config = {
                 (path.resolve(__dirname, './node_modules', './app/scss'))
         }, {
             test: /\.css$/,
-            loader: 'style-loader!css-loader!postcss-loader'
+            loader: 'style-loader!css-loader!postcss-loader!cssnext-loader'
         }, {
             test: /\.(woff|png|jpeg)$/,
             loader: 'url-loader?limit=100000'
@@ -71,10 +76,12 @@ var config = {
                     files.forEach(this.addDependency);
                 }.bind(this)
             }),
+            discardComments,
             mixins,
+            customProperties,
             simpleVars,
             nested,
-            colorfunction(),
+            grid,
             autoprefixer(AUTOPREFIXER_BROWSERS)
         ];
     }

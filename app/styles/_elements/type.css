@@ -1,11 +1,29 @@
-$base-font-family: 'EB Garamond', serif;
-$base-font-size: 10px;
-$base-line-height: 1;
+/*! Typography --------------------------------------------------------------*/
+@import "../_lib.css";
 
-$mono-font-family: 'Fira Mono', monospace;
-$mono-font-size: $base-font-size;
-$mono-line-height: $base-line-height;
+ /* Reset the fonts to 10px for easy rem computation; */
+html {
+    font-size: 62.5%;
+}
 
-@define-mixin mono-font {
-    family: $mono-font-family;
+/* Set the base font-size to 14, which seems good for phones */
+@media (--phone-max) {
+    body {
+        font-size: 14px;
+    }
+}
+@media (--fablet) {
+    body {
+        font-size: 15px;
+    }
+}
+@media (--laptop) {
+    body {
+        font-size: 16px;
+    }
+}
+@media (--highRes) {
+    body {
+        font-size: 18px;
+    }
 }

@@ -1,4 +1,4 @@
-@import './_lib/_vars.css';
+@import './_lib.css';
 
 /* Locally scoped styles */
 :local(.devMode) {
