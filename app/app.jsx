@@ -1,16 +1,17 @@
 var React = require('react');
 import { Link, RouteHandler } from 'react-router';
+import store from './store';
 
 // Main //
 var App = React.createClass({
-    getInitialState() {
-      return {squished: false};
+    componentDidMount() {
+      store.register(() => this.forceUpdate());
     },
     render() {
       return (
         <main role='main' id='app'>
           <header className='site-header'>
-            <Logo squished={true} />
+            <Logo squished={store.isSquished} />
             <Nav/>
           </header>
           <RouteHandler />
@@ -37,7 +38,7 @@ var Logo = React.createClass({
         return this.props.squished ? 'original' : 'clicked';
     },
     handleClick() {
-        this.setState( { squished : !this.state.condition } );
+        store.isSquished = !store.isSquished;
     },
     render() {
       return (

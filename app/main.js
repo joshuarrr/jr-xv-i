@@ -1,4 +1,4 @@
-require('./scss/main.scss');
+require('./styles/app.css');
 
 var React = require('react');
 import Routes from './routes.jsx';

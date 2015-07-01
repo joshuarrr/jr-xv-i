@@ -1,6 +1,24 @@
- var webpack = require('webpack');
- var path = require('path');
- var node_modules_dir = path.join(__dirname, 'node_modules');
+var webpack = require('webpack');
+var path = require('path');
+var node_modules_dir = path.join(__dirname, 'node_modules');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var cssimport = require('postcss-import');
+var mixins = require('postcss-mixins');
+var simpleVars = require('postcss-simple-vars');
+var nested = require('postcss-nested');
+var autoprefixer = require('autoprefixer-core');
+var colorfunction = require('postcss-color-function');
+const AUTOPREFIXER_BROWSERS = [
+  'Android 2.3',
+  'Android >= 4',
+  'Chrome >= 20',
+  'Firefox >= 24',
+  'Explorer >= 8',
+  'iOS >= 6',
+  'Opera >= 12',
+  'Safari >= 6'
+];
 
 var config = {
     addVendor: function (name, path) {
@@ -35,13 +53,31 @@ var config = {
             'includePaths[]=' +
                 (path.resolve(__dirname, './node_modules', './app/scss'))
         }, {
+            test: /\.css$/,
+            loader: 'style-loader!css-loader!postcss-loader'
+        }, {
             test: /\.(woff|png|jpeg)$/,
             loader: 'url-loader?limit=100000'
         }]
     },
-    plugins: [
-        new webpack.optimize.CommonsChunkPlugin('app', null, false)
-    ]
+    postcss: function () {
+        // The context of this function is the webpack loader-context
+        // see: http://webpack.github.io/docs/loaders.html#loader-context
+        return [
+            cssimport({
+                // see postcss-import docs to learn about onImport callback
+                // https://github.com/postcss/postcss-import
+                onImport: function (files) {
+                    files.forEach(this.addDependency);
+                }.bind(this)
+            }),
+            mixins,
+            simpleVars,
+            nested,
+            colorfunction(),
+            autoprefixer(AUTOPREFIXER_BROWSERS)
+        ];
+    }
 };
 
 module.exports = config;
