@@ -1,0 +1,29 @@
+/*! Typography --------------------------------------------------------------*/
+@import "../_lib.css";
+
+ /* Reset the fonts to 10px for easy rem computation; */
+html {
+    font-size: 62.5%;
+}
+
+/* Set the base font-size to 14, which seems good for phones */
+@media (--phone-max) {
+    body {
+        font-size: 14px;
+    }
+}
+@media (--fablet) {
+    body {
+        font-size: 15px;
+    }
+}
+@media (--laptop) {
+    body {
+        font-size: 16px;
+    }
+}
+@media (--highRes) {
+    body {
+        font-size: 18px;
+    }
+}

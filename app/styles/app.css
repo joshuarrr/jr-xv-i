@@ -1,0 +1,17 @@
+/* Import Library */
+@import "./_lib.css";
+
+/* Import Elements */
+@import "./_elements.css";
+
+body {
+    background: $main-background-color;
+}
+
+/* Header */
+.site-header {
+    width: 100%;
+    background: $gray;
+    border-bottom: 1px solid $dark-gray;
+    padding: $grid-padding;
+}

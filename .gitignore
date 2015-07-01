@@ -20,3 +20,4 @@ Thumbs.db
 .src/*
 node_modules
 npm-debug.log
+_process/

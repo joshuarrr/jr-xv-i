@@ -1,0 +1,55 @@
+@import './_lib.css';
+@import './dev-mode.css';
+
+.style-guide {
+    @mixin mono-font;
+}
+
+.guide-section {
+    float: left;
+    width: 100%;
+    border: 1px solid $gray;
+    background: $lighter-gray;
+}
+
+.color-category,
+.color-variants {
+    float: left;
+    width: 100%;
+}
+
+.color-variant {
+    float: left;
+    margin: 0 1rem 1rem 0;
+}
+
+.color-swatch {
+    border: 5px solid white;
+    border-bottom: 3rem solid white;
+    box-shadow: 0 1px 5px 0 $black-03;
+    float: left;
+    width: 9vw;
+    height: 10vw;_lib.cs
+
+    &.red { background: $red; }
+    &.light-red { background: $light-red; }
+    &.dark-red { background: $dark-red; }
+    &.gray { background: $gray; }
+    &.lightest-gray { background: $lightest-gray; }
+    &.lighter-gray { background: $lighter-gray; }
+    &.light-gray { background: $light-gray; }
+    &.dark-gray { background: $dark-gray; }
+    &.b1 { background: $black-01; }
+    &.b2 { background: $black-02; }
+    &.b3 { background: $black-03; }
+    &.b4 { background: $black-04; }
+    &.b5 { background: $black-05; }
+    &.b6 { background: $black-06; }
+    &.b7 { background: $black-07; }
+    &.b8 { background: $black-08; }
+    &.b9 { background: $black-09; }
+
+    h3 {
+
+    }
+}
