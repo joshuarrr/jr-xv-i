@@ -55,7 +55,7 @@ $border-color: $black-05;
 
     &.clicked {
         height: 1rem;
-        transform: translateY(-43.9vh);
+        transform: translateY(-42.9vh);
 
         &:after { opacity: 0; }
     }

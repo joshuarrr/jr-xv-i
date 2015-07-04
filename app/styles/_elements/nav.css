@@ -1,14 +1,27 @@
 @import './_lib.css';
 
 /*! Nav ---------------------------------------------------------------------*/
+$nav-link-padding: 1rem;
+$nav-links-margin: 1rem;
+$menu-icon-width: 24px;
+$menu-icon-padding: $grid-padding * 2;
+$nav-links-pad-right: calc(
+    $menu-icon-width +
+    $menu-icon-padding
+);
+
+.site-nav {
+    position: relative;
+}
+
 .site-nav-links {
     @mixin clearfix;
     width: 100%;
     border-bottom: 1px solid $light-gray;
     padding: $grid-padding;
+    padding-right: $nav-links-pad-right;
     background: $lighter-gray;
     transform: translateY(-100%);
-    @mixin default-transition;
     transition-duration: .2s;
     transition-property: transform;
 
@@ -17,33 +30,31 @@
     }
 }
 
-.site-nav-link {
-    float: left;
-    margin-right: 1rem;
+.site-nav-item {
+    @mixin clearfix;
+    float: right;
 }
 
 .site-nav-link {
     @mixin mono-font;
+    float: right;
     font-size: 80%;
-    padding: 1rem;
+    padding: $nav-link-padding;
+    position: relative;
 
     &.active {
         color: #ffffff;
-    }
-
-    &:focus {
-        border-radius: 2px;
-        color: $link-hover-color;
-        box-shadow: 0 0 0 1px $dark-red;
     }
 }
 
 .nav-toggle {
     box-sizing: content-box;
-    padding: 1rem;
+    padding: 1rem $grid-padding 1rem;
     position: absolute;
     top: 0;
     right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 
     &:hover {
         cursor: pointer;
@@ -63,6 +74,8 @@
 
 .menu-icon {
     @mixin default-transition;
+    width: $menu-icon-width;
+    height: $menu-icon-width;
     transition-property: fill;
     fill: $light-gray;
 }
