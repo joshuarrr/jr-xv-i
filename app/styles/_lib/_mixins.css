@@ -1,8 +1,17 @@
-
+/* Clearfix */
 @define-mixin clearfix {
-    &:after: {
-        content: '""',
-        display: 'table',
-        clear: 'both'
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
     }
+}
+
+/* Hidden Text */
+@define-mixin hidden-text {
+    background-color: transparent;
+    border: 0;
+    color: transparent;
+    font: 0/0 a;
+    text-shadow: none;
 }

@@ -4,9 +4,7 @@
 /* Import Elements */
 @import "./_elements.css";
 
-body {
-    background: $main-background-color;
-}
+body { background: $main-background-color; }
 
 /* Header */
 .site-header {
@@ -14,4 +12,32 @@ body {
     background: $gray;
     border-bottom: 1px solid $dark-gray;
     padding: $grid-padding;
+}
+
+/* Page */
+.page {
+    padding: $grid-padding;
+}
+
+.cover {
+    background: green;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    z-index: 100;
+    transition-duration: $default-duration;
+    transition-property: opacity;
+    transition-timing-function: $default-ease;
+    opacity: 0;
+    pointer-events: none;
+
+    &.visible {
+        opacity: 1;
+    }
+
+    &.invisible {
+        opacity: 0;
+    }
 }

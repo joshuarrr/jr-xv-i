@@ -1,9 +1,17 @@
-$base-font-family: 'EB Garamond', serif;
+$serif-font-family: 'EB Garamond', serif;
 $mono-font-family: 'Fira Mono', monospace, sans-serif;
 
 $base-font-size: 10px;
 $base-line-height: 1;
 
+@define-mixin serif-font {
+    font-family: $serif-font-family;
+}
+
 @define-mixin mono-font {
     font-family: $mono-font-family;
+}
+
+@define-placeholder mono-font {
+  font-family: $mono-font-family;
 }

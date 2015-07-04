@@ -3,3 +3,13 @@ $main-background-color: $lightest-gray;
 
 /* Grid */
 $grid-padding: 1.5rem;
+
+/* Vertical Rhythm */
+$trailer: 1.5rem;
+
+/* Borders */
+$default-radius: .3rem;
+
+/* Transitions */
+$default-duration: .3s;
+$default-ease: ease-out;

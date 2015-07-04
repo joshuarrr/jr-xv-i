@@ -9,9 +9,12 @@ var DevMode = React.createClass({
   render() {
     return (
       <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
-        {store.isDevMode && <div key="dev" className={styles.devMode}>
+        {
+        store.isDevMode &&
+        <div key="dev" className={styles.devMode}>
           <p>THIS IS DEV MODE.</p>
-        </div>}
+        </div>
+        }
       </ReactCSSTransitionGroup>
     );
   }

@@ -8,6 +8,7 @@
 .guide-section {
     float: left;
     width: 100%;
+    padding: $grid-padding;
     border: 1px solid $gray;
     background: $lighter-gray;
 }
@@ -28,6 +29,7 @@
     border-bottom: 3rem solid white;
     box-shadow: 0 1px 5px 0 $black-03;
     float: left;
+    margin-bottom: $grid-padding;
     width: 9vw;
     height: 10vw;_lib.cs
 

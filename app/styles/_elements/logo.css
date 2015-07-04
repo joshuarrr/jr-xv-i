@@ -1,0 +1,67 @@
+/*! Logo --------------------------------------------------------------------*/
+
+@import '../_lib/_mixins.css';
+@import '../_lib/_element-vars.css';
+
+$logo-width: 8rem;
+
+/* can't calc($simple-vars), so we need the css custom property too*/
+:root {
+    --logo-width: 8rem;
+}
+
+$border-width: 1px;
+$border-color: $black-05;
+
+.name { @mixin hidden-text; }
+
+.logo {
+    @mixin serif-font;
+    width: $logo-width;
+    height: $logo-width;
+    border: $border-width solid $border-color;
+    background-color: $black-07;
+    border-radius: calc(var(--logo-width)/2);
+    box-shadow: 0 0 0 2px $main-background-color,
+                0 0 0 3px $black-02;
+    display: block;
+    font-weight: 400;
+    margin: -calc(var(--logo-width)/2) auto 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition-duration: $default-duration;
+    transition-property: background-color, transform, height;
+    transition-timing-function: $default-ease;
+    z-index: 101;
+
+    &:after {
+        color: white;
+        content: 'j';
+        font-size: 4rem;
+        font-weight: 400;
+        left: 44%;
+        line-height: 0;
+        position: absolute;
+        text-rendering: geometricPrecision;
+        top: 38%;
+        opacity: 1;
+        transition-property: opacity;
+        transition-duration: .3s;
+        transition-timing-function: ease-out;
+    }
+
+    &.clicked {
+        height: 1rem;
+        transform: translateY(-43.9vh);
+
+        &:after { opacity: 0; }
+    }
+
+    &:hover {
+        background: #000;
+        cursor: pointer;
+    }
+}

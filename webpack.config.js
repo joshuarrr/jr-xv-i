@@ -11,6 +11,7 @@ var nested = require('postcss-nested');
 var autoprefixer = require('autoprefixer-core');
 var grid = require('postcss-grid');
 var discardComments = require('postcss-discard-comments');
+var simpleExtend = require('postcss-simple-extend');
 const AUTOPREFIXER_BROWSERS = [
   'Android 2.3',
   'Android >= 4',
@@ -78,6 +79,7 @@ var config = {
             }),
             discardComments,
             mixins,
+            simpleExtend,
             customProperties,
             simpleVars,
             nested,

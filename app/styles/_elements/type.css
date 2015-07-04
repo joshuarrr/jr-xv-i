@@ -2,28 +2,20 @@
 @import "../_lib.css";
 
  /* Reset the fonts to 10px for easy rem computation; */
-html {
-    font-size: 62.5%;
+html { font-size: 62.5%; }
+
+/* Basic responsive font-sizes */
+@define-mixin responsive-font-size {
+    @media (--phone-max) { font-size: 14px; }
+    @media (--fablet) { font-size: 15px; }
+    @media (--laptop) { font-size: 16px; }
+    @media (--highRes) { font-size: 18px; }
 }
 
-/* Set the base font-size to 14, which seems good for phones */
-@media (--phone-max) {
-    body {
-        font-size: 14px;
-    }
+body {
+    @mixin responsive-font-size;
 }
-@media (--fablet) {
-    body {
-        font-size: 15px;
-    }
-}
-@media (--laptop) {
-    body {
-        font-size: 16px;
-    }
-}
-@media (--highRes) {
-    body {
-        font-size: 18px;
-    }
+
+h1, h2, h3, h4, h5, h6, p {
+    margin-bottom: $trailer;
 }

@@ -9,7 +9,12 @@ var store = window.store = {
     // Dev Mode
     _isDevMode: false,
     get isDevMode() { return this._isDevMode; },
-    set isDevMode(visible) { console.log(visible); this._isDevMode = visible; this.notify(); },
+    set isDevMode(visible) { this._isDevMode = visible; this.notify(); },
+
+    // Is Viz
+     _isVisible: true,
+    get isVisible() { return this._isVisible; },
+    set isVisible(visible) { this._isVisible = visible; this.notify(); },
 
     // Watch
     register(watcher) { this._watchers.push(watcher); },

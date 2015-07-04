@@ -1,0 +1,10 @@
+/*! Nav ---------------------------------------------------------------------*/
+nav a {
+    margin-right: 1rem;
+    @mixin mono-font;
+    font-size: 80%;
+
+}
+nav a.active {
+    color: #ffffff;
+}
