@@ -1,10 +1,68 @@
+@import './_lib.css';
+
 /*! Nav ---------------------------------------------------------------------*/
-nav a {
+.site-nav-links {
+    @mixin clearfix;
+    width: 100%;
+    border-bottom: 1px solid $light-gray;
+    padding: $grid-padding;
+    background: $lighter-gray;
+    transform: translateY(-100%);
+    @mixin default-transition;
+    transition-duration: .2s;
+    transition-property: transform;
+
+    &.active {
+        transform: translateY(0%);
+    }
+}
+
+.site-nav-link {
+    float: left;
     margin-right: 1rem;
+}
+
+.site-nav-link {
     @mixin mono-font;
     font-size: 80%;
+    padding: 1rem;
 
+    &.active {
+        color: #ffffff;
+    }
+
+    &:focus {
+        border-radius: 2px;
+        color: $link-hover-color;
+        box-shadow: 0 0 0 1px $dark-red;
+    }
 }
-nav a.active {
-    color: #ffffff;
+
+.nav-toggle {
+    box-sizing: content-box;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &:hover {
+        cursor: pointer;
+
+        .menu-icon {
+            fill: $dark-red;
+        }
+    }
+
+    &:focus {
+         .menu-icon {
+            fill: $dark-red;
+            outline: none;
+        }
+    }
+}
+
+.menu-icon {
+    @mixin default-transition;
+    transition-property: fill;
+    fill: $light-gray;
 }

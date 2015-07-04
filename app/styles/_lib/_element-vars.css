@@ -13,3 +13,8 @@ $default-radius: .3rem;
 /* Transitions */
 $default-duration: .3s;
 $default-ease: ease-out;
+
+@define-mixin  default-transition {
+    transition-duration: $default-duration;
+    transition-timing-function: $default-ease;
+}

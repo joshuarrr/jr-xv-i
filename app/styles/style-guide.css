@@ -1,6 +1,7 @@
 @import './_lib.css';
 @import './dev-mode.css';
 
+/*! Style Guide -------------------------------------------------------------*/
 .style-guide {
     @mixin mono-font;
 }

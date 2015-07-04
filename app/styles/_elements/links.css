@@ -1,21 +1,36 @@
+@import '../_lib/_color.css';
+
 /*! Links -------------------------------------------------------------------*/
-
-@import '../_lib/_color-vars.css';
-
 $link-color: $red;
 $link-visited-color: $red;
 $link-hover-color: $dark-red;
 $link-active-color: $light-red;
 
 a {
+    @mixin  default-transition;
     transition-property: color;
-    transition-duration: .3s;
     text-decoration: none;
     color: $red;
 }
 
-a:link { color: $link-color; }
-a:visited { color: $link-visited-color; }
-a:hover { color: $link-hover-color; }
-a:active { color: $link-active-color; }
-a:focus { outline: none; }
+a:link {
+    color: $link-color;
+}
+
+a:visited {
+    color: $link-visited-color;
+}
+
+a:hover {
+    color: $link-hover-color;
+}
+
+a:active {
+    color: $link-active-color;
+}
+
+
+a:focus {
+    outline: none;
+    color: $link-hover-color;
+}

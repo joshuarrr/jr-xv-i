@@ -33,6 +33,7 @@ var Logo = React.createClass({
         <a className={'logo ' + this.className()}
           id='logo'
           href='#about'
+          tabIndex='-1'
           onClick={this.handleClick}>
           <h1 className='name'>Joshua Richey</h1>
         </a>
