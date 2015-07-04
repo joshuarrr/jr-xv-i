@@ -1,25 +1,11 @@
 var React = require('react');
 import { Link, RouteHandler } from 'react-router';
 import store from './store';
+import Nav from './content/nav.jsx';
 require('./styles/app.css');
 
 var cx = require('classnames');
 
-// Primary Nav //
-var Nav = React.createClass({
-    handleClick() {
-      store.isSquished = false;
-    },
-    render() {
-      return (
-        <nav>
-          <Link to='home' onClick={this.handleClick}>home</Link>
-          <Link to='about' onClick={this.handleClick}>about</Link>
-          <Link to='guide' onClick={this.handleClick}>style guide</Link>
-        </nav>
-      );
-    }
-});
 
 var Cover = React.createClass({
   render: function() {

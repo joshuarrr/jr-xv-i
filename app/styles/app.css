@@ -7,7 +7,7 @@
 body { background: $main-background-color; }
 
 /* Header */
-.site-header {
+.site-nav {
     width: 100%;
     background: $gray;
     border-bottom: 1px solid $dark-gray;
