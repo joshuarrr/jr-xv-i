@@ -5,11 +5,28 @@
 @import "./_elements.css";
 
 /*! App ---------------------------------------------------------------------*/
-body { background: $main-background-color; }
+body {
+    background: $main-background-color;
+}
+
+/* Header */
+.site-header {
+    position: relative;
+}
 
 /* Page */
 .page {
-    padding: $grid-padding;
+    padding: 10rem $grid-padding;
+}
+
+.text-measure {
+    width: 50vw;
+    margin: auto;
+    max-width: 50rem;
+}
+
+.intro {
+    text-align: center;
 }
 
 .cover {

@@ -50,8 +50,8 @@ var App = React.createClass({
     return (
       <main role='main' id='app'>
         <header className='site-header'>
-          <Logo squished={store.isSquished} />
           <Nav/>
+          <Logo squished={store.isSquished} />
         </header>
         <div className="page">
           <RouteHandler />

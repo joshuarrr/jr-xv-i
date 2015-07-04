@@ -3,7 +3,7 @@
 @import '../_lib/_mixins.css';
 @import '../_lib/_element-vars.css';
 
-$logo-width: 8rem;
+$logo-width: 7rem;
 
 /* can't calc($simple-vars), so we need the css custom property too*/
 :root {
@@ -28,9 +28,7 @@ $border-color: $black-05;
     font-weight: 400;
     margin: -calc(var(--logo-width)/2) auto 0;
     position: absolute;
-    top: 50%;
     right: 0;
-    bottom: 0;
     left: 0;
     transition-duration: $default-duration;
     transition-property: background-color, transform, height;
@@ -40,7 +38,7 @@ $border-color: $black-05;
     &:after {
         color: white;
         content: 'j';
-        font-size: 4rem;
+        font-size: calc(var(--logo-width) /2);
         font-weight: 400;
         left: 44%;
         line-height: 0;
