@@ -63,13 +63,6 @@ $nav-links-pad-right: calc(
             fill: $dark-red;
         }
     }
-
-    &:focus {
-         .menu-icon {
-            fill: $dark-red;
-            outline: none;
-        }
-    }
 }
 
 .menu-icon {

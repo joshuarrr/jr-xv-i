@@ -1,12 +1,12 @@
 var React = require('react');
 import styles from '../styles/about.css';
 
-var About = React.createClass({
+var Bio = React.createClass({
   render: function() {
     return (
       <div className="about text-measure intro">
         <h1>joshuar</h1>
-        <p>AKA Josh, or Joshua Richey. A designer, front-end developer, and visual craftsman living in Portland, Oregon, and
+        <p>AKA Josh, or Joshua Richey. A designer, front-end developer, artist, and visual craftsman living in Portland, Oregon, and
           working at <a href="http://idealist.org" target="_blank">Idealist</a>.
         </p>
       </div>
@@ -49,15 +49,15 @@ var Links = React.createClass({
   }
 });
 
-var AboutPage = React.createClass({
+var About = React.createClass({
   render: function () {
     return (
       <div className="about-page">
-        <About />
+        <Bio />
         <Links />
       </div>
     );
   }
 });
 
-module.exports = AboutPage;
+module.exports = About;
