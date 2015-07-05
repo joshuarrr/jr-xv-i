@@ -10,7 +10,6 @@ import StyleGuide from './content/style-guide.jsx';
 var Routes = (
     <Route name="App" handler={App} path="/">
         <DefaultRoute name="home" handler={Home} />
-        <Route name="about" handler={About} />
         <Route name="guide" handler={StyleGuide} />
     </Route>
 );

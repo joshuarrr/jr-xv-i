@@ -6,21 +6,6 @@ require('./styles/app.css');
 
 var cx = require('classnames');
 
-
-var Cover = React.createClass({
-  render: function() {
-    var className = cx({
-      // always set 'cover'
-      "cover": true,
-      // set 'visible' if we got a truthy prop named `active`
-      "visible": this.props.visible
-    });
-    return (
-      <div className={className}></div>
-    );
-  }
-});
-
 var Logo = React.createClass({
     className() {
         return this.props.squished ? 'original' : 'clicked';
@@ -30,13 +15,15 @@ var Logo = React.createClass({
     },
     render() {
       return (
-        <a className={'logo ' + this.className()}
+        <Link
+          className="logo"
           id='logo'
-          href='#about'
-          tabIndex='-1'
-          onClick={this.handleClick}>
+          to='home'
+          tabIndex="-1"
+          onClick={this.handleClick}
+        >
           <h1 className='name'>Joshua Richey</h1>
-        </a>
+        </Link>
       );
     }
 });

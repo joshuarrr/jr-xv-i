@@ -13,12 +13,12 @@ var NavLinks = React.createClass({
       "active": this.props.active
     });
     return (
-      <ul className={classNames}>
+      <ul className={classNames}  onMouseLeave={this.toggleNav}>
         <li className="site-nav-item">
           <Link className="site-nav-link" to='guide' tabIndex="3">style guide</Link>
         </li>
         <li className="site-nav-item">
-          <Link className="site-nav-link" to='about' tabIndex="2">about</Link>
+          <Link className="site-nav-link" to='home' tabIndex="2">about</Link>
         </li>
       </ul>
     );
@@ -30,21 +30,17 @@ var Nav = React.createClass({
   getInitialState: function() {
     return { question: 'a' };
   },
-
   toggleNav: function() {
     this.setState({question: this.state.question === 'a' ? 'b' : 'a' });
   },
-
   render() {
-    // Basic inline styles
     var style = {
       color: '#fff',
       width: '24px',
       height: '24px'
     };
-
     return (
-      <nav className='site-nav' onMouseLeave={this.toggleNav}>
+      <nav className='site-nav'>
         <NavLinks active={this.state.question === 'b'} />
         <a className='nav-toggle' style={style} onMouseEnter={this.toggleNav} >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="-289 381 32 32" enable-background="new -289 381 32 32">
