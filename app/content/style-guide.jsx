@@ -8,7 +8,7 @@ import store from '../store';
 var DevMode = React.createClass({
   render() {
     return (
-      <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
+      <ReactCSSTransitionGroup transitionName='fade-in'>
         {
         store.isDevMode &&
         <div key="dev" className={styles.devMode}>

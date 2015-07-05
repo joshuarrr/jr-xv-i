@@ -1,33 +1,33 @@
 @import './_lib.css';
 
 /*! Nav ---------------------------------------------------------------------*/
+$header-height: 7.3rem;
 $nav-link-padding: 1rem;
 $nav-links-margin: 1rem;
 $menu-icon-width: 24px;
 $menu-icon-padding: $grid-padding * 2;
-$nav-links-pad-right: calc(
-    $menu-icon-width +
-    $menu-icon-padding
-);
+/* Move the nav links over to clear the toggle */
+$nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .site-nav {
+    height: $header-height;
     position: relative;
 }
 
 .site-nav-links {
     @mixin clearfix;
-    width: 100%;
+    background: $lightest-gray;
     border-bottom: 1px solid $light-gray;
     padding: $grid-padding;
     padding-right: $nav-links-pad-right;
-    background: $lighter-gray;
-    transform: translateY(-100%);
-    transition-duration: .2s;
-    transition-property: transform;
-
-    &.active {
-        transform: translateY(0%);
-    }
+    width: 100%;
+    /* Taller than site-nav so it can bounce in properly */
+    height: calc($header-height + 2rem);
+    /* realign the links */
+    padding-top: 3.3rem;
+    /* align to the bottom of site-nav */
+    position: absolute;
+    bottom: 0;
 }
 
 .site-nav-item {
@@ -43,7 +43,7 @@ $nav-links-pad-right: calc(
     position: relative;
 
     &.active {
-        color: #ffffff;
+        color: $darkest-gray;
     }
 }
 
@@ -51,7 +51,6 @@ $nav-links-pad-right: calc(
     box-sizing: content-box;
     padding: 1rem $grid-padding 1rem;
     position: absolute;
-    top: 0;
     right: 0;
     top: 50%;
     transform: translateY(-50%);

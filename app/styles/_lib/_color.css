@@ -5,10 +5,12 @@ $dark-red: color(#cc0033 lightness(30%));
 
 /* Grays */
 $gray: color(black lightness(60%));
-$lightest-gray: color(black lightness(97%));
+$lightester-gray: color(black lightness(97%));
+$lightest-gray: color(black lightness(93%));
 $lighter-gray: color(black lightness(90%));
 $light-gray: color(black lightness(80%));
 $dark-gray: color(black lightness(40%));
+$darkest-gray: color(black lightness(20%));
 
 /* Transparent Black */
 $black-01: color(black a(10%));
@@ -20,3 +22,6 @@ $black-06: color(black a(60%));
 $black-07: color(black a(70%));
 $black-08: color(black a(80%));
 $black-09: color(black a(90%));
+
+/* Color Variables */
+$main-background-color: $lightester-gray;

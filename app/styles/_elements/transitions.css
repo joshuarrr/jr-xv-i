@@ -1,5 +1,6 @@
-/*! Transitions --------------------------------------------------------------*/
+/*! Transitions -------------------------------------------------------------*/
 
+/* fade-in ------------------------------------------------------------------*/
 .fade-in-appear {
     opacity: .01;
     transition: opacity .5s ease-in;
@@ -25,4 +26,37 @@
 
 .fade-in-leave-active {
     opacity: 0;
+}
+
+/* slide-in -----------------------------------------------------------------*/
+.slide-in-appear {
+    transform: translateY(-100%);
+    transition-duration: $default-duration;
+    transition-property: transform;
+    transition-timing-function: $bounce-in;
+}
+
+.slide-in-appear-active {
+    transform: translateY(0);
+}
+
+.slide-in-enter {
+    transform: translateY(-100%);
+    transition-duration: $default-duration;
+    transition-property: transform;
+    transition-timing-function: $bounce-in;
+}
+
+.slide-in-enter-active {
+    transform: translateY(0);
+}
+
+.slide-in-leave {
+    transform: translateY(0);
+    transition-duration: $default-duration;
+    transition-property: transform;
+}
+
+.slide-in-leave-active {
+    transform: translateY(-100%);
 }

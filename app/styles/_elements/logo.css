@@ -4,12 +4,6 @@
 @import '../_lib/_element-vars.css';
 
 $logo-width: 7rem;
-
-/* can't calc($simple-vars), so we need the css custom property too*/
-:root {
-    --logo-width: 8rem;
-}
-
 $border-width: 1px;
 $border-color: $black-05;
 
@@ -21,12 +15,12 @@ $border-color: $black-05;
     height: $logo-width;
     border: $border-width solid $border-color;
     background-color: $black-07;
-    border-radius: calc(var(--logo-width)/2);
+    border-radius: calc($logo-width/2);
     box-shadow: 0 0 0 2px $main-background-color,
                 0 0 0 3px $black-02;
     display: block;
     font-weight: 400;
-    margin: -calc(var(--logo-width)/2) auto 0;
+    margin: calc(-$logo-width / 2) auto 0;
     position: absolute;
     right: 0;
     left: 0;
@@ -38,9 +32,9 @@ $border-color: $black-05;
     &:after {
         color: white;
         content: 'j';
-        font-size: calc(var(--logo-width) /2);
+        font-size: calc($logo-width / 1.8);
         font-weight: 400;
-        left: 44%;
+        left: 46%;
         line-height: 0;
         position: absolute;
         text-rendering: geometricPrecision;
@@ -49,13 +43,6 @@ $border-color: $black-05;
         transition-property: opacity;
         transition-duration: .3s;
         transition-timing-function: ease-out;
-    }
-
-    &.clicked {
-        height: 1rem;
-        transform: translateY(-42.9vh);
-
-        &:after { opacity: 0; }
     }
 
     &:hover {
