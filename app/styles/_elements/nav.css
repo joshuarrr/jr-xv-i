@@ -1,4 +1,5 @@
 @import './_lib.css';
+@import './_elements/nav-toggle.css';
 
 /*! Nav ---------------------------------------------------------------------*/
 $header-height: 7.3rem;
@@ -47,27 +48,3 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     }
 }
 
-.nav-toggle {
-    box-sizing: content-box;
-    padding: 1rem $grid-padding 1rem;
-    position: absolute;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-
-    &:hover {
-        cursor: pointer;
-
-        .menu-icon {
-            fill: $dark-red;
-        }
-    }
-}
-
-.menu-icon {
-    @mixin default-transition;
-    width: $menu-icon-width;
-    height: $menu-icon-width;
-    transition-property: fill;
-    fill: $light-gray;
-}

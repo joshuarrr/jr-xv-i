@@ -1,0 +1,94 @@
+/* Animated hamburger icon
+via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
+.nav-toggle {
+    background-color: transparent;
+    bottom: 0;
+    display: block;
+    height: 24px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    right: $grid-padding;
+    top: 0;
+    width: 18px;
+    /*  Button overrides */
+    appearance: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+
+    &:hover {
+        background: transparent;
+
+        & .inner {
+            opacity: 1;
+        }
+    }
+}
+
+.nav-toggle:focus {
+    outline: none;
+}
+
+.nav-toggle .inner {
+    @mixin hidden-text;
+    background-color: $darkest-gray;
+    border-radius: 2px;
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    transition: background-color 0s 0.3s;
+    opacity: .5;
+}
+
+.nav-toggle .inner:before,
+.nav-toggle .inner:after {
+    background-color: $darkest-gray;
+    border-radius: 2px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.nav-toggle .inner:before {
+    top: -.7rem;
+    transition-property: top, transform;
+}
+
+.nav-toggle .inner:after {
+    bottom: -.7rem;
+    transition-property: bottom, transform;
+}
+
+.nav-toggle .inner:before,
+.nav-toggle .inner:after {
+    transition-duration: 0.3s, 0.3s;
+    transition-delay: 0.3s, 0s;
+}
+
+/* active state, i.e. menu open */
+.nav-toggle.is-active .inner {
+    background-color: transparent;
+}
+
+.nav-toggle.is-active .inner:before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav-toggle.is-active .inner:after {
+    bottom: 0;
+    transform: rotate(-45deg);
+}
+
+.nav-toggle.is-active .inner:before,
+.nav-toggle.is-active .inner:after {
+    transition-delay: 0s, 0.3s;
+}
