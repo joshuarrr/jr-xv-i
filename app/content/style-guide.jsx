@@ -21,17 +21,27 @@ var DevMode = React.createClass({
 });
 
 var StyleGuide = React.createClass({
+  getInitialState: function() {
+      return {
+          on: false
+      };
+  },
   handleClick() {
       store.isDevMode = !store.isDevMode;
+      this.setState({on: !this.state.on});
   },
   render: function () {
+    var devClasses = this.state.on ? "is-active" : "";
+    devClasses += " dev-mode-toggle-icon icon-gear";
+
     return (
       <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
         <div className='style-guide'>
           <DevMode />
           <h1>Style Guide</h1>
-          <button className="button" onClick={this.handleClick}>
-            Toggle Dev Mode
+          <button className="button dev-mode-toggle" onClick={this.handleClick}>
+              <span className={devClasses} />
+              <span className="dev-mode-toggle-text">Toggle Dev Mode</span>
           </button>
           <Colors />
         </div>

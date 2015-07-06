@@ -14,6 +14,40 @@
     background: $lighter-gray;
 }
 
+.dev-mode-toggle {
+    background-color: transparent;
+    position: absolute;
+    left: $grid-padding;
+    padding: 1rem;
+    margin: 0;
+    line-height: 0;
+    top: 1.4rem;
+
+    &:hover {
+        background-color: transparent;
+    }
+
+    .icon-gear {
+        color: $darkest-gray;
+        font-size: 2.5rem;
+        opacity: .5;
+        transition: opacity .3s;
+
+        &:hover {
+            background-color: transparent;
+            opacity: 1;
+        }
+
+        &.is-active {
+            color: $green;
+        }
+    }
+}
+
+.dev-mode-toggle-text {
+    @mixin hidden-text;
+}
+
 .color-category,
 .color-variants {
     float: left;

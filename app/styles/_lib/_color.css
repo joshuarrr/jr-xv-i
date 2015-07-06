@@ -3,6 +3,9 @@ $red: #cc0033;
 $light-red: color(#cc0033 lightness(50%));
 $dark-red: color(#cc0033 lightness(30%));
 
+/* Greens */
+$green: #00813a;
+
 /* Grays */
 $gray: color(black lightness(60%));
 $lightester-gray: color(black lightness(97%));

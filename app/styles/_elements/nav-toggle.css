@@ -41,7 +41,7 @@ via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
     position: absolute;
     right: 0;
     top: 10px;
-    transition: background-color 0s 0.3s;
+    transition: opacity .3s;
     opacity: .5;
 }
 
