@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import styles from '../styles/about.css';
 
 var Bio = React.createClass({
@@ -58,10 +59,12 @@ var Links = React.createClass({
 var Home = React.createClass({
   render: function () {
     return (
-      <div className="about-page">
-        <Bio />
-        <Links />
-      </div>
+      <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
+        <div className="about-page">
+          <Bio />
+          <Links />
+        </div>
+      </ReactCSSTransitionGroup>
     );
   }
 });
