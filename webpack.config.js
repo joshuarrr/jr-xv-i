@@ -54,6 +54,9 @@ var config = {
             loader: 'react-hot-loader!babel-loader',
             exclude: [node_modules_dir]
         }, {
+            test: /\.(woff|woff2|eot|ttf|svg)$/,
+            loader: 'url-loader?limit=100000'
+        }, {
             test: /\.scss$/,
             loader: 'style!css!sass?outputStyle=expanded&' +
             'includePaths[]=' +

@@ -19,25 +19,31 @@ var Links = React.createClass({
     return (
       <div className="about-links">
         <ul className="about-links-list">
-          <li className="about-link-item">
+          <li className="about-link-item icon-idealist">
             <a href="http://www.idealist.org/view/user/Jn9FMxcwskMD/"
               target="_blank">
               Idealist
             </a>
           </li>
-          <li className="about-link-item">
+          <li className="about-link-item icon-instagram">
             <a href="https://instagram.com/joshrr/"
               target="_blank">
               Instagram
             </a>
           </li>
-          <li className="about-link-item">
+          <li className="about-link-item icon-linkedin">
             <a href="https://www.linkedin.com/in/joshuarichey"
               target="_blank">
               LinkedIn
             </a>
           </li>
-          <li className="about-link-item">
+          <li className="about-link-item icon-twitter">
+            <a href="https://twitter.com/jawshoowahr"
+              target="_blank">
+              twitter
+            </a>
+          </li>
+          <li className="about-link-item icon-github">
             <a href="https://github.com/joshuarrr"
               target="_blank">
               GitHub

@@ -1,6 +1,24 @@
 @import './_lib.css';
 
 /*! About Page --------------------------------------------------------------*/
+.about-links-list {
+    margin-top: 3rem;
+}
+
 .about-link-item {
     text-align: center;
+}
+
+.about-link:link,
+.about-link:visited
+ {
+    color: $light-gray;
+}
+
+.about-link:hover {
+    color: $dark-red;
+}
+
+.about-link-text {
+    @mixin hidden-text;
 }
