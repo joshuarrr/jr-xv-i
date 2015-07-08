@@ -1,5 +1,6 @@
 /* Animated hamburger icon
 via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
+
 .nav-toggle {
     background-color: transparent;
     bottom: 0;
@@ -37,12 +38,14 @@ via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
     border-radius: 2px;
     display: block;
     height: 2px;
-    left: 0;
     position: absolute;
-    right: 0;
     top: 10px;
-    transition: opacity .3s;
+    right: 0;
+    left: 0;
     opacity: .5;
+    /* hover state*/
+    transition: opacity .3s;
+    animation: middle-show .6s forwards;
 }
 
 .nav-toggle .inner:before,
@@ -58,37 +61,84 @@ via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
 }
 
 .nav-toggle .inner:before {
-    top: -.7rem;
-    transition-property: top, transform;
+    transform: translateY(-7px);
+    animation: top-from-x .6s forwards;
 }
 
 .nav-toggle .inner:after {
-    bottom: -.7rem;
-    transition-property: bottom, transform;
-}
-
-.nav-toggle .inner:before,
-.nav-toggle .inner:after {
-    transition-duration: 0.3s, 0.3s;
-    transition-delay: 0.3s, 0s;
+    transform: translateY(7px);
+    animation: bottom-from-x .6s forwards;
 }
 
 /* active state, i.e. menu open */
 .nav-toggle.is-active .inner {
-    background-color: transparent;
+    animation: middle-hide .6s forwards;
 }
 
 .nav-toggle.is-active .inner:before {
-    top: 0;
-    transform: rotate(45deg);
+    animation: top-to-x .6s forwards;
 }
 
 .nav-toggle.is-active .inner:after {
-    bottom: 0;
-    transform: rotate(-45deg);
+    animation: bottom-to-x .6s forwards;
 }
 
-.nav-toggle.is-active .inner:before,
-.nav-toggle.is-active .inner:after {
-    transition-delay: 0s, 0.3s;
+@keyframes middle-hide {
+    0% {
+        background-color: $darkest-gray;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes middle-show {
+    0% {
+        background-color: transparent;
+    }
+    100% {
+        background-color: $darkest-gray;
+    }
+}
+
+@keyframes bottom-to-x {
+    50% {
+        transform: translateY(-0px);
+    }
+    100% {
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes bottom-from-x {
+    0% {
+        transform: rotate(-45deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: translateY(7px);
+    }
+}
+
+@keyframes top-to-x {
+    50% {
+        transform: translateY(0px);
+    }
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes top-from-x {
+    0% {
+        transform: rotate(45deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: translateY(-7px);
+    }
 }
