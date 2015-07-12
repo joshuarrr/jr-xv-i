@@ -17,6 +17,7 @@ body {
 /* Page */
 .page {
     padding: 10rem $grid-padding;
+    @mixin clearfix;
 }
 
 .text-measure {

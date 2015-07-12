@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 var Colors = require('./style-guide/colors.jsx');
+var Typography = require('./style-guide/typography.jsx');
 import styles from '../styles/style-guide.css';
 import store from '../store';
 
@@ -44,6 +45,7 @@ var StyleGuide = React.createClass({
               <span className="dev-mode-toggle-text">Toggle Dev Mode</span>
           </button>
           <Colors />
+          <Typography />
         </div>
       </ReactCSSTransitionGroup>
     );

@@ -4,16 +4,37 @@
 /*! Style Guide -------------------------------------------------------------*/
 .style-guide {
     @mixin mono-font;
+    grid-column: 12/12 !last;
 }
 
 .guide-section {
     float: left;
     width: 100%;
     padding: $grid-padding;
-    border: 1px solid $gray;
+    border: $default-border;
     background: $lighter-gray;
+    margin-bottom: 3rem;
 }
 
+.guide-section-title {
+    display: inline-block;
+    border-bottom: $default-border;
+    width: 100%;
+    background-color: white;
+    margin: -$grid-padding;
+    margin-bottom: $grid-padding;
+    padding: $grid-padding;
+    box-sizing: content-box;
+    }
+
+/* Typography */
+.guide-section.typography {
+    .guide-section-demo {
+        @mixin serif-font;
+    }
+}
+
+/* Dev Mode */
 .dev-mode-toggle {
     background-color: transparent;
     position: absolute;
@@ -61,12 +82,12 @@
 
 .color-swatch {
     border: 5px solid white;
-    border-bottom: 3rem solid white;
     box-shadow: 0 1px 5px 0 $black-03;
     float: left;
     margin-bottom: $grid-padding;
     width: 9vw;
-    height: 10vw;_lib.cs
+    height: 10vw;
+
 
     &.red { background: $red; }
     &.light-red { background: $light-red; }
@@ -85,8 +106,4 @@
     &.b7 { background: $black-07; }
     &.b8 { background: $black-08; }
     &.b9 { background: $black-09; }
-
-    h3 {
-
-    }
 }

@@ -1,117 +1,106 @@
 var React = require('react');
 
+var colorList = [
+  {
+    title: 'Reds',
+    subcolors: [
+      {
+        href: '#',
+        title: 'Light Red',
+        class: 'light-red'
+      },
+      {
+        href: '#',
+        title: 'Red',
+        class: 'red'
+      },
+      {
+        href: '#',
+        title: 'Dark Red',
+        class: 'dark-red'
+      }
+    ]
+  },
+  {
+    title: 'Grays',
+    subcolors: [
+      {
+        href: '#',
+        title: 'Lightest Gray',
+        class: 'lightest-gray'
+      },
+      {
+        href: '#',
+        title: 'Lighter Gray',
+        class: 'lighter-gray'
+      },
+      {
+        href: '#',
+        title: 'Light Gray',
+        class: 'light-gray'
+      },
+      {
+        href: '#',
+        title: 'Gray',
+        class: 'gray'
+      },
+      {
+        href: '#',
+        title: 'Dark Gray',
+        class: 'dark-gray'
+      }
+    ]
+  }
+];
+
 var Colors = React.createClass({
-  render() {
-    return(
-      <section className="guide-section">
-        <h1>Colors</h1>
-        <ul className="colors">
-          <li className="color-category reds">
-            <h2 className="color-category-name">Reds</h2>
-            <ul className="color-variants">
-              <li className="color-variant">
-                <div className="color-swatch red">
-                  <h3>Red</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch light-red">
-                  <h3>Light-Red</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch dark-red">
-                  <h3>Dark-Red</h3>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li className="color-category grays">
-            <h2 className="color-category-name">Grays</h2>
-            <ul className="color-variants">
-              <li className="color-variant">
-                <div className="color-swatch lightest-gray">
-                  <h3>Lightest Gray</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch lighter-gray">
-                  <h3>Lighter Gray</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch light-gray">
-                  <h3>Light Gray</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch gray">
-                  <h3>Gray</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch dark-gray">
-                  <h3>Dark Gray</h3>
-                </div>
-              </li>
-            </ul>
-          </li>
-          <li className="color-category transparent-blacks">
-            <h2 className="color-category-name">Transparent Blacks</h2>
-            <ul className="color-variants">
-              <li className="color-variant">
-                <div className="color-swatch b1">
-                  <h3>$black-01</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b1">
-                  <h3>$black-01</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b2">
-                  <h3>$black-02</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b3">
-                  <h3>$black-03</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b4">
-                  <h3>$black-04</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b5">
-                  <h3>$black-05</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b6">
-                  <h3>$black-06</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b7">
-                  <h3>$black-07</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b8">
-                  <h3>$black-08</h3>
-                </div>
-              </li>
-              <li className="color-variant">
-                <div className="color-swatch b9">
-                  <h3>$black-09</h3>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
+  getDefaultProps: function () {
+    return {
+      config: colorList
+    }
+  },
+  propTypes: {
+    config: React.PropTypes.array
+  },
+  render: function () {
+    var config = this.props.config;
+
+    var items = config.map(function (item) {
+      var subcolors, swatches;
+      if (item.subcolors) {
+        subcolors = item.subcolors.map(function (color) {
+          return (
+            <li className="color-variant">
+              <p className="color-swatch-title">{ color.title }</p>
+              <div className={"color-swatch " + color.class }>
+                <p className="color-swatch-variable">${ color.class }</p>
+              </div>
+            </li>
+          );
+        });
+
+        swatches = (
+          <ul className="color-variants">
+            { subcolors }
+          </ul>
+        );
+      }
+      return (
+        <li className={"color-category " + item.title} key={item.id}>
+        <h2 className="color-category-name">{ item.title }</h2>
+          { swatches }
+        </li>
+        );
+    });
+
+    return (
+      <section className="guide-section colors">
+        <h2 className="guide-section-title">Colors</h2>
+        <div className="guide-section-demo">
+          <ul className="colors">
+            { items }
+          </ul>
+        </div>
       </section>
       );
   }

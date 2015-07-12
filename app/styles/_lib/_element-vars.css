@@ -6,6 +6,7 @@ $trailer: 1.5rem;
 
 /* Borders */
 $default-radius: .3rem;
+$default-border: 1px solid $light-gray;
 
 /* Transitions */
 $default-duration: .3s;

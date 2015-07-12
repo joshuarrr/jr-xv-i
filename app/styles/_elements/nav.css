@@ -18,7 +18,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 .site-nav-links {
     @mixin clearfix;
     background: $lightest-gray;
-    border-bottom: 1px solid $light-gray;
+    border-bottom: $default-border;
     padding: $grid-padding;
     padding-right: $nav-links-pad-right;
     width: 100%;
@@ -47,4 +47,3 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
         color: $darkest-gray;
     }
 }
-

@@ -1,4 +1,5 @@
-@import "./_elements/reset.css";
+/*@import "./_elements/reset.css";*/
+@import "./_elements/reset-ido.css";
 @import "./_elements/transitions.css";
 @import "./_elements/type.css";
 @import "./_elements/logo.css";
