@@ -9,9 +9,9 @@ var customProperties = require('postcss-custom-properties');
 var simpleVars = require('postcss-simple-vars');
 var nested = require('postcss-nested');
 var autoprefixer = require('autoprefixer-core');
-var grid = require('postcss-grid');
 var discardComments = require('postcss-discard-comments');
 var simpleExtend = require('postcss-simple-extend');
+var calc = require('postcss-calc');
 const AUTOPREFIXER_BROWSERS = [
   'Android 2.3',
   'Android >= 4',
@@ -86,7 +86,7 @@ var config = {
             customProperties,
             simpleVars,
             nested,
-            grid,
+            calc,
             autoprefixer(AUTOPREFIXER_BROWSERS)
         ];
     }

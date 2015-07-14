@@ -8,13 +8,11 @@ var colorList = [
         href: '#',
         title: 'Light Red',
         class: 'light-red'
-      },
-      {
+      }, {
         href: '#',
         title: 'Red',
         class: 'red'
-      },
-      {
+      }, {
         href: '#',
         title: 'Dark Red',
         class: 'dark-red'
@@ -26,25 +24,25 @@ var colorList = [
     subcolors: [
       {
         href: '#',
+        title: 'Lightester Gray',
+        class: 'lightester-gray'
+      }, {
+        href: '#',
         title: 'Lightest Gray',
         class: 'lightest-gray'
-      },
-      {
+      }, {
         href: '#',
         title: 'Lighter Gray',
         class: 'lighter-gray'
-      },
-      {
+      }, {
         href: '#',
         title: 'Light Gray',
         class: 'light-gray'
-      },
-      {
+      }, {
         href: '#',
         title: 'Gray',
         class: 'gray'
-      },
-      {
+      }, {
         href: '#',
         title: 'Dark Gray',
         class: 'dark-gray'
@@ -70,7 +68,7 @@ var Colors = React.createClass({
       if (item.subcolors) {
         subcolors = item.subcolors.map(function (color) {
           return (
-            <li className="color-variant">
+            <li className="color-variant" key={ color.title }>
               <p className="color-swatch-title">{ color.title }</p>
               <div className={"color-swatch " + color.class }>
                 <p className="color-swatch-variable">${ color.class }</p>
@@ -86,8 +84,8 @@ var Colors = React.createClass({
         );
       }
       return (
-        <li className={"color-category " + item.title} key={item.id}>
-        <h2 className="color-category-name">{ item.title }</h2>
+        <li className={"color-category " + item.title} key={ item.title }>
+        <h3 className="color-category-name">{ item.title }</h3>
           { swatches }
         </li>
         );

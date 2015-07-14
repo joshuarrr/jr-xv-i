@@ -1,6 +1,22 @@
 /* Grid */
 $grid-padding: 1.5rem;
 
+$outer-margin: 1.5rem;
+$top-margin: 10rem;
+$bottom-margin: 3rem;
+
+/* Page */
+@define-mixin container-padding
+    $t: 1rem,
+    $r: $outer-margin,
+    $b: 1rem,
+    $l: $outer-margin {
+    padding: $t $r $b $l;
+    @media (--fablet)  { padding: $t calc($r + 1rem) $b calc($l + 1rem); }
+    @media (--laptop)  { padding: $t calc($r + 3rem) $b calc($l + 3rem); }
+    @media (--highRes) { padding: $t calc($r + 6rem) $b calc($l + 6rem); }
+}
+
 /* Vertical Rhythm */
 $trailer: 1.5rem;
 

@@ -3,14 +3,12 @@
 @import "../_lib.css";
 
 input {
-    @extend mono-font;
-    @mixin responsive-font-size;
+    @mixin mono-font;
 }
 
 button,
 .button {
-    @extend mono-font;
-    @mixin responsive-font-size;
+    @mixin mono-font;
     appearance: none;
     border: none;
     border-radius: $default-radius;

@@ -25,7 +25,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     /* Taller than site-nav so it can bounce in properly */
     height: calc($header-height + 2rem);
     /* realign the links */
-    padding-top: 3.3rem;
+    padding-top: 3.6rem;
     /* align to the bottom of site-nav */
     position: absolute;
     bottom: 0;
@@ -39,7 +39,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 .site-nav-link {
     @mixin mono-font;
     float: right;
-    font-size: 80%;
+    @mixin responsive-font-size 1.1;
     padding: $nav-link-padding;
     position: relative;
 

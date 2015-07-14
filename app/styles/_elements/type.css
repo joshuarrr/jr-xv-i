@@ -4,29 +4,19 @@
  /* Reset the fonts to 10px for easy rem computation; */
 html { font-size: 62.5%; }
 
-/* Basic responsive font-sizes */
-@define-mixin responsive-font-size {
-    @media (--phone-max) { font-size: 1.4rem; line-height: 2; }
-    @media (--fablet) { font-size: 1.5rem; line-height: 1.9; }
-    @media (--laptop) { font-size: 1.6rem; line-height: 2; }
-    @media (--highRes) { font-size: 1.8rem; line-height: 2; }
-}
-
 body {
     @mixin serif-font;
-    @mixin responsive-font-size;
 }
 
 h1, h2, h3, h4, h5, h6, p {
     margin-bottom: $trailer;
     font-weight: normal;
-    line-height: 1.5;
 }
 
 /* Responsive Font Sizes and Line Heights */
-h1 { font-size: 3.2rem; }
-h2 { font-size: 2.8rem; }
-h3 { font-size: 2.4rem; }
-h4 { font-size: 2.0rem; }
-h5 { font-size: 1.8rem; }
-h6 { font-size: 1.6rem; }
+h1 { @mixin responsive-font-size 2.4; }
+h2 { @mixin responsive-font-size 2.2; }
+h3 { @mixin responsive-font-size 2; }
+h4 { @mixin responsive-font-size 1.8; }
+h5 { @mixin responsive-font-size 1.6; }
+h6 { @mixin responsive-font-size; }
