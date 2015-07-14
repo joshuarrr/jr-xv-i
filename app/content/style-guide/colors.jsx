@@ -60,9 +60,9 @@ var Colors = React.createClass({
   propTypes: {
     config: React.PropTypes.array
   },
+
   render: function () {
     var config = this.props.config;
-
     var items = config.map(function (item) {
       var subcolors, swatches;
       if (item.subcolors) {
@@ -76,7 +76,6 @@ var Colors = React.createClass({
             </li>
           );
         });
-
         swatches = (
           <ul className="color-variants">
             { subcolors }
@@ -100,7 +99,7 @@ var Colors = React.createClass({
           </ul>
         </div>
       </section>
-      );
+    );
   }
 });
 
