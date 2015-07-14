@@ -3,19 +3,35 @@ var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import store from '../store';
 import { Link, RouteHandler } from 'react-router';
 
+var siteLinks = [
+  {
+    to: 'guide',
+    title: 'style guide'
+  }, {
+    to: 'art',
+    title: 'art'
+  }, {
+    to: 'home',
+    title: 'about'
+  }
+];
+
 var NavLinks = React.createClass({
   render: function() {
+    var links = siteLinks.map(function (link) {
+      return (
+        <li className="site-nav-item" key={link.to}>
+          <Link className="site-nav-link" to={link.to} tabIndex="3">{link.title}</Link>
+        </li>
+      )
+    });
+
     return (
       <ReactCSSTransitionGroup transitionName='slide-in'>
         {
         store.isNavShowing &&
-        <ul key="nav" className='site-nav-links'>
-          <li className="site-nav-item">
-            <Link className="site-nav-link" to='guide' tabIndex="3">style guide</Link>
-          </li>
-          <li className="site-nav-item">
-            <Link className="site-nav-link" to='home' tabIndex="2">about</Link>
-          </li>
+        <ul className='site-nav-links'>
+          { links }
         </ul>
       }
       </ReactCSSTransitionGroup>
