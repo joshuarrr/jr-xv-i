@@ -27,21 +27,10 @@ h6 { @mixin responsive-font-size; }
     margin: auto;
     width: 90%;
 
-    @media (--fablet)  {
-        width: 50rem;
-    }
-
-    @media (--laptop)  {
-        width: 55rem;
-    }
-
-    @media (--desktop) {
-        width: 60rem;
-    }
-
-    @media (--highRes) {
-        width: 65rem;
-    }
+    @media (--fablet)  { width: 50rem; }
+    @media (--laptop)  { width: 55rem; }
+    @media (--desktop) { width: 60rem; }
+    @media (--highRes) { width: 65rem; }
 }
 
 .intro {
