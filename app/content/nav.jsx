@@ -11,6 +11,9 @@ var siteLinks = [
     to: 'art',
     title: 'art'
   }, {
+    to: 'ig',
+    title: 'ig'
+  }, {
     to: 'home',
     title: 'about'
   }

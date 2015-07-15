@@ -1,0 +1,17 @@
+@import './_lib.css';
+
+/*! Instagram Page -----------------------------------------------------------*/
+.ig-pictures {
+    line-height: 0;
+    text-align: center;
+}
+
+.ig-picture {
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+
+.ig-more {
+    display: block;
+    margin: 6rem auto;
+}
