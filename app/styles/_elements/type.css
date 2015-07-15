@@ -26,9 +26,22 @@ h6 { @mixin responsive-font-size; }
 .text-measure {
     margin: auto;
     width: 90%;
-    @media (--fablet)  { width: 60% }
-    @media (--laptop)  { width: 50% }
-    @media (--highRes) { width: 40% }
+
+    @media (--fablet)  {
+        width: 50rem;
+    }
+
+    @media (--laptop)  {
+        width: 55rem;
+    }
+
+    @media (--desktop) {
+        width: 60rem;
+    }
+
+    @media (--highRes) {
+        width: 65rem;
+    }
 }
 
 .intro {
