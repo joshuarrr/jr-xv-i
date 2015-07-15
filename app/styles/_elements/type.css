@@ -20,3 +20,22 @@ h3 { @mixin responsive-font-size 2; }
 h4 { @mixin responsive-font-size 1.8; }
 h5 { @mixin responsive-font-size 1.6; }
 h6 { @mixin responsive-font-size; }
+
+/* General, reusable styles */
+
+.text-measure {
+    margin: auto;
+    width: 90%;
+    @media (--fablet)  { width: 60% }
+    @media (--laptop)  { width: 50% }
+    @media (--highRes) { width: 40% }
+}
+
+.intro {
+    text-align: center;
+}
+
+.justified {
+    text-align: justify;
+}
+

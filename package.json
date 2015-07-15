@@ -23,6 +23,7 @@
     "jsx-loader": "^0.12.2",
     "postcss": "^4.1.13",
     "postcss-calc": "^4.1.0",
+    "postcss-css-variables": "^0.4.0",
     "postcss-custom-properties": "^4.0.0",
     "postcss-discard-comments": "^1.2.0",
     "postcss-import": "^6.0.0",

@@ -4,14 +4,15 @@ var node_modules_dir = path.join(__dirname, 'node_modules');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var cssimport = require('postcss-import');
-var mixins = require('postcss-mixins');
-var customProperties = require('postcss-custom-properties');
-var simpleVars = require('postcss-simple-vars');
-var nested = require('postcss-nested');
 var autoprefixer = require('autoprefixer-core');
-var discardComments = require('postcss-discard-comments');
-var simpleExtend = require('postcss-simple-extend');
 var calc = require('postcss-calc');
+var cssVariables = require('postcss-css-variables');
+var customProperties = require('postcss-custom-properties');
+var discardComments = require('postcss-discard-comments');
+var mixins = require('postcss-mixins');
+var nested = require('postcss-nested');
+var simpleExtend = require('postcss-simple-extend');
+var simpleVars = require('postcss-simple-vars');
 const AUTOPREFIXER_BROWSERS = [
   'Android 2.3',
   'Android >= 4',
@@ -84,6 +85,7 @@ var config = {
             mixins,
             simpleExtend,
             customProperties,
+            cssVariables,
             simpleVars,
             nested,
             calc,
