@@ -32,13 +32,13 @@ $border-color: $black-05;
     &:after {
         color: white;
         content: 'j';
-        font-size: calc($logo-width / 1.8);
+        font-size: calc($logo-width / 1.7);
         font-weight: 400;
         left: 46%;
         line-height: 0;
         position: absolute;
         text-rendering: geometricPrecision;
-        top: 38%;
+        top: 45%;
         opacity: 1;
         transition-property: opacity;
         transition-duration: .3s;

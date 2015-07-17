@@ -5,14 +5,8 @@ import { Link, RouteHandler } from 'react-router';
 
 var siteLinks = [
   {
-    to: 'guide',
-    title: 'style guide'
-  }, {
     to: 'art',
-    title: 'art'
-  }, {
-    to: 'ig',
-    title: 'ig'
+    title: 'thoughts'
   }, {
     to: 'home',
     title: 'about'

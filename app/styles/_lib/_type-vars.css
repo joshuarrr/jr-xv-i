@@ -20,9 +20,13 @@ $base-line-height: 1.5;
 @define-mixin serif-font {
     font-family: $serif-font-family;
     @mixin responsive-font-size;
+    font-variant-ligatures: common-ligatures;
+    font-feature-settings: "liga", "clig";
 }
 
 @define-mixin mono-font {
-  font-family: $mono-font-family;
-  @mixin responsive-font-size 1.2;
+    font-family: $mono-font-family;
+    @mixin responsive-font-size 1.2;
+    font-variant-ligatures: no-common-ligatures;
+    font-feature-settings: "liga" 0, "clig" 0;
 }

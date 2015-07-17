@@ -17,5 +17,5 @@ body {
 /* Page */
 .page {
     @mixin clearfix;
-    @mixin container-padding 10rem, $outer-margin, 3rem;
+    @mixin container-padding 10rem, $outer-margin, 10rem;
 }

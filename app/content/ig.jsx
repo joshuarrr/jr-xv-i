@@ -18,11 +18,12 @@ var PictureList = React.createClass({
     // The pictures array will be populated via AJAX
     return { pictures: [] };
   },
+
   componentDidMount: function(){
     // When the component loads, send a jQuery AJAX request
     var self = this;
 
-    var url = 'https://api.instagram.com/v1/users/5335790/media/recent/?access_token=5335790.ab103e5.bcdfe72e51244666a63a238b13eb902c&count=32&callback=?';
+    var url = 'https://api.instagram.com/v1/users/5335790/media/recent/?access_token=5335790.ab103e5.bcdfe72e51244666a63a238b13eb902c&count=42&callback=?';
 
     $.getJSON(url, function(result){
       if(!result || !result.data || !result.data.length){
@@ -38,15 +39,14 @@ var PictureList = React.createClass({
         };
       });
 
-      console.log('pictures =' + pictures.length);
+      // console.log('# of pictures =' + pictures.length);
 
       var nextSet = result.pagination.next_url;
-      // console.log('nextSet = ' + result.pagination.next_url);
+      // console.log('nextSet = ' + result.pagination.next_url); // yay!
 
       // Update the component's state. This will trigger a render.
-      // Note that this only updates the pictures property, and does
-      // not remove the favorites array.
-      self.setState({ pictures: pictures, nextSet: nextSet });
+      // Note that this only updates the pictures property
+      self.setState({ pictures: pictures});
     });
   },
 
@@ -55,6 +55,7 @@ var PictureList = React.createClass({
   },
 
   render: function() {
+
     var self = this;
     var pictures = this.state.pictures.map(function(p){
       return <Picture ref={p.id} key={p.id} src={p.src} title={p.title} />
@@ -67,7 +68,6 @@ var PictureList = React.createClass({
     }
 
     // console.log('rendered nextSet = ' + nextSet);
-
     return (
       <div>
         <div className="ig-pictures">
@@ -81,12 +81,11 @@ var PictureList = React.createClass({
 
 
 // Create the Ig component, which just renders the PictureList component.
-
 var Ig = React.createClass({
   render: function() {
     return (
       <PictureList />
-      );
+    );
   }
 });
 
