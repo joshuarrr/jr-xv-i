@@ -2,34 +2,14 @@ var React = require('react');
 import { Link, RouteHandler } from 'react-router';
 import store from './store';
 import Nav from './content/nav.jsx';
+import Logo from './content/components/logo.jsx';
 require('./styles/app.css');
-
-var cx = require('classnames');
-
-var Logo = React.createClass({
-    className() {
-        return this.props.squished ? 'original' : 'clicked';
-    },
-    handleClick() {
-        store.isSquished = !store.isSquished;
-    },
-    render() {
-      return (
-        <Link
-          className="logo"
-          id='logo'
-          to='home'
-          tabIndex="-1"
-          onClick={this.handleClick}
-        >
-          <h1 className='name'>Joshua Richey</h1>
-        </Link>
-      );
-    }
-});
 
 // Main App //
 var App = React.createClass({
+    getInitialState() {
+      return {squished: false};
+    },
   componentDidMount() {
     store.register(() => this.forceUpdate());
   },
