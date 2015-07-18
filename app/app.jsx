@@ -7,9 +7,6 @@ require('./styles/app.css');
 
 // Main App //
 var App = React.createClass({
-    getInitialState() {
-      return {squished: false};
-    },
   componentDidMount() {
     store.register(() => this.forceUpdate());
   },
@@ -18,7 +15,7 @@ var App = React.createClass({
       <main role='main' id='app'>
         <header className='site-header'>
           <Nav/>
-          <Logo squished={store.isSquished} />
+          <Logo squished={store.isSquished} loaded={store.isLoaded} />
         </header>
         <div className="page">
           <RouteHandler />

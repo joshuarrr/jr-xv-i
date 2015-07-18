@@ -36,17 +36,26 @@ $border-color: $black-05;
         font-weight: 400;
         left: 46%;
         line-height: 0;
+        opacity: 0;
         position: absolute;
         text-rendering: geometricPrecision;
         top: 45%;
-        opacity: 1;
-        transition-property: opacity;
-        transition-duration: .3s;
+        opacity: 0;
+        transform: scale(.6, .85);
+        transition-property: opacity scale;
+        transition-duration: 1s;
         transition-timing-function: ease-out;
     }
 
     &:hover {
         background: #000;
         cursor: pointer;
+    }
+
+    &.loaded{
+        &:after {
+            opacity: 1;
+            transform: scale(1, 1);
+        }
     }
 }
