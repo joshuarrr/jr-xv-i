@@ -7,6 +7,7 @@ import Art from './content/art.jsx';
 import Ig from './content/ig.jsx';
 import StyleGuide from './content/style-guide.jsx';
 import NotFound from './content/not_found.jsx';
+import WaypointTest from './content/waypoints.jsx';
 
 var Routes = (
   <Route name="App" handler={App} path="/">
@@ -14,6 +15,7 @@ var Routes = (
   <Route name="guide" handler={StyleGuide} />
   <Route name="art" handler={Art} />
   <Route name="ig" handler={Ig} />
+  <Route name="way" handler={WaypointTest} />
 
   <NotFoundRoute handler={NotFound} />
   </Route>

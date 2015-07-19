@@ -36,6 +36,7 @@
     "postcss-simple-vars": "^0.3.0",
     "react-hot-loader": "^1.2.7",
     "react-router": "^0.13.3",
+    "react-waypoint": "^1.0.1",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.5",
     "webpack": "^1.9.12",
