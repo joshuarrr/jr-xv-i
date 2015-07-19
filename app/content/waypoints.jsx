@@ -27,7 +27,6 @@ var WaypointTest = React.createClass({
     );
   },
 
-
  // @return {Object}
   render: function() {
     return (

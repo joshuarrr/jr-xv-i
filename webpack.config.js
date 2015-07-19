@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 var node_modules_dir = path.join(__dirname, 'node_modules');
-var Waypoint = require('react-waypoint');
 // PostCSS
 var cssimport = require('postcss-import');
 var autoprefixer = require('autoprefixer-core');

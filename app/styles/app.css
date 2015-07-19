@@ -41,3 +41,7 @@ body {
 .basic-example__waypoint-line {
   border-top: 1px dashed red;
 }
+
+.loading-bar {
+    top: 1rem;
+}

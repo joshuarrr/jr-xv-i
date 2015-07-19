@@ -1,5 +1,9 @@
 var React = require('react');
+var MediaQuery = require('react-responsive');
+var Waypoint = require('react-waypoint');
 import styles from '../styles/ig.css';
+import LoadingBar from './components/loader.jsx';
+
 
 // In this example we also have two components - a picture and
 // a picture list. The pictures are fetched from Instagram via AJAX.
@@ -8,7 +12,10 @@ import styles from '../styles/ig.css';
 var Picture = React.createClass({
   render: function(){
     return (
-      <img className='ig-picture' src={this.props.src} width="200" title={this.props.title} />
+      <img className='ig-picture'
+        src={this.props.src}
+        width="200"
+        title={this.props.title} />
     );
   }
 });
@@ -22,7 +29,6 @@ var PictureList = React.createClass({
   componentDidMount: function(){
     // When the component loads, send a jQuery AJAX request
     var self = this;
-
     var url = 'https://api.instagram.com/v1/users/5335790/media/recent/?access_token=5335790.ab103e5.bcdfe72e51244666a63a238b13eb902c&count=42&callback=?';
 
     $.getJSON(url, function(result){
@@ -63,13 +69,20 @@ var PictureList = React.createClass({
 
     var nextSet = this.state.nextSet;
 
-    if(!pictures.length){
+    if(!pictures){
       pictures = <p>Loading images..</p>;
+    //   pictures = <LoadingBar
+    //               active={true}
+    //               color={'#cc0033'}
+    //               speed={30} />
     }
 
     // console.log('rendered nextSet = ' + nextSet);
     return (
       <div>
+        <MediaQuery query='(min-width: 768px)'>
+          <h1>768</h1>
+        </MediaQuery>
         <div className="ig-pictures">
           {pictures}
           <button className="ig-more" onClick={this.getNextSet}>more</button>
