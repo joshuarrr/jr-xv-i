@@ -6,7 +6,7 @@
 
 /*! App ---------------------------------------------------------------------*/
 body {
-    background: $main-background-color;
+    background: $background-color;
 }
 
 /* Header */

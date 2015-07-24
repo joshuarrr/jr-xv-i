@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
+import { Link, RouteHandler } from 'react-router';
 import styles from '../styles/about.css';
 
 var Bio = React.createClass({
@@ -7,8 +8,13 @@ var Bio = React.createClass({
     return (
       <div className="about text-measure intro">
         <h1>joshuar</h1>
-        <p>AKA Josh, or Joshua Richey. A designer, front-end developer, artist, and visual craftsman living in Portland, Oregon, and
-          working at <a href="http://idealist.org" target="_blank">Idealist</a>.
+        <p>AKA Josh, or Joshua Richey. A designer, front-end developer, artist,
+          and visual craftsman living in Portland, Oregon, and working
+          at <a href="http://idealist.org" target="_blank">Idealist</a>.
+          Beyond <Link to='design' tabIndex="4">design</Link>, he likes
+          to <Link to='art' tabIndex="4">draw</Link>,
+          take <Link to='instagram' tabIndex="6">pictures</Link>, and write about
+          his <Link to='thoughts' tabIndex="7">thoughts</Link>.
         </p>
       </div>
     );
@@ -59,12 +65,12 @@ var Links = React.createClass({
 var Home = React.createClass({
   render: function () {
     return (
-      <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
-        <div className="about-page">
+      <div className="page homeabout-page">
+        <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
           <Bio />
           <Links />
-        </div>
-      </ReactCSSTransitionGroup>
+        </ReactCSSTransitionGroup>
+      </div>
     );
   }
 });

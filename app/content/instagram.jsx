@@ -28,6 +28,7 @@ var infinIG = React.createClass({
         return;
       }
       var pictures = result.data;
+      // Set the initial state
       self.setState({
         items: pictures,
         nextSet: result.pagination.next_url,
@@ -36,22 +37,26 @@ var infinIG = React.createClass({
     });
   },
 
-  /* @return {Object} */
   _renderItems: function() {
     // console.log('this.state.isLoading = ' + this.state.isLoading);
     // console.log('this.state.items = ' + this.state.items);
     return this.state.items.map(function(p, index) {
       return (
-        <ReactCSSTransitionGroup component="span"transitionName='fade-in' transitionAppear={true}>
+        <ReactCSSTransitionGroup
+          className='ig-picture-li'
+          component='li'
+          key={index}
+          transitionName='fade-in'
+          transitionAppear={true}
+        >
           <img
             src={p.images.standard_resolution.url}
             alt='image'
-            key={index}
             link={p.link}
             title={p.caption ? p.caption.text : ''}
-            className="infinite-scroll-example__list-item"
+            className='ig-picture'
           />
-        </ ReactCSSTransitionGroup>
+        </ReactCSSTransitionGroup>
       );
     });
   },
@@ -64,21 +69,20 @@ var infinIG = React.createClass({
     // console.log('next url = ' + this.state.nextSet);
     $.getJSON(url, function(result){
       if(!result || !result.data || !result.data.length){
-        console.log('Something went wrong.')
+        console.log('Something went wrong with the ajax request.')
         return;
       }
       // console.log('Original Items = ' + this.state.items);
       var currentItems = this.state.items;
-      console.log('Items to add = ' + result.data);
-
+      // console.log('Items to add = ' + result.data);
       currentItems = currentItems.concat(result.data);
-      console.log('new currentItems = ' + currentItems);
+      // console.log('currentItems + Items to add = ' + currentItems);
       this.setState({
         items: currentItems,
         nextSet: result.pagination.next_url,
         isLoading: false
       });
-      console.log('this.state.items = ' + this.state.items.length);
+      console.log('Currently showing = ' + this.state.items.length + ' items.');
     }.bind(this));
   },
 
@@ -94,7 +98,7 @@ var infinIG = React.createClass({
   },
 
   _renderWaypoint: function() {
-    console.log('this.state.isLoading = ' + this.state.isLoading);
+    // console.log('this.state.isLoading = ' + this.state.isLoading);
     if (!this.state.isLoading) {
       return (
         <Waypoint
@@ -105,17 +109,15 @@ var infinIG = React.createClass({
     }
   },
 
-  /**
-   * @return {Object}
-   */
+  // Render it all
   render: function() {
     return (
-      <div className="infinite-scroll-example">
-        <div className="infinite-scroll-example__scrollable-parent">
+      <div className="ig-page">
+        <ul className="ig-picture-list">
           {this._renderItems()}
           {this._renderWaypoint()}
-        </div>
-        <p className="infinite-scroll-example__arrow" />
+        </ul>
+        <p className="ig-scroll-arrow" />
       </div>
     );
   }

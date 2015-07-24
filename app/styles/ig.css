@@ -1,17 +1,45 @@
 @import './_lib.css';
 
 /*! Instagram Page -----------------------------------------------------------*/
-.ig-pictures {
+
+.ig-page {
+    padding: 0;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.ig-picture-list {
     line-height: 0;
-    text-align: center;
+    margin-bottom: 6rem;
+    @mixin clearfix;
+}
+
+.ig-picture-li {
+    display: block;
+
+    @media (--fablet)  {
+        float: left;
+        width: 50%;
+
+        &:nth-of-type(2n) {
+            .ig-picture {
+                border-right: 0;
+            }
+        }
+    }
 }
 
 .ig-picture {
-    border-right: 1px solid transparent;
-    border-bottom: 1px solid transparent;
+    outline: 1px solid $lightester-gray;
+    width: 100%;
 }
+
 
 .ig-more {
     display: block;
-    margin: 6rem auto;
+    margin: 0 auto;
 }
+
+.ig-scroll-arrow {}

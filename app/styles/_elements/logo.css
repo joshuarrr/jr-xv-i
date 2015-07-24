@@ -16,7 +16,7 @@ $border-color: $black-05;
     border: $border-width solid $border-color;
     background-color: $black-07;
     border-radius: calc($logo-width/2);
-    box-shadow: 0 0 0 2px $main-background-color,
+    box-shadow: 0 0 0 2px $background-color,
                 0 0 0 3px $black-02;
     display: block;
     font-weight: 400;
@@ -52,10 +52,14 @@ $border-color: $black-05;
         cursor: pointer;
     }
 
-    &.loaded{
+    &.loaded {
         &:after {
             opacity: 1;
             transform: scale(1, 1);
         }
+    }
+
+    &.fixed {
+        position: fixed;
     }
 }
