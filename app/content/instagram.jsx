@@ -3,7 +3,7 @@ var Waypoint = require('react-waypoint');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 
 // Number of images to fetch per request
-var count = '6'
+var count = '6';
 
 var infinIG = React.createClass({
 
@@ -101,10 +101,12 @@ var infinIG = React.createClass({
     // console.log('this.state.isLoading = ' + this.state.isLoading);
     if (!this.state.isLoading) {
       return (
-        <Waypoint
-          onEnter={this._loadMoreItems}
-          threshold={2.0}
-        />
+        <li className='ig-waypoint'>
+          <Waypoint
+            onEnter={this._loadMoreItems}
+            threshold={2}
+          />
+        </li>
       );
     }
   },

@@ -31,6 +31,12 @@
     }
 }
 
+.ig-waypoint {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
 .ig-picture {
     outline: 1px solid $lightester-gray;
     width: 100%;
