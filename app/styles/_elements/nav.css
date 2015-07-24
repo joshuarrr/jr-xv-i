@@ -17,7 +17,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .site-nav-links {
     @mixin clearfix;
-    background: $lightest-gray;
+    background: $black-01;
     border-bottom: $default-border;
     padding: $grid-padding;
     padding-right: $nav-links-pad-right;
