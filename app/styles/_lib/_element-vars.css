@@ -5,6 +5,9 @@ $outer-margin: 1.5rem;
 $top-margin: 10rem;
 $bottom-margin: 3rem;
 
+/* Header */
+$header-height: 7.3rem;
+
 /* Page */
 @define-mixin container-padding
     $t: 1rem,

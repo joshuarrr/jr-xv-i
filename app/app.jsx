@@ -3,6 +3,7 @@ import { Link, RouteHandler } from 'react-router';
 import store from './store';
 import Nav from './content/nav.jsx';
 import Logo from './content/components/logo.jsx';
+import Header from './content/components/header.jsx';
 
 require('./styles/app.css');
 
@@ -12,12 +13,13 @@ var App = React.createClass({
     store.register(() => this.forceUpdate());
   },
   render() {
+    var options = { showAtBottom: true };
     return (
       <main role='main' id='app'>
-        <header className='site-header'>
-          <Nav/>
-          <Logo squished={store.isSquished} loaded={store.isLoaded} />
-        </header>
+          <Header class="sticky-header" options={options}>
+            <Nav/>
+            <Logo squished={store.isSquished} loaded={store.isLoaded} />
+          </Header>
         <RouteHandler />
       </main>
     );

@@ -2,13 +2,30 @@
 @import './_elements/nav-toggle.css';
 
 /*! Nav ---------------------------------------------------------------------*/
-$header-height: 7.3rem;
 $nav-link-padding: 1rem;
 $nav-links-margin: 1rem;
 $menu-icon-width: 24px;
 $menu-icon-padding: $grid-padding * 2;
 /* Move the nav links over to clear the toggle */
 $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
+
+/* Sticky Header */
+.sticky-header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    height: $header-height;
+    width: 100%;
+    transition-duration: $default-duration;
+    transition-property: background-color, opacity, transform;
+    transition-timing-function: $bounce-in;
+}
+
+.auto-hide-sticky-header-hidden {
+  transform: translateY(-100%);
+}
+
 
 .site-nav {
     height: $header-height;
