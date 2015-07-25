@@ -1,6 +1,7 @@
 var React = require('react');
 var Waypoint = require('react-waypoint');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
+import styles from '../styles/_elements/waypoints-example.css';
 
 // Number of images to fetch per request
 var count = '6'

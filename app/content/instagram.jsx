@@ -72,6 +72,7 @@ var infinIG = React.createClass({
         console.log('Something went wrong with the ajax request.')
         return;
       }
+      // TODO - immutable helper?
       // console.log('Original Items = ' + this.state.items);
       var currentItems = this.state.items;
       // console.log('Items to add = ' + result.data);

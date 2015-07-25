@@ -20,28 +20,24 @@ body {
     @mixin container-padding 10rem, $outer-margin, 10rem;
 }
 
-/* Waypoints Example*/
-.basic-example__message {
-    position: fixed;
-    z-index: 444;
-    top: 100px;
-    text-align: center;
-}
-.basic-example__spacer {
-  color: #ccc;
-  font-size: 40px;
-  line-height: 200px;
-  text-align: center;
-  height: 200px;
-}
-.basic-example {
-  border: solid 1px #cecece;
-  position: relative;
-}
-.basic-example__waypoint-line {
-  border-top: 1px dashed red;
-}
-
+/* Loader */
 .loading-bar {
     top: 1rem;
+}
+
+/* Sticky Header */
+.sticky-header {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+    height: 50px;
+    width: 100%;
+
+    background-color: hsla(0, 100%, 100%, 0.95);
+    box-shadow: 0 1px 4px hsla(197, 20%, 18%, 0.25);
+
+    line-height: 50px;
+    text-align: center;
 }

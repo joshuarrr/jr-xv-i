@@ -16,7 +16,7 @@ var Picture = React.createClass({
       'visibile': false
     });    return (
       <li className={liClasses + this.props.rowClasses}>
-        <ReactCSSTransitionGroup component="span"transitionName='fade-in' transitionAppear={true}>
+        <ReactCSSTransitionGroup component="span" transitionName='fade-in' transitionAppear={true}>
           <img className='ig-picture'
             src={this.props.src}
             width='200'

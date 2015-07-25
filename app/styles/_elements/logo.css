@@ -21,12 +21,12 @@ $border-color: $black-05;
     height: $logo-width;
     left: 0;
     margin: calc(-$logo-width / 2) auto 0;
-    opacity: 0;
     position: absolute;
     right: 0;
-    transition-duration: $default-duration;
-    transition-property: background-color, opacity, transform, height;
-    transition-timing-function: $default-ease;
+    transition-duration: $default-duration, 1s, 1s;
+    transition-property: background-color, opacity, transform;
+    transition-timing-function: $bounce-in;
+
     width: $logo-width;
     z-index: 101;
 
@@ -37,29 +37,27 @@ $border-color: $black-05;
         font-weight: 400;
         left: 46%;
         line-height: 0;
-        opacity: 0;
         position: absolute;
         text-rendering: geometricPrecision;
         top: 45%;
-        opacity: 0;
-        transform: scale(.6, .85);
-        transition-property: opacity scale;
-        transition-duration: 1s;
+        transform: scale(1, 1);
+        transition-property: opacity, transform;
+        transition-duration: 1s 1s;
         transition-timing-function: ease-out;
     }
 
+    &.logo-fade-in-appear:after {
+        opacity: .01;
+        transform: scale(.6, .85);
+    }
+
+    &.logo-fade-in-appear-active:after {
+        opacity: 1;
+        transform: scale(1, 1);
+    }
     &:hover {
         background: #000;
         cursor: pointer;
-    }
-
-    &.loaded {
-        opacity: 1;
-
-        &:after {
-            opacity: 1;
-            transform: scale(1, 1);
-        }
     }
 
     &.fixed {

@@ -60,3 +60,14 @@
 .slide-in-leave-active {
     transform: translateY(-100%);
 }
+
+/* slide-in -----------------------------------------------------------------*/
+.logo-fade-in-appear {
+    opacity: .01;
+    transform: scale(.9, .9);
+}
+
+.logo-fade-in-appear-active {
+    opacity: 1;
+    transform: scale(1, 1);
+}
