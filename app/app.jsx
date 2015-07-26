@@ -22,7 +22,8 @@ var App = React.createClass({
           <Logo squished={store.isSquished} loaded={store.isLoaded} />
           <Nav/>
         </header>
-            <RouteHandler />
+          <RouteHandler />
+          <Waypoint onEnter={this.doSomething} class='page-bottom' threshold={1.0} />
       </main>
     );
   }

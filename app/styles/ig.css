@@ -3,11 +3,7 @@
 /*! Instagram Page -----------------------------------------------------------*/
 
 .ig-page {
-    padding: 0;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    z-index: -1;
+
 }
 
 .ig-picture-list {
@@ -32,9 +28,9 @@
 }
 
 .ig-waypoint {
-    display: block;
-    float: left;
+    height: 1px;
     width: 100%;
+    float: left;
 }
 
 .ig-picture {
@@ -48,4 +44,22 @@
     margin: 0 auto;
 }
 
-.ig-scroll-arrow {}
+/*.scroll-arrow {
+    $size: 5rem;
+    position: fixed;
+    bottom: 5rem;
+    width: $size;
+    height: $size;
+    left: calc(50% - ($size * .5));
+    margin: 0;
+    z-index: -1;
+
+    &:after {
+        content: '▾';
+        font-size: 4rem;
+        margin: auto;
+        text-align: center;
+        opacity: .2;
+    }
+
+}*/

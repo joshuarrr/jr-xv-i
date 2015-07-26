@@ -20,9 +20,13 @@ body {
     top: 1rem;
 }
 
-.waypoint {
-  font-size: 0;
-  display: inline-block;
-  height: 10px;
-  background: red;
+.react-waypoint {
+    font-size: 0;
+    display: block;
+    height: 1px;
+    width: 100%;
+
+    &.page-bottom {
+        height: 100px;
+    }
 }

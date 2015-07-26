@@ -71,3 +71,32 @@
     opacity: 1;
     transform: scale(1, 1);
 }
+
+
+
+
+
+/* Loader -----------------------------------------------------------------*/
+.loader-fade-in-appear {
+    opacity: .01;
+}
+
+.loader-fade-in-appear-active {
+    opacity: .5;
+}
+
+.loader-fade-in-enter {
+    opacity: .01;
+}
+
+.loader-fade-in-enter-active {
+    opacity: 1;
+}
+
+.loader-fade-in-leave {
+    opacity: .99;
+}
+
+.loader-fade-in-leave-active {
+    opacity: 0;
+}

@@ -3,7 +3,7 @@ var Waypoint = require('react-waypoint');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 
 // Number of images to fetch per request
-var count = '6';
+var count = '1';
 
 // Setup the initial ajax url
 var apiUrl = 'https://api.instagram.com/v1/users/5335790/media/recent/';
@@ -100,17 +100,6 @@ var Infinigram = React.createClass({
     });
   },
 
-  /* Render Loading Message */
-  _renderLoadingMessage: function() {
-    if (this.state.isLoading) {
-      return (
-        <p className="infinite-scroll-example__loading-message">
-          Loading...
-        </p>
-      );
-    }
-  },
-
   /* Render Waypoint */
   _renderWaypoint: function() {
     if (!this.state.isLoading) {
@@ -118,9 +107,18 @@ var Infinigram = React.createClass({
         <li className='ig-waypoint'>
           <Waypoint
             onEnter={this._loadMoreItems}
-            threshold={1.0}
+            threshold={.4}
           />
         </li>
+      );
+    }
+  },
+
+  /* Render Loader */
+  _renderLoader: function() {
+    if (this.state.isLoading) {
+      return (
+        <p className='scroll-arrow'/>
       );
     }
   },
@@ -129,11 +127,12 @@ var Infinigram = React.createClass({
   render: function() {
     return (
       <div className="ig-page">
+        {this._renderLoader()}
+        <p className='scroll-arrow'/>
         <ul className="ig-picture-list">
           {this._renderItems()}
           {this._renderWaypoint()}
         </ul>
-        <p className="ig-scroll-arrow" />
       </div>
     );
   }
