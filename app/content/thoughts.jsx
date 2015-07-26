@@ -5,8 +5,12 @@ var Thoughts = React.createClass({
   render: function() {
     return (
       <div className="page">
-        <ReactCSSTransitionGroup component="div" className="text-measure" transitionName='fade-in' transitionAppear={true}>
-          <article className="art">
+        <ReactCSSTransitionGroup
+          component="div"
+          transitionName='fade-in'
+          transitionAppear={true}
+        >
+          <article key="thoughts" className="thoughts text-measure">
             <h1 className="intro">art</h1>
             <p>
               Sometimes I draw things, and I wonder if what I’ve drawn is art, or something else. Doodles? Scribbles? Drawings? There must be  something else I can call it besides <em>art</em>. I don’t know why I’m so adverse to that term when referencing my own work — I use it generously when referring to other people’s efforts. But, when it comes up, I don’t call myself an artist. I just say, <em>“I like to draw”</em>.

@@ -36,7 +36,7 @@ var NavLinks = React.createClass({
       <ReactCSSTransitionGroup transitionName='slide-in' transitionAppear={true} >
         {
         store.isNavShowing &&
-        <ul className='site-nav-links'>
+        <ul key='siteLinks' className='site-nav-links'>
           { links }
         </ul>
       }

@@ -3,7 +3,6 @@ var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import { Link, RouteHandler } from 'react-router';
 import styles from '../styles/about.css';
 
-
 var Bio = React.createClass({
   render: function() {
     return (
