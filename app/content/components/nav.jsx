@@ -1,6 +1,6 @@
 var React = require('react');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
-import store from '../store';
+import store from '../../store';
 import { Link, RouteHandler } from 'react-router';
 
 var siteLinks = [
@@ -45,28 +45,30 @@ var NavLinks = React.createClass({
   }
 });
 
-// Primary Nav //
-var Nav = React.createClass({
-  getInitialState: function() {
-      return {
-          on: false
-      };
-  },
-
+var NavToggle = React.createClass({
   toggleNav() {
       store.isNavShowing = !store.isNavShowing;
-      this.setState({on: !this.state.on});
   },
-  render() {
-    var className = this.state.on ? "is-active" : "";
-    className += " nav-toggle";
 
+  render: function() {
+    var navClasses = store.isNavShowing ? "is-active" : "";
+    navClasses += ' nav-toggle';
+    return (
+      <button className={navClasses} onClick={this.toggleNav}>
+        <span className='inner'>toggle menu</span>
+      </button>
+    );
+  }
+});
+
+// Primary Nav //
+var Nav = React.createClass({
+  render() {
+  // console.log('nav.js isNavShowing = ' + store.isNavShowing);
     return (
       <nav className='site-nav'>
         <NavLinks />
-        <button className={className} onClick={this.toggleNav}>
-          <span className='inner'>toggle menu</span>
-        </button>
+        <NavToggle />
       </nav>
     )
   }

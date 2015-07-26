@@ -1,9 +1,8 @@
 var React = require('react');
 import { Link, RouteHandler } from 'react-router';
 import store from './store';
-import Nav from './content/nav.jsx';
-import Logo from './content/components/logo.jsx';
 import Header from './content/components/header.jsx';
+var Waypoint = require('react-waypoint');
 
 require('./styles/app.css');
 
@@ -13,15 +12,43 @@ var App = React.createClass({
     store.register(() => this.forceUpdate());
   },
 
+  hideHeader: function() {
+    console.log('Hide the header');
+    store.isNavShowing = false;
+  },
+
+  showHeader: function() {
+    if (store.isInifigramming) {
+      console.log('(4) Dont show the header.');
+    } else {
+      console.log('(4) Show the header.');
+      store.isNavShowing = true;
+      store.register(() => this.forceUpdate());
+      // console.log('isNavShowing = ' + store.isNavShowing);
+    }
+  },
+
   render() {
-    var options = { showAtBottom: true };
+    if (store.isInifigramming) {
+      console.log('(1) App: We\'re instagramming');
+    } else {
+      console.log('(1) App: We\'re NOT instagramming');
+    }
     return (
       <main role='main' id='app'>
-        <Header class="sticky-header" options={options}>
-          <Logo squished={store.isSquished} />
-          <Nav/>
-        </Header>
-          <RouteHandler />
+        <Waypoint
+          onEnter={this.showHeader}
+          onLeave={this.hideHeader}
+          threshold={0}
+          class={'page-top'}
+        />
+        <Header class="sticky-header"/>
+        <RouteHandler />
+        <Waypoint
+          onEnter={this.showHeader}
+          threshold={0}
+          class={'page-top'}
+        />
       </main>
     );
   }

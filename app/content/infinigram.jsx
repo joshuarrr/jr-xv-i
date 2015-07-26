@@ -1,6 +1,8 @@
 var React = require('react');
 var Waypoint = require('react-waypoint');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
+import store from '../store';
+import styles from '../styles/infinigram.css';
 
 // Number of images to fetch per request
 var count = '1';
@@ -10,6 +12,8 @@ var apiUrl = 'https://api.instagram.com/v1/users/5335790/media/recent/';
 var token = '5335790.ab103e5.bcdfe72e51244666a63a238b13eb902c';
 var url = apiUrl +'?access_token=' + token + '&count=' + count + '&callback=?';
 
+var setNum = '';
+
 /* Infinigram */
 var Infinigram = React.createClass({
 
@@ -18,13 +22,21 @@ var Infinigram = React.createClass({
     return {
       items: [],
       isLoading: false
-    };
+      };
+      store.isInifigramming = true;
+      setNum = 'a';
   },
 
   /* Did Mount */
   componentDidMount: function() {
-    this.setState({ isLoading: true });
-    // Make a jQueery Ajax call
+    store.isInifigramming = true;
+    setNum = 'b';
+
+    this.setState({
+      isLoading: true
+    })
+
+    // Make a jQuery Ajax call
     $.getJSON(url, function(result){
       if(!result || !result.data || !result.data.length){
         console.log('Something went wrong with the ajax request.')
@@ -52,7 +64,9 @@ var Infinigram = React.createClass({
     if (morePics) {
       this.setState({ isLoading: true });
       var url = this.state.nextSet + '&callback=?';
-      // console.log('next url = ' + this.state.nextSet);
+
+      store.isInifigramming = true;
+      setNum = 'c';
 
       $.getJSON(url, function(result){
         if(!result || !result.data || !result.data.length){
@@ -73,6 +87,9 @@ var Infinigram = React.createClass({
         });
         // console.log('Currently showing = ' + this.state.items.length + ' items.');
       }.bind(this));
+    } else if (!morePics) {
+      store.isInifigramming = false;
+        setNum = 'd';
     }
   },
 
@@ -125,6 +142,8 @@ var Infinigram = React.createClass({
 
   /* Render */
   render: function() {
+    console.log('(3) -'+ setNum + '- IG Infigramming store = ' + store.isInifigramming);
+
     return (
       <div className="page infinigram">
         {this._renderLoader()}

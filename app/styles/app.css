@@ -19,3 +19,13 @@ body {
 .loading-bar {
     top: 1rem;
 }
+
+.react-waypoint.page-top {
+    background-color: red;
+    width: 100%;
+    height: 1px;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}

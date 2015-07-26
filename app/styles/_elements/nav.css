@@ -10,7 +10,7 @@ $menu-icon-padding: $grid-padding * 2;
 $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 /* Sticky Header */
-.sticky-header {
+.header {
     position: fixed;
     z-index: 1;
     top: 0;
@@ -29,7 +29,8 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .site-nav {
     height: $header-height;
-    position: relative;
+    position: absolute;
+    width: 100%;
 }
 
 .site-nav-links {

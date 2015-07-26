@@ -11,6 +11,11 @@ var store = window.store = {
   get isLoaded() { return this._isLoaded; },
   set isLoaded(loaded) { this._isLoaded = loaded; this.notify(); },
 
+  // Is the infinigrammer loading pics?
+  _isInifigramming: false,
+  get isInifigramming() { return this._isInifigramming; },
+  set isInifigramming(yes) { this._isInifigramming = yes; this.notify(); },
+
   // Nav
   _isNavShowing: false,
   get isNavShowing() { return this._isNavShowing; },

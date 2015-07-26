@@ -2,8 +2,8 @@ var React = require('react');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 var Colors = require('./style-guide/colors.jsx');
 var Typography = require('./style-guide/typography.jsx');
-import styles from '../styles/style-guide.css';
 import store from '../store';
+import styles from '../styles/style-guide.css';
 
 // console.log(styles);
 var DevMode = React.createClass({
@@ -25,10 +25,12 @@ var StyleGuide = React.createClass({
   getInitialState: function() {
       return { on: false };
   },
+
   handleClick() {
       store.isDevMode = !store.isDevMode;
       this.setState({on: !this.state.on});
   },
+
   render: function () {
     var devClasses = this.state.on ? "is-active" : "";
     devClasses += " dev-mode-toggle-icon icon-gear";
