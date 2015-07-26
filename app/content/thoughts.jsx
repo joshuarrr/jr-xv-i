@@ -1,6 +1,7 @@
 var React = require('react');
 import styles from '../styles/art.css';
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
+var Waypoint = require('react-waypoint');
 
 var Thoughts = React.createClass({
   render: function() {

@@ -1,9 +1,9 @@
 var React = require('react');
+var Waypoint = require('react-waypoint');
 import { Link, RouteHandler } from 'react-router';
 import store from './store';
 import Nav from './content/nav.jsx';
 import Logo from './content/components/logo.jsx';
-import Header from './content/components/header.jsx';
 
 require('./styles/app.css');
 
@@ -12,15 +12,17 @@ var App = React.createClass({
   componentDidMount() {
     store.register(() => this.forceUpdate());
   },
+  doSomething() {
+
+  },
   render() {
-    var options = { showAtBottom: true };
     return (
       <main role='main' id='app'>
-          <Header class="sticky-header" options={options}>
-            <Nav/>
-            <Logo squished={store.isSquished} loaded={store.isLoaded} />
-          </Header>
-        <RouteHandler />
+        <header className="sticky-header">
+          <Logo squished={store.isSquished} loaded={store.isLoaded} />
+          <Nav/>
+        </header>
+            <RouteHandler />
       </main>
     );
   }

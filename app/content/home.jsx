@@ -2,6 +2,8 @@ var React = require('react');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import { Link, RouteHandler } from 'react-router';
 import styles from '../styles/about.css';
+var Waypoint = require('react-waypoint');
+
 
 var Bio = React.createClass({
   render: function() {
@@ -67,8 +69,10 @@ var Home = React.createClass({
     return (
       <div className="page homeabout-page">
         <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
+          <Waypoint onEnter={this.doSomething} threshold={2.0} />
           <Bio />
           <Links />
+          <Waypoint onEnter={this.doSomething} threshold={2.0} />
         </ReactCSSTransitionGroup>
       </div>
     );

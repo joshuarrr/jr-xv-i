@@ -6,7 +6,7 @@ import Art from './content/art.jsx';
 import Design from './content/design.jsx';
 import Home from './content/home.jsx';
 import Ig from './content/ig.jsx';
-import infinIG from './content/instagram.jsx';
+import Infinigram from './content/infinigram.jsx';
 import NotFound from './content/not_found.jsx';
 import StyleGuide from './content/style-guide.jsx';
 import Thoughts from './content/thoughts.jsx';
@@ -19,7 +19,7 @@ var Routes = (
   <Route name="design" handler={Design} />
   <Route name="guide" handler={StyleGuide} />
   <Route name="ig" handler={Ig} />
-  <Route name="instagram" handler={infinIG} />
+  <Route name="instagram" handler={Infinigram} />
   <Route name="thoughts" handler={Thoughts} />
   <Route name="way" handler={WaypointTest} />
   <NotFoundRoute handler={NotFound} />

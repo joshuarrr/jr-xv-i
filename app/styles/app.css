@@ -19,3 +19,10 @@ body {
 .loading-bar {
     top: 1rem;
 }
+
+.waypoint {
+  font-size: 0;
+  display: inline-block;
+  height: 10px;
+  background: red;
+}
