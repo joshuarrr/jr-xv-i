@@ -29,32 +29,25 @@
 }
 
 /* slide-in -----------------------------------------------------------------*/
+
 .slide-in-appear {
     transform: translateY(-100%);
-    transition-duration: $default-duration;
-    transition-property: transform;
-    transition-timing-function: $bounce-in;
 }
 
 .slide-in-appear-active {
-    transform: translateY(0);
+    transform: translateY(1%);
 }
 
 .slide-in-enter {
     transform: translateY(-100%);
-    transition-duration: $default-duration;
-    transition-property: transform;
-    transition-timing-function: $bounce-in;
 }
 
 .slide-in-enter-active {
-    transform: translateY(0);
+    transform: translateY(1%);
 }
 
 .slide-in-leave {
     transform: translateY(0);
-    transition-duration: $default-duration;
-    transition-property: transform;
 }
 
 .slide-in-leave-active {

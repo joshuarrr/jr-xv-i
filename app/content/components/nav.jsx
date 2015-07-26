@@ -33,7 +33,7 @@ var NavLinks = React.createClass({
     });
 
     return (
-      <ReactCSSTransitionGroup transitionName='slide-in'>
+      <ReactCSSTransitionGroup transitionName='slide-in' transitionAppear={true} >
         {
         store.isNavShowing &&
         <ul className='site-nav-links'>
@@ -47,7 +47,7 @@ var NavLinks = React.createClass({
 
 var NavToggle = React.createClass({
   toggleNav() {
-      store.isNavShowing = !store.isNavShowing;
+    store.isNavShowing = !store.isNavShowing;
   },
 
   render: function() {
@@ -63,6 +63,7 @@ var NavToggle = React.createClass({
 
 // Primary Nav //
 var Nav = React.createClass({
+
   render() {
   // console.log('nav.js isNavShowing = ' + store.isNavShowing);
     return (

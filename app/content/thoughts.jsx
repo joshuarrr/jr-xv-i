@@ -1,5 +1,4 @@
 var React = require('react');
-import styles from '../styles/art.css';
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 
 var Thoughts = React.createClass({

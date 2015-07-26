@@ -1,5 +1,4 @@
 var React = require('react');
-import styles from '../styles/art.css';
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 
 var Design = React.createClass({
@@ -7,7 +6,7 @@ var Design = React.createClass({
     return (
       <div className="page">
         <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
-          <div className="art text-measure">
+          <div className="design text-measure">
             <h1 className="intro">design</h1>
             <p className="intro">This section is coming soon.</p>
           </div>
