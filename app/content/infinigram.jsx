@@ -126,7 +126,7 @@ var Infinigram = React.createClass({
   /* Render */
   render: function() {
     return (
-      <div className="ig-page">
+      <div className="page infinigram">
         {this._renderLoader()}
         <p className='scroll-arrow'/>
         <ul className="ig-picture-list">

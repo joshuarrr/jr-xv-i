@@ -2,8 +2,8 @@
 
 /*! Instagram Page -----------------------------------------------------------*/
 
-.ig-page {
-
+.page.infinigram {
+    padding: 0;
 }
 
 .ig-picture-list {
@@ -38,10 +38,8 @@
     width: 100%;
 }
 
-
-.ig-more {
-    display: block;
-    margin: 0 auto;
+.scroll-arrow {
+    display: none;
 }
 
 /*.scroll-arrow {
@@ -61,5 +59,4 @@
         text-align: center;
         opacity: .2;
     }
-
 }*/
