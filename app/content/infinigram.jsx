@@ -107,7 +107,7 @@ var Infinigram = React.createClass({
         <li className='ig-waypoint'>
           <Waypoint
             onEnter={this._loadMoreItems}
-            threshold={.4}
+            threshold={1}
           />
         </li>
       );

@@ -1,4 +1,5 @@
 var React = require('react');
+
 function Scrolling(options, change) {
     this.options = options;
     this.change = change;

@@ -19,14 +19,3 @@ body {
 .loading-bar {
     top: 1rem;
 }
-
-.react-waypoint {
-    font-size: 0;
-    display: block;
-    height: 1px;
-    width: 100%;
-
-    &.page-bottom {
-        height: 100px;
-    }
-}

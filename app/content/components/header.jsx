@@ -77,7 +77,7 @@ var Header = React.createClass({
     }
 
     this.scrolling = new Scrolling(this.props.options, onChange.bind(this));
-    this.onScroll = this.scrolling.handle.bind(this.scrolling);
+      this.onScroll = this.scrolling.handle.bind(this.scrolling);
   },
 
   componentDidMount: function() {
