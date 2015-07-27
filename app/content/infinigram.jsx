@@ -24,8 +24,6 @@ var Infinigram = React.createClass({
       items: [],
       isLoading: false
       };
-      store.isInifigramming = true;
-      setNum = 'a';
   },
 
   /* Did Mount */
