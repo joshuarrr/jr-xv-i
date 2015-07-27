@@ -8,7 +8,6 @@
 
 .ig-picture-list {
     line-height: 0;
-    margin-bottom: 6rem;
     @mixin clearfix;
 }
 
@@ -26,6 +25,11 @@
         &:nth-of-type(2n) {
             border-right: 0;
         }
+
+        &:nth-last-of-type(2),
+        &:nth-last-of-type(3) {
+            border-bottom: none;
+        }
     }
 }
 
@@ -36,10 +40,30 @@
     float: left;
 }
 
-.scroll-arrow {
-    display: none;
-}
+/* Loader */
+.loading-msg {
+    bottom: 3rem;
+    font-size: 0;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: transparent;
 
+    &:after {
+        @mixin mono-font 1;
+        background: color(white a(70%));
+        content: 'loading...';
+        color: $black-07;
+        font-weight: 300;
+        letter-spacing: 1px;
+        padding: .5rem 1rem;
+        border-radius: .2rem;
+        text-rendering: geometricPrecision;
+        z-index: 100;
+    }
+}
 
 .ig-waypoint {
     height: 1px;

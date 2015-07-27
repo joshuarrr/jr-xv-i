@@ -14,7 +14,7 @@ $border-color: $black-05;
     background-color: $black-07;
     border-radius: calc($logo-width/2);
     border: $border-width solid $border-color;
-    box-shadow: 0 0 0 2px $background-color,
+    box-shadow: 0 0 0 1px $background-color,
                 0 0 0 3px $black-02;
     display: block;
     font-weight: 400;

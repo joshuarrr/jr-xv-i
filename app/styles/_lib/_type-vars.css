@@ -4,7 +4,7 @@ $mono-font-family: 'Fira Mono', monospace, sans-serif;
 $base-font-size: 10px;
 $base-line-height: 1;
 
-$base-font-size: 1.4;
+$base-font-size: 1.5;
 $base-line-height: 1.5;
 
 /* Responsive font-sizes */
@@ -17,16 +17,16 @@ $base-line-height: 1.5;
     @media (--highRes) { font-size: calc($fs * 1.4)rem; line-height: $lh; }
 }
 
-@define-mixin serif-font {
+@define-mixin serif-font $fs: $base-font-size {
     font-family: $serif-font-family;
-    @mixin responsive-font-size;
+    @mixin responsive-font-size $fs;
     font-variant-ligatures: common-ligatures;
     font-feature-settings: "liga", "clig";
 }
 
-@define-mixin mono-font {
+@define-mixin mono-font $fs: 1.2 {
     font-family: $mono-font-family;
-    @mixin responsive-font-size 1.2;
+    @mixin responsive-font-size $fs;
     font-variant-ligatures: no-common-ligatures;
     font-feature-settings: "liga" 0, "clig" 0;
 }

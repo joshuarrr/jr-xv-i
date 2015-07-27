@@ -15,26 +15,22 @@ body {
     @mixin container-padding calc(10rem + $header-height), $outer-margin, 10rem;
 }
 
-/* Loader */
-.loading-bar {
-    top: 1rem;
-}
-
 .react-waypoint.page-top {
     /*background-color: red;*/
     width: 100%;
     height: 0px;
-    display: inline-block;
+    display: block;
     margin: 0;
     padding: 0;
     position: absolute;
     top: 30px;
 }
+
 .react-waypoint.page-bottom {
     /*background-color: green;*/
     width: 100%;
     height: 0px;
-    display: inline-block;
+    display: block;
     margin: 0;
     padding: 0;
 }

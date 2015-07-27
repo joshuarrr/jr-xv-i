@@ -1,6 +1,7 @@
 import React from 'react';
+import store from '../../store';
 
-export default class LoadingBar extends React.Component {
+export default class Loader extends React.Component {
   constructor(props) {
     super(props);
     this.state = { width: 0, left: 0 };
@@ -26,9 +27,9 @@ export default class LoadingBar extends React.Component {
   }
   render() {
     const style = {
-      display: (this.props.active) ? 'block' : 'none',
+      display: (store.isInifigramming) ? 'block' : 'none',
       position: 'fixed',
-      top: '0px',
+      bottom: '0px',
       left: `${this.state.left}%`,
       right: '0px',
       width: `${this.state.width}%`,
@@ -41,18 +42,18 @@ export default class LoadingBar extends React.Component {
   }
 }
 
-LoadingBar.defaultProps = {
+Loader.defaultProps = {
   active: false,
   speed: 20,
   color: "#60d778",
   height: "2px"
 };
 
-LoadingBar.propTypes = {
+Loader.propTypes = {
   active: React.PropTypes.bool,
   speed: React.PropTypes.number,
   color: React.PropTypes.string,
   height: React.PropTypes.string
 };
 
-module.exports = LoadingBar;
+module.exports = Loader;

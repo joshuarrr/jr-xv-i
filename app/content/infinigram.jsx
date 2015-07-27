@@ -2,6 +2,7 @@ var React = require('react');
 var Waypoint = require('react-waypoint');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import store from '../store';
+import Loader from './components/loader.jsx';
 import styles from '../styles/infinigram.css';
 
 // Number of images to fetch per request
@@ -104,8 +105,7 @@ var Infinigram = React.createClass({
             component='li'
             key={index}
             transitionName='fade-in'
-            transitionAppear={true}
-          >
+            transitionAppear={true}>
             <video
               width="100%"
               height="100%"
@@ -113,14 +113,12 @@ var Infinigram = React.createClass({
               loop={true}
               muted={true}
               controls={true}
-              className="ig-video"
-            >
+              className="ig-video">
               <source
                 src={p.videos.standard_resolution.url}
                 type="video/mp4"
               />
             </video>
-
           </ReactCSSTransitionGroup>
         );
       }
@@ -131,8 +129,7 @@ var Infinigram = React.createClass({
             component='li'
             key={index}
             transitionName='fade-in'
-            transitionAppear={true}
-          >
+            transitionAppear={true}>
             <img
               src={p.images.standard_resolution.url}
               alt='image'
@@ -164,19 +161,17 @@ var Infinigram = React.createClass({
   _renderLoader: function() {
     if (this.state.isLoading) {
       return (
-        <p className='scroll-arrow'/>
+        <p className='loading-msg'>loading...</p>
       );
     }
   },
 
   /* Render */
   render: function() {
-    console.log('(3) -'+ setNum + '- IG Infigramming store = ' + store.isInifigramming);
-
+    // console.log('(3) -'+ setNum + '- IG Infigramming store = ' + store.isInifigramming);
     return (
       <div className='page infinigram'>
         {this._renderLoader()}
-        <p className='scroll-arrow'/>
         <ul className='ig-picture-list'>
           {this._renderItems()}
           {this._renderWaypoint()}
