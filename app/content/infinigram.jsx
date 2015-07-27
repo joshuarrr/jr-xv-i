@@ -97,23 +97,52 @@ var Infinigram = React.createClass({
   _renderItems: function() {
     // console.log('renderItems this.state.items = ' + this.state.items);
     return this.state.items.map(function(p, index) {
-      return (
-        <ReactCSSTransitionGroup
-          className='ig-picture-li'
-          component='li'
-          key={index}
-          transitionName='fade-in'
-          transitionAppear={true}
-        >
-          <img
-            src={p.images.standard_resolution.url}
-            alt='image'
-            link={p.link}
-            title={p.caption ? p.caption.text : ''}
-            className='ig-picture'
-          />
-        </ReactCSSTransitionGroup>
-      );
+      if (p.type == 'video') {
+        return (
+          <ReactCSSTransitionGroup
+            className='ig-picture-li'
+            component='li'
+            key={index}
+            transitionName='fade-in'
+            transitionAppear={true}
+          >
+            <video
+              width="100%"
+              height="100%"
+              autoPlay='autoplay'
+              loop={true}
+              muted={true}
+              controls={true}
+              className="ig-video"
+            >
+              <source
+                src={p.videos.standard_resolution.url}
+                type="video/mp4"
+              />
+            </video>
+
+          </ReactCSSTransitionGroup>
+        );
+      }
+      if (p.type == 'image') {
+        return (
+          <ReactCSSTransitionGroup
+            className='ig-picture-li'
+            component='li'
+            key={index}
+            transitionName='fade-in'
+            transitionAppear={true}
+          >
+            <img
+              src={p.images.standard_resolution.url}
+              alt='image'
+              link={p.link}
+              title={p.caption ? p.caption.text : ''}
+              className='ig-picture'
+            />
+          </ReactCSSTransitionGroup>
+        );
+      }
     });
   },
 
@@ -145,10 +174,10 @@ var Infinigram = React.createClass({
     console.log('(3) -'+ setNum + '- IG Infigramming store = ' + store.isInifigramming);
 
     return (
-      <div className="page infinigram">
+      <div className='page infinigram'>
         {this._renderLoader()}
         <p className='scroll-arrow'/>
-        <ul className="ig-picture-list">
+        <ul className='ig-picture-list'>
           {this._renderItems()}
           {this._renderWaypoint()}
         </ul>

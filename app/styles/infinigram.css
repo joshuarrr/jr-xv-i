@@ -14,34 +14,38 @@
 
 .ig-picture-li {
     display: block;
+    overflow: hidden;
+    border-right: 1px solid $lightester-gray;
+    border-bottom: 1px solid $lightester-gray;
 
     @media (--fablet)  {
         float: left;
-        width: 50%;
+        width: 50vw;
+        height: 50vw;
 
         &:nth-of-type(2n) {
-            .ig-picture {
-                border-right: 0;
-            }
+            border-right: 0;
         }
     }
 }
 
-.ig-waypoint {
-    height: 1px;
-    width: 100%;
+.ig-picture,
+.ig-video {
+    width: 50vw;
+    height: 50vw;
     float: left;
-}
-
-.ig-picture {
-    outline: 1px solid $lightester-gray;
-    width: 100%;
 }
 
 .scroll-arrow {
     display: none;
 }
 
+
+.ig-waypoint {
+    height: 1px;
+    width: 100%;
+    float: left;
+}
 /*.scroll-arrow {
     $size: 5rem;
     position: fixed;
