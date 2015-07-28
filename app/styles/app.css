@@ -12,7 +12,7 @@ body {
 /* Page */
 .page {
     @mixin clearfix;
-    @mixin container-padding calc(10rem + $header-height), $outer-margin, 10rem;
+    @mixin container-padding calc(15rem + $header-height), $outer-margin, 10rem;
 }
 
 .react-waypoint.page-top {

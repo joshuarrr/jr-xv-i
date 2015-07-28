@@ -56,12 +56,16 @@ $border-color: $black-05;
         opacity: 1;
         transform: scale(1, 1);
     }
+
     &:hover {
         background: #000;
         cursor: pointer;
     }
 
-    &.fixed {
-        position: fixed;
+    &.active {
+        &:hover {
+            background-color: $black-07;
+            cursor: default;
+        }
     }
 }

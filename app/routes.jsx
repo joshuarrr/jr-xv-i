@@ -12,14 +12,14 @@ import NotFound from './content/not_found.jsx';
 
 var Routes = (
   <Route name="App" handler={App} path="/">
-  <DefaultRoute name="home" handler={Home} />
   <Route name="art" handler={Art} />
   <Route name="design" handler={Design} />
   <Route name="guide" handler={StyleGuide} />
   <Route name="instagram" handler={Infinigram} />
   <Route name="thoughts" handler={Thoughts} />
+  <DefaultRoute name="home" handler={Home} />
   <NotFoundRoute handler={NotFound} />
   </Route>
-  );
+);
 
 export default Routes;

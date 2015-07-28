@@ -24,10 +24,14 @@ var siteLinks = [
 
 var NavLinks = React.createClass({
   render: function() {
-    var links = siteLinks.map(function (link) {
+    var links = siteLinks.map(function (l) {
       return (
-        <li className="site-nav-item" key={link.to}>
-          <Link className="site-nav-link" to={link.to} tabIndex="3">{link.title}</Link>
+        <li className="site-nav-item" key={l.to}>
+          <Link
+            className="site-nav-link"
+            to={l.to} tabIndex="3">
+            {l.title}
+          </Link>
         </li>
       )
     });
