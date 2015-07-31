@@ -23,13 +23,13 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 }
 
 
-.site-nav {
+.nav {
     height: $header-height;
     position: absolute;
     width: 100%;
 }
 
-.site-nav-links {
+.nav-links {
     @mixin clearfix;
     background: $black-01;
     border-bottom: $default-border;
@@ -49,12 +49,12 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     transition-timing-function: $bounce-in;
 }
 
-.site-nav-item {
+.nav-item {
     @mixin clearfix;
     float: right;
 }
 
-.site-nav-link {
+.nav-link {
     @mixin mono-font;
     text-rendering: geometricPrecision;
     float: right;

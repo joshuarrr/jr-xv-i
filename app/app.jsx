@@ -1,7 +1,7 @@
 var React = require('react');
 import { Link, RouteHandler } from 'react-router';
 import store from './store';
-import Header from './content/components/header.jsx';
+import Header from './components/header.jsx';
 var Waypoint = require('react-waypoint');
 
 require('./styles/app.css');
@@ -27,9 +27,10 @@ var App = React.createClass({
 
   render() {
     if (store.isInifigramming) {
-      // console.log('(1) App: We\'re instagramming');
+      // console.log('(1) App: We\'re infinigramming');
+      var infinigramming = true;
     } else {
-      // console.log('(1) App: We\'re NOT instagramming');
+      // console.log('(1) App: We\'re NOT infinigramming');
     }
     return (
       <main role='main' id='app'>
@@ -39,7 +40,7 @@ var App = React.createClass({
           threshold={0}
           class={'page-top'}
         />
-        <Header class="sticky-header" />
+        <Header class={'header'} infinigramming={infinigramming} />
         <RouteHandler />
         <Waypoint
           onEnter={this.showHeader}

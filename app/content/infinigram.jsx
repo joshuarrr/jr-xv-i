@@ -2,7 +2,7 @@ var React = require('react');
 var Waypoint = require('react-waypoint');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import store from '../store';
-import Loader from './components/loader.jsx';
+import Loader from '../components/loader.jsx';
 import styles from '../styles/infinigram.css';
 
 // Number of images to fetch per request

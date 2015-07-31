@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import { Link, RouteHandler, Routes } from 'react-router';
-// import { SocialLinksList } from '../data/social_links.jsx';
+import socialLinkList from '../data/social_links.js';
 import styles from '../styles/about.css';
 
 var Bio = React.createClass({
@@ -22,33 +22,9 @@ var Bio = React.createClass({
   }
 });
 
-var socialLinksList = [
-  {
-    title: 'idealist',
-    url: 'http://www.idealist.org/view/user/Jn9FMxcwskMD/',
-    class: 'icon-idealist'
-  }, {
-    title: 'instagram',
-    url: 'https://instagram.com/joshrr',
-    class: 'icon-instagram'
-  }, {
-    title: 'linkedin',
-    url: 'https://www.linkedin.com/in/joshuarichey',
-    class: 'icon-linkedin'
-  }, {
-    title: 'twitter',
-    url: 'https://twitter.com/jawshoowahr',
-    class: 'icon-twitter'
-  }, {
-    title: 'github',
-    url: 'https://github.com/joshuarrr',
-    class: 'icon-github'
-  }
-];
-
 var SocialLinks = React.createClass({
   render: function() {
-    var links = socialLinksList.map(function (l, i) {
+    var links = socialLinkList.map(function (l, i) {
       return (
         <li key={'link-' + i} className='about-link-item'>
           <a
