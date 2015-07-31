@@ -7,8 +7,8 @@ import store from '../store';
 var NavLinks = React.createClass({
 
   render: function() {
-    console.log('NavLinks infini = ' + this.props.infinigram);
-    var infini = this.props.infinigram ? " is-infinigramming" : "";
+    var infiniClass = store.isInifigramming ? " is-infinigramming" : "";
+    console.log('NavLinks infini = ' + store.isInifigramming);
     var links = navLinkList.map(function (l) {
       return (
         <li className="nav-item" key={l.to}>
@@ -25,7 +25,7 @@ var NavLinks = React.createClass({
       <ReactCSSTransitionGroup transitionName='slide-in' transitionAppear={true} >
         {
         store.isNavShowing &&
-        <ul key='navLinks' className={'nav-links' + infini}>
+        <ul key='navLinks' className={'nav-links' + infiniClass}>
           { links }
         </ul>
       }
@@ -38,7 +38,7 @@ var NavToggle = React.createClass({
 
   toggleNav() {
     store.isNavShowing = !store.isNavShowing;
-    console.log('After toggle, isNavShowing = ' + store.isNavShowing);
+    // console.log('After toggle, isNavShowing = ' + store.isNavShowing);
   },
 
   render: function() {
@@ -55,10 +55,9 @@ var NavToggle = React.createClass({
 // Primary Nav //
 var Nav = React.createClass({
   render() {
-    console.log('Nav infinigram = ' + this.props.infinigram);
     return (
       <nav className='nav'>
-        <NavLinks infinigram={ this.props.infinigram } />
+        <NavLinks />
         <NavToggle />
       </nav>
     )

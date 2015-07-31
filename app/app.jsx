@@ -25,8 +25,6 @@ var App = React.createClass({
   },
 
   render() {
-    var infinigramming = store.isInifigramming ? true : false;
-    console.log('App infinigramming = ' + store.isInifigramming);
     return (
       <main role='main' id='app'>
         <Waypoint
@@ -35,7 +33,7 @@ var App = React.createClass({
           threshold={0}
           class={'page-top'}
         />
-        <Header class={'header'} infinigramming={infinigramming} />
+        <Header class={'header'} />
         <RouteHandler />
         <Waypoint
           onEnter={this.showHeader}

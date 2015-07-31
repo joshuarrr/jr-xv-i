@@ -29,7 +29,6 @@ var Infinigram = React.createClass({
   /* Did Mount */
   componentDidMount: function() {
     store.isInifigramming = true;
-    setNum = 'b';
 
     this.setState({
       isLoading: true
@@ -162,6 +161,10 @@ var Infinigram = React.createClass({
         <p className='loading-msg'>loading...</p>
       );
     }
+  },
+
+  componentWillUnmount: function() {
+    store.isInifigramming = false;
   },
 
   /* Render */
