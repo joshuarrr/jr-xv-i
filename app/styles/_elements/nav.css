@@ -11,7 +11,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 /* Sticky Header */
 .header {
-    position: fixed;
+    position: relative;
     z-index: 1;
     top: 0;
     left: 0;
@@ -20,6 +20,30 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     transition-duration: $default-duration;
     transition-property: background-color, opacity, transform;
     transition-timing-function: $bounce-in;
+
+    &.tablet {
+        position: relative;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: $header-height;
+        width: 100%;
+        transition-duration: $default-duration;
+        transition-property: background-color, opacity, transform;
+        transition-timing-function: $bounce-in;
+    }
+
+    &.laptop {
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        height: $header-height;
+        width: 100%;
+        transition-duration: $default-duration;
+        transition-property: background-color, opacity, transform;
+        transition-timing-function: $bounce-in;
+    }
 }
 
 .nav {

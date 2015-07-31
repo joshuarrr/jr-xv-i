@@ -3,7 +3,7 @@ import { Link, RouteHandler } from 'react-router';
 import store from './store';
 import Header from './components/header.jsx';
 var Waypoint = require('react-waypoint');
-
+var MediaQuery = require('react-responsive');
 require('./styles/app.css');
 
 // Main App //
@@ -25,7 +25,6 @@ var App = React.createClass({
   },
 
   render() {
-
     return (
       <main role='main' id='app'>
         <Waypoint
@@ -34,7 +33,15 @@ var App = React.createClass({
           threshold={0}
           class={'page-top'}
         />
-        <Header class={'header'} />
+        <MediaQuery component='span' maxWidth={568}>
+          <Header class={'header phone'} />
+        </MediaQuery>
+        <MediaQuery component='span' minWidth={569} maxWidth={1023}>
+          <Header class={'header tablet'} />
+        </MediaQuery>
+        <MediaQuery component='span' minWidth={1024}>
+          <Header class={'header laptop'} />
+        </MediaQuery>
         <RouteHandler />
         <Waypoint
           onEnter={this.showHeader}
