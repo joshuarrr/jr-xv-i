@@ -8,7 +8,6 @@ require('./styles/app.css');
 
 // Main App //
 var App = React.createClass({
-
   hideHeader: function() {
     // console.log('Hide the header');
     store.isNavShowing = false;
@@ -26,12 +25,8 @@ var App = React.createClass({
   },
 
   render() {
-    if (store.isInifigramming) {
-      // console.log('(1) App: We\'re infinigramming');
-      var infinigramming = true;
-    } else {
-      // console.log('(1) App: We\'re NOT infinigramming');
-    }
+    var infinigramming = store.isInifigramming ? true : false;
+    console.log('App infinigramming = ' + store.isInifigramming);
     return (
       <main role='main' id='app'>
         <Waypoint

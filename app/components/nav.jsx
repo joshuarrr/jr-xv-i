@@ -4,27 +4,11 @@ import { Link, RouteHandler } from 'react-router';
 import navLinkList from '../data/nav_links.js';
 import store from '../store';
 
-var siteLinks = [
-  {
-    to: 'thoughts',
-    title: 'thoughts'
-  }, {
-    to: 'instagram',
-    title: 'pictures'
-  }, {
-    to: 'design',
-    title: 'design'
-  }, {
-    to: 'art',
-    title: 'art'
-  }, {
-    to: 'home',
-    title: 'about'
-  }
-];
-
 var NavLinks = React.createClass({
+
   render: function() {
+    console.log('NavLinks infini = ' + this.props.infinigram);
+    var infini = this.props.infinigram ? " is-infinigramming" : "";
     var links = navLinkList.map(function (l) {
       return (
         <li className="nav-item" key={l.to}>
@@ -41,7 +25,7 @@ var NavLinks = React.createClass({
       <ReactCSSTransitionGroup transitionName='slide-in' transitionAppear={true} >
         {
         store.isNavShowing &&
-        <ul key='siteLinks' className='nav-links'>
+        <ul key='navLinks' className={'nav-links' + infini}>
           { links }
         </ul>
       }
@@ -54,12 +38,11 @@ var NavToggle = React.createClass({
 
   toggleNav() {
     store.isNavShowing = !store.isNavShowing;
-    console.log('after toggle = ' + store.isNavShowing);
+    console.log('After toggle, isNavShowing = ' + store.isNavShowing);
   },
 
   render: function() {
     var navClasses = store.isNavShowing ? "is-active" : "";
-    console.log('render nav state = ' + store.isNavShowing);
     navClasses += ' nav-toggle';
     return (
       <button className={navClasses} onClick={this.toggleNav}>
@@ -71,12 +54,11 @@ var NavToggle = React.createClass({
 
 // Primary Nav //
 var Nav = React.createClass({
-
   render() {
-  // console.log('nav.js isNavShowing = ' + store.isNavShowing);
+    console.log('Nav infinigram = ' + this.props.infinigram);
     return (
       <nav className='nav'>
-        <NavLinks />
+        <NavLinks infinigram={ this.props.infinigram } />
         <NavToggle />
       </nav>
     )

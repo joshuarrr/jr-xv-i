@@ -7,10 +7,11 @@ import store from '../store';
 var Header = React.createClass({
 
   render: function() {
+    console.log('Header infinigramming = ' + this.props.infinigramming);
     return (
       <header className={ this.props.class }>
         <Logo squished={ store.isSquished } />
-        <Nav infinigramming="this.props.infinigramming" />
+        <Nav infinigram={ this.props.infinigramming } />
       </header>
     );
   }
