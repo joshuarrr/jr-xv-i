@@ -12,9 +12,9 @@ var store = window.store = {
   set isLoaded(loaded) { this._isLoaded = loaded; this.notify(); },
 
   // Is the infinigrammer loading pics?
-  _isInifigramming: false,
-  get isInifigramming() { return this._isInifigramming; },
-  set isInifigramming(yes) { this._isInifigramming = yes; this.notify(); },
+  _isInfinigramming: false,
+  get isInfinigramming() { return this._isInfinigramming; },
+  set isInfinigramming(yes) { this._isInfinigramming = yes; this.notify(); },
 
   // Nav
   _isNavShowing: false,

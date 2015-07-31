@@ -7,8 +7,7 @@ import store from '../store';
 var NavLinks = React.createClass({
 
   render: function() {
-    var infiniClass = store.isInifigramming ? " is-infinigramming" : "";
-    console.log('NavLinks infini = ' + store.isInifigramming);
+    var infiniClass = store.isInfinigramming ? " is-infinigramming" : "";
     var links = navLinkList.map(function (l) {
       return (
         <li className="nav-item" key={l.to}>

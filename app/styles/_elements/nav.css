@@ -22,7 +22,6 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     transition-timing-function: $bounce-in;
 }
 
-
 .nav {
     height: $header-height;
     position: absolute;
@@ -31,7 +30,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .nav-links {
     @mixin clearfix;
-    background: $black-01;
+    background-color: $black-01;
     border-bottom: $default-border;
     padding: $grid-padding;
     padding-right: $nav-links-pad-right;
@@ -45,8 +44,12 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     bottom: 0;
     $slide-duration: .5s;
     transition-duration: $slide-duration;
-    transition-property: transform;
+    transition-property: transform, background-color;
     transition-timing-function: $bounce-in;
+
+    &.is-infinigramming {
+        background-color: $black-03;
+    }
 }
 
 .nav-item {
