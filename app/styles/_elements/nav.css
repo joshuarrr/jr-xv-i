@@ -30,8 +30,9 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .nav-links {
     @mixin clearfix;
-    background-color: $black-01;
+    background-color: $lightest-gray;
     border-bottom: $default-border;
+    opacity: .9;
     padding: $grid-padding;
     padding-right: $nav-links-pad-right;
     width: 100%;
@@ -44,7 +45,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     bottom: 0;
     $slide-duration: .3s;
     transition:
-        transform $slide-duration $bounce-in,
+        transform $slide-duration $bounce-in .3s,
         background-color 0.3s ease-out;
 
     &.is-gramming {

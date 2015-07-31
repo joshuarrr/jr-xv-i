@@ -16,15 +16,16 @@ var App = React.createClass({
 
   showHeader: function() {
     if (store.isInifigramming) {
-      // console.log('(4) Dont show the header.');
+      // console.log('Inifigramming. Dont show the header.');
     } else {
-      // console.log('(4) Show the header.');
+      // console.log('Not infinigramming. Show the header');
       store.isNavShowing = true;
       store.register(() => this.forceUpdate());
     }
   },
 
   render() {
+
     return (
       <main role='main' id='app'>
         <Waypoint
