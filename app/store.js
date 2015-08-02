@@ -21,6 +21,11 @@ var store = window.store = {
   get isNavShowing() { return this._isNavShowing; },
   set isNavShowing(showing) { this._isNavShowing = showing; this.notify(); },
 
+  // Mobile
+  _isMobile: null,
+  get isMobile() { return this._isMobile; },
+  set isMobile(mobile) { this._isMobile = mobile; this.notify(); },
+
   // Dev Mode
   _isDevMode: false,
   get isDevMode() { return this._isDevMode; },

@@ -20,7 +20,19 @@ var NavToggle = React.createClass({
 });
 
 var Header = React.createClass({
+  componentWillMount: function() {
+    this.setMobile(this.props.isMobile);
+    // console.log('props = ' + this.props.isMobile);
+  },
+
+  setMobile(val) {
+    store.isMobile = this.props.isMobile;
+    // console.log('seMobile = ' + store.isMobile);
+  },
+
   render: function() {
+    console.log('header render, isNavShowing = ' + store.isNavShowing);
+    // console.log('store = ' + store.isMobile);
     var classes = store.isNavShowing ? ' open' : ' closed';
     return (
       <span>

@@ -17,7 +17,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 }
 
 .nav-toggle {
-    position: absolute;
+    position: fixed;
     right: $grid-padding;
     top: $grid-padding;
     z-index: 2;
@@ -30,6 +30,8 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     padding-bottom: $logo-size;
     padding-top: calc($logo-size / 2);
     position: relative;
+    transition:
+        transform $slide-duration $bounce-in;
 
     /* Shim behind the nav-links so that the bg doesn't show during bounce */
     &:before {
@@ -44,6 +46,10 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
     &.is-gramming {
         background-color: $white-08;
+
+        &:before {
+            background-color: transparent;
+        }
     }
 }
 

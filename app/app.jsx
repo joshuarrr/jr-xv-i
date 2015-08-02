@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 var MediaQuery = require('react-responsive');
 var Waypoint = require('react-waypoint');
 import Header from './components/header.jsx';
@@ -10,58 +9,68 @@ require('./styles/app.css');
 // Main App //
 var App = React.createClass({
   componentDidMount: function() {
-    var showWaypoints = store.isNavShowing ? true : false;
+    store.register(() => this.forceUpdate());
+  },
+
+  componentWillUpdate: function() {
+    var showWaypoints = true;
   },
 
   hideHeader: function() {
-    console.log('Hide the header');
     store.isNavShowing = false;
     store.register(() => this.forceUpdate());
+    // console.log('(hideHeader) isNavShowing = ' + store.isNavShowing);
   },
 
   showHeader: function() {
     if (store.isInifigramming) {
-      console.log('Inifigramming. Dont show the header.');
+      // console.log('(showHeader) Inifigramming. isNavShowing = ' + store.isNavShowing);
     } else {
-      console.log('Not infinigramming. Show the header');
       store.isNavShowing = true;
       store.register(() => this.forceUpdate());
+      // console.log('(showHeader) Not infinigramming. isNavShowing = ' + store.isNavShowing);
     }
   },
 
+  switchPos: function() {
+    console.log('change to fixed nav');
+  },
+
   render() {
-    var showWaypoints = false;
-    console.log('showWaypoints = ' + showWaypoints);
-    console.log('store.isNavShowing = ' + store.isNavShowing);
+    console.log('(App render) isNavShowing = ' + store.isNavShowing);
     return (
       <main role='main' id='app'>
-        {
-          showWaypoints &&
+        <MediaQuery component='span' key={'m-phone'} maxWidth={568}>
           <Waypoint
-            onEnter={this.showHeader}
+            onLeave={this.switchPos}
+            threshold={0}
+            className={'page-top'}
+          />
+          <Header class={'header'} isMobile={ true } />
+          <RouteHandler />
+        </MediaQuery>
+        <MediaQuery component='span' key={'m-tablet'} minWidth={569} maxWidth={1023}>
+          <Header class={'header tablet'} isMobile={ true } />
+          <RouteHandler />
+        </MediaQuery>
+        <MediaQuery component='span' key={'m-laptop'} minWidth={1024} maxWidth={1439}>
+          <Waypoint
             onLeave={this.hideHeader}
             threshold={0}
             class={'page-top'}
           />
-        }
-        <MediaQuery component='span' key={'m-phone'} maxWidth={568}>
-          <Header class={'header'} />
-        </MediaQuery>
-        <MediaQuery component='span' key={'m-tablet'} minWidth={569} maxWidth={1023}>
-          <Header class={'header tablet'} />
-        </MediaQuery>
-        <MediaQuery component='span' key={'m-laptop'} minWidth={1024} maxWidth={1439}>
-          <Header class={'header laptop'} />
+          <Header class={'header laptop'} isMobile={ false } />
+          <RouteHandler />
+          <Waypoint
+            onEnter={this.showHeader}
+            threshold={0}
+            class={'page-bottom'}
+          />
         </MediaQuery>
         <MediaQuery component='span' key={'m-highres'} minWidth={1440}>
-          <Header class={'header highres'} />
+          <Header class={'header highres'} isMobile={ false } />
+          <RouteHandler />
         </MediaQuery>
-        <RouteHandler />
-        <Waypoint
-          onEnter={this.showHeader}
-          threshold={0}
-          class={'page-bottom'}
-        />
       </main>
     );
   }

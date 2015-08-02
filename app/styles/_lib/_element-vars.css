@@ -6,7 +6,7 @@ $bottom-margin: 3rem;
 
 /* Header */
 $header-height: 7.3rem;
-$logo-size: 6rem;
+$logo-size: 6.5rem;
 
 /* Page */
 @define-mixin container-padding

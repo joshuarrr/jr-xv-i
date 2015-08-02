@@ -110,10 +110,10 @@ var Infinigram = React.createClass({
               loop={true}
               muted={true}
               controls={true}
+                poster={p.images.standard_resolution.url}
               className="ig-video">
               <source
                 src={p.videos.standard_resolution.url}
-                poster={p.images.standard_resolution.url}
                 type="video/mp4"
               />
             </video>

@@ -5,6 +5,9 @@ import { Link, RouteHandler } from 'react-router';
 var Logo = React.createClass({
   handleClick() {
       store.isSquished = !store.isSquished;
+      if (store.isMobile) {
+        store.isNavShowing = false;
+      }
   },
 
  render() {
