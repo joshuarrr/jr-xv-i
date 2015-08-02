@@ -1,22 +1,28 @@
 var React = require('react');
-var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
-var Colors = require('./style-guide/colors.jsx');
-var Typography = require('./style-guide/typography.jsx');
+import VelocityTransitionGroup from 'VelocityTransitionGroup';
+import 'velocity-animate/velocity.ui';
 import store from '../store';
 import styles from '../styles/style-guide.css';
+var Colors = require('./style-guide/colors.jsx');
+var Typography = require('./style-guide/typography.jsx');
 
 // console.log(styles);
 var DevMode = React.createClass({
   render() {
     return (
-      <ReactCSSTransitionGroup transitionName='fade-in'>
+      <VelocityTransitionGroup
+        enter="transition.fadeIn"
+        enterOptions={{delay: 100}}
+        leave="transition.fadeOut"
+        defaults={{duration: 2000}}
+      >
         {
         store.isDevMode &&
         <div key="dev" className={styles.devMode}>
           <p>THIS IS DEV MODE.</p>
         </div>
         }
-      </ReactCSSTransitionGroup>
+      </VelocityTransitionGroup>
     );
   }
 });
@@ -36,18 +42,16 @@ var StyleGuide = React.createClass({
     devClasses += " dev-mode-toggle-icon icon-gear";
 
     return (
-      <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
-        <div className='page style-guide'>
-          <DevMode />
-          <h1>Style Guide</h1>
-          <button className="button dev-mode-toggle" onClick={this.handleClick}>
-              <span className={devClasses} />
-              <span className="dev-mode-toggle-text">Toggle Dev Mode</span>
-          </button>
-          <Colors />
-          <Typography />
-        </div>
-      </ReactCSSTransitionGroup>
+      <div className='page style-guide'>
+        <DevMode />
+        <h1>Style Guide</h1>
+        <button className="button dev-mode-toggle" onClick={this.handleClick}>
+            <span className={devClasses} />
+            <span className="dev-mode-toggle-text">Toggle Dev Mode</span>
+        </button>
+        <Colors />
+        <Typography />
+      </div>
     );
   }
 });

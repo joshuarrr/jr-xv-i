@@ -42,6 +42,8 @@
     "react-waypoint": "^1.0.1",
     "style-loader": "^0.12.3",
     "url-loader": "^0.5.5",
+    "velocity-animate": "^1.2.2",
+    "velocitytransitiongroup": "^0.3.1",
     "webpack": "^1.9.12",
     "webpack-dev-server": "^1.9.0"
   },

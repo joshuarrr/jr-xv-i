@@ -1,5 +1,4 @@
 var React = require('react');
-var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import { Link, RouteHandler, Routes } from 'react-router';
 import socialLinkList from '../data/social_links.js';
 import styles from '../styles/about.css';
@@ -55,10 +54,8 @@ var Home = React.createClass({
   render: function() {
     return (
       <div className='page homeabout-page'>
-        <ReactCSSTransitionGroup transitionName='fade-in' transitionAppear={true}>
-          <Bio key='bio' />
-          <SocialLinks key='socialLinks' />
-        </ReactCSSTransitionGroup>
+        <Bio key='bio' />
+        <SocialLinks key='socialLinks' />
       </div>
     );
   }

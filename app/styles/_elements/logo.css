@@ -26,13 +26,8 @@ $border-color: $black-05;
     position: absolute;
     right: 0;
     left: 0;
+    opacity: 0;
     bottom: calc(-$logo-size / 2);
-    $t: calc($slide-duration * 2);
-      transition:
-        background-color $default-duration $default-ease,
-        opacity $default-duration $default-ease,
-        transform $t $bounce-in;
-
     width: $logo-size;
     z-index: 101;
 
@@ -46,20 +41,6 @@ $border-color: $black-05;
         position: absolute;
         text-rendering: geometricPrecision;
         top: 45%;
-        transform: scale(1, 1);
-        transition-property: opacity, transform;
-        transition-duration: 1s 1s;
-        transition-timing-function: ease-out;
-    }
-
-    &.logo-fade-in-appear:after {
-        opacity: .01;
-        transform: scale(.6, .85);
-    }
-
-    &.logo-fade-in-appear-active:after {
-        opacity: 1;
-        transform: scale(1, 1);
     }
 
     &:hover {

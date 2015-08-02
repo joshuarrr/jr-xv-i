@@ -1,54 +1,128 @@
- /*! Reset ------------------------------------------------------------------*/
+@import "../_lib.css";
 
+/* Global Reset --------------------------------------------------------------*/
 html { box-sizing: border-box; }
-* { box-sizing: inherit; }
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+* {
+    border: 0;
     margin: 0;
     padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+    box-sizing: inherit;
 }
 
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-    display: block;
-}
+/* Typography ---------------------------------------------------------------*/
+a:focus { outline: none; }
 
-body {
-    line-height: 1;
-}
-
-ol, ul {
+ul,
+ol {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-blockquote, q {
-    quotes: none;
+/* Images --------------------------------------------------------------------*/
+img { font-style:italic; } /* if images don't load */
+
+a img,
+:link img,
+:visited img { border: 0; } /* no borders on image links */
+
+/* Forms ---------------------------------------------------------------------*/
+input,
+textarea,
+button,
+select {
+    @mixin mono-font; /* override default browser font */
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
+fieldset {
+    border: 0;
+    padding: 0;
 }
 
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+legend {
+    border: 0;
+    padding: 0;
+    white-space: normal;
+    *margin-left: -7px;
 }
+
+textarea {
+    vertical-align: top;
+    resize: none;
+}
+
+/* Remove default styling on inputs */
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=search],
+input[type=tel],
+textarea {
+    -webkit-appearance: none; /* Remove Default Browser Behaviour for Safari  */
+    -moz-appearance: none;    /* Remove Default Browser Behaviour for Firefox */
+}
+
+/* defaultify search inputs */
+input[type="search"] {
+    -webkit-appearance: textfield;
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+
+input[type=checkbox],
+input[type=radio] {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    *height: 13px;
+    *width: 13px;
+}
+
+.checkbox { margin: .2rem 0; }
+
+/*Buttons*/
+button,
+select {
+    vertical-align: baseline;
+    *vertical-align: middle;
+
+    /* remove default focus outline */
+    &:active,
+    &:focus { outline: none !important; }
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] { cursor: pointer; }
+
+button[disabled],
+html input[disabled] { cursor: default; }
+
+/* Remove default focus state (ff) */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+/* Chrome 33 Mac hack :( */
+body {
+    -webkit-animation-duration: 0.1s;
+    -webkit-animation-name: kick-in-the-fonts;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0.1s;
+}
+
+button:active,
+button:focus { outline: none !important; }
+
+/* Make selection color pretty */
+/*::-moz-selection { color: black;  background: lighten($blue,50%); }
+::selection { color: black;  background: lighten($blue,50%); }
+*/

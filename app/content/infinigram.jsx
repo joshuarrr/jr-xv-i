@@ -1,6 +1,7 @@
 var React = require('react');
 var Waypoint = require('react-waypoint');
-var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
+import VelocityTransitionGroup from 'VelocityTransitionGroup';
+import 'velocity-animate/velocity.ui';
 import store from '../store';
 import Loader from '../components/loader.jsx';
 import styles from '../styles/infinigram.css';
@@ -97,12 +98,15 @@ var Infinigram = React.createClass({
     return this.state.items.map(function(p, index) {
       if (p.type == 'video') {
         return (
-          <ReactCSSTransitionGroup
+          <VelocityTransitionGroup
+            key={index}
             className='ig-picture-li'
             component='li'
-            key={index}
-            transitionName='fade-in'
-            transitionAppear={true}>
+            enter="transition.fadeIn"
+            enterOptions={{delay: 100}}
+            leave="transition.fadeOut"
+            defaults={{duration: 2000}}
+          >
             <video
               width="100%"
               height="100%"
@@ -117,17 +121,20 @@ var Infinigram = React.createClass({
                 type="video/mp4"
               />
             </video>
-          </ReactCSSTransitionGroup>
+          </VelocityTransitionGroup>
         );
       }
       if (p.type == 'image') {
         return (
-          <ReactCSSTransitionGroup
+          <VelocityTransitionGroup
+            key={index}
             className='ig-picture-li'
             component='li'
-            key={index}
-            transitionName='fade-in'
-            transitionAppear={true}>
+            enter="transition.fadeIn"
+            enterOptions={{delay: 100}}
+            leave="transition.fadeOut"
+            defaults={{duration: 1000}}
+          >
             <img
               src={p.images.standard_resolution.url}
               alt='image'
@@ -135,7 +142,7 @@ var Infinigram = React.createClass({
               title={p.caption ? p.caption.text : ''}
               className='ig-picture'
             />
-          </ReactCSSTransitionGroup>
+          </VelocityTransitionGroup>
         );
       }
     });

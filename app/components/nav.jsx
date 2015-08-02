@@ -1,5 +1,6 @@
 var React = require('react');
-var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
+import VelocityTransitionGroup from 'VelocityTransitionGroup';
+import 'velocity-animate';
 import { Link, RouteHandler } from 'react-router';
 import navLinkList from '../data/nav_links.js';
 import store from '../store';
@@ -30,14 +31,9 @@ var NavLinks = React.createClass({
       )
     });
     return (
-      <ReactCSSTransitionGroup transitionName='slide-in' transitionAppear={true} >
-        {
-        store.isNavShowing &&
-        <ul key='navLinks' className={'nav-links' + infiniClass}>
-          { links }
-        </ul>
-      }
-      </ReactCSSTransitionGroup>
+      <ul key='navLinks' className={'nav-links' + infiniClass}>
+        { links }
+      </ul>
     );
   }
 });

@@ -1,4 +1,6 @@
 var React = require('react');
+import VelocityTransitionGroup from 'VelocityTransitionGroup';
+import 'velocity-animate';
 import Nav from './nav.jsx';
 import Logo from './logo.jsx';
 import store from '../store';
@@ -33,12 +35,33 @@ var Header = React.createClass({
   render: function() {
     console.log('header render, isNavShowing = ' + store.isNavShowing);
     // console.log('store = ' + store.isMobile);
-    var classes = store.isNavShowing ? ' open' : ' closed';
     return (
       <span>
-        <header className={ this.props.class + classes}>
-          <Nav />
-          <Logo />
+        <header className={ this.props.class}>
+          <VelocityTransitionGroup
+            appear={true}
+            enter="transition.bounceDownIn"
+            leave="transition.bounceUpOut"
+            duration={500}
+            wrapper={true}
+            defaults={{
+                stagger: false,
+                delay: 100
+            }}
+          >
+          {
+            store.isNavShowing &&
+            <Nav />
+          }
+          </VelocityTransitionGroup>
+          <VelocityTransitionGroup
+            appear="transition.fadeIn"
+            enter="transition.fadeIn"
+            enterOptions={{delay: 100}}
+            defaults={{duration: 1000}}
+          >
+            <Logo />
+          </VelocityTransitionGroup>
         </header>
         <NavToggle />
       </span>

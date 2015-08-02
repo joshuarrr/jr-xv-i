@@ -30,7 +30,6 @@ main {
 .page {
     @mixin clearfix;
     @mixin container-padding 12rem, $outer-margin, 10rem;
-
 }
 
 .react-waypoint.page-top {
