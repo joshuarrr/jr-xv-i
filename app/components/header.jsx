@@ -10,10 +10,9 @@ var NavToggle = React.createClass({
   },
 
   render: function() {
-    var navClasses = store.isNavShowing ? "is-active" : "";
-    navClasses += ' nav-toggle';
+    var navClasses = store.isNavShowing ? " is-active" : "";
     return (
-      <button className={navClasses} onClick={this.toggleNav}>
+      <button className={'nav-toggle' + navClasses} onClick={this.toggleNav}>
         <span className='inner'>toggle menu</span>
       </button>
     );
@@ -21,14 +20,13 @@ var NavToggle = React.createClass({
 });
 
 var Header = React.createClass({
-
   render: function() {
     var classes = store.isNavShowing ? ' open' : ' closed';
     return (
       <span>
         <header className={ this.props.class + classes}>
           <Nav />
-          <Logo squished={ store.isSquished } />
+          <Logo />
         </header>
         <NavToggle />
       </span>

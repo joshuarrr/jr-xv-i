@@ -5,7 +5,6 @@ import navLinkList from '../data/nav_links.js';
 import store from '../store';
 
 var NavLinks = React.createClass({
-
   render: function() {
     var infiniClass = store.isInfinigramming ? " is-gramming" : "";
     var links = navLinkList.map(function (l) {
@@ -19,7 +18,6 @@ var NavLinks = React.createClass({
         </li>
       )
     });
-
     return (
       <ReactCSSTransitionGroup transitionName='slide-in' transitionAppear={true} >
         {
@@ -29,24 +27,6 @@ var NavLinks = React.createClass({
         </ul>
       }
       </ReactCSSTransitionGroup>
-    );
-  }
-});
-
-var NavToggle = React.createClass({
-
-  toggleNav() {
-    store.isNavShowing = !store.isNavShowing;
-    // console.log('After toggle, isNavShowing = ' + store.isNavShowing);
-  },
-
-  render: function() {
-    var navClasses = store.isNavShowing ? "is-active" : "";
-    navClasses += ' nav-toggle';
-    return (
-      <button className={navClasses} onClick={this.toggleNav}>
-        <span className='inner'>toggle menu</span>
-      </button>
     );
   }
 });

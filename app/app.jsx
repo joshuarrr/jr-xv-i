@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 var MediaQuery = require('react-responsive');
 var Waypoint = require('react-waypoint');
 import Header from './components/header.jsx';
@@ -9,7 +10,7 @@ require('./styles/app.css');
 // Main App //
 var App = React.createClass({
   componentDidMount: function() {
-    var showWaypoints = true;
+    var showWaypoints = store.isNavShowing ? true : false;
   },
 
   hideHeader: function() {
@@ -30,6 +31,8 @@ var App = React.createClass({
 
   render() {
     var showWaypoints = false;
+    console.log('showWaypoints = ' + showWaypoints);
+    console.log('store.isNavShowing = ' + store.isNavShowing);
     return (
       <main role='main' id='app'>
         {

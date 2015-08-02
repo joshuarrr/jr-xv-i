@@ -3,7 +3,6 @@ var ReactCSSTransitionGroup = require('react/lib/ReactCSSTransitionGroup');
 import { Link, RouteHandler } from 'react-router';
 
 var Logo = React.createClass({
-
   handleClick() {
       store.isSquished = !store.isSquished;
   },
