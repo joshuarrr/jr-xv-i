@@ -3,15 +3,10 @@ via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
 
 .nav-toggle {
     background-color: transparent;
-    bottom: 0;
     display: block;
     height: 24px;
-    margin: auto;
     overflow: hidden;
     padding: 0;
-    position: absolute;
-    right: $grid-padding;
-    top: 0;
     width: 18px;
     /*  Button overrides */
     appearance: none;

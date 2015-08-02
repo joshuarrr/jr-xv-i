@@ -1,8 +1,12 @@
 /* Import Library */
-@import "./_lib.css";
+@import './_lib.css';
 
 /* Import Elements */
-@import "./_elements.css";
+@import './_elements.css';
+
+/* Import Components */
+@import './components/header.css';
+
 
 /*! App ---------------------------------------------------------------------*/
 body {
@@ -16,7 +20,8 @@ main {
 /* Page */
 .page {
     @mixin clearfix;
-    @mixin container-padding calc(15rem + $header-height), $outer-margin, 10rem;
+    @mixin container-padding 8rem, $outer-margin, 10rem;
+
 }
 
 .react-waypoint.page-top {

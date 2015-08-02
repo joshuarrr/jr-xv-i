@@ -1,0 +1,28 @@
+@import '../_lib.css';
+@import '../_elements/nav.css';
+@import '../_elements/logo.css';
+
+.header {
+    position: relative;
+    transition:
+        transform $slide-duration $bounce-in;
+
+    &.closed  {
+        transform: translateY(-100%);
+
+        .logo {
+            transform: translateY($logo-size);
+        }
+    }
+
+    &.open  {
+        transform: translateY(0%);
+    }
+
+    &.tablet {
+        .logo {
+            width: calc($logo-size + .5);
+            height: calc($logo-size + .5);
+        }
+    }
+}

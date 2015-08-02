@@ -3,38 +3,41 @@
 @import '../_lib/_mixins.css';
 @import '../_lib/_element-vars.css';
 
-$logo-width: 7rem;
 $border-width: 1px;
 $border-color: $black-05;
 
+/* Hide the h1 */
 .name { @mixin hidden-text; }
 
+/* Logo styles */
 .logo {
     @mixin serif-font;
     background-color: $black-07;
-    border-radius: calc($logo-width/2);
+    border-radius: 50%;
     border: $border-width solid $border-color;
     box-shadow: 0 0 0 1px $background-color,
                 0 0 0 3px $black-02;
     display: block;
     font-weight: 400;
-    height: $logo-width;
-    margin: calc(-$logo-width / 2) auto 0;
-    position: fixed;
+    height: $logo-size;
+    margin: 0 auto;
+    position: absolute;
     right: 0;
     left: 0;
-    top: calc($header-height);
-    transition-duration: $default-duration, 1s, 1s;
-    transition-property: background-color, opacity, transform;
-    transition-timing-function: $bounce-in;
+    bottom: calc(-$logo-size / 2);
+    $t: calc($slide-duration * 2);
+      transition:
+        background-color $default-duration $default-ease,
+        opacity $default-duration $default-ease,
+        transform $t $bounce-in;
 
-    width: $logo-width;
+    width: $logo-size;
     z-index: 101;
 
     &:after {
         color: white;
         content: 'j';
-        font-size: calc($logo-width / 1.7);
+        font-size: calc($logo-size / 1.7);
         font-weight: 400;
         left: 46%;
         line-height: 0;

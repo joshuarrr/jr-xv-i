@@ -9,89 +9,54 @@ $menu-icon-padding: $grid-padding * 2;
 /* Move the nav links over to clear the toggle */
 $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
-/* Sticky Header */
-.header {
-    position: relative;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    height: $header-height;
-    width: 100%;
-    transition-duration: $default-duration;
-    transition-property: background-color, opacity, transform;
-    transition-timing-function: $bounce-in;
-
-    &.tablet {
-        position: relative;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        height: $header-height;
-        width: 100%;
-        transition-duration: $default-duration;
-        transition-property: background-color, opacity, transform;
-        transition-timing-function: $bounce-in;
-    }
-
-    &.laptop {
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        height: $header-height;
-        width: 100%;
-        transition-duration: $default-duration;
-        transition-property: background-color, opacity, transform;
-        transition-timing-function: $bounce-in;
-    }
-}
 
 .nav {
-    height: $header-height;
+    position: relative;
+    background-color: $lightest-gray;
+    border-bottom: $default-border;
+}
+
+.nav-toggle {
     position: absolute;
-    width: 100%;
+    right: $grid-padding;
+    top: $grid-padding;
+    z-index: 2;
 }
 
 .nav-links {
+    text-align: center;
     @mixin clearfix;
-    background-color: $lightest-gray;
-    border-bottom: $default-border;
     opacity: .9;
-    padding: $grid-padding;
-    padding-right: $nav-links-pad-right;
-    width: 100%;
-    /* Taller than site-nav so it can bounce in properly */
-    height: calc($header-height + 2rem);
-    /* realign the links */
-    padding-top: 3.6rem;
-    /* align to the bottom of site-nav */
-    position: absolute;
-    bottom: 0;
-    $slide-duration: .3s;
-    transition:
-        transform $slide-duration $bounce-in .3s,
-        background-color 0.3s ease-out;
+    padding-bottom: $logo-size;
+    padding-top: calc($logo-size / 2);
+    position: relative;
+
+    /* Shim behind the nav-links so that the bg doesn't show during bounce */
+    &:before {
+        background-color: $lightest-gray;
+        content: '';
+        position: absolute;
+        top: -3rem;
+        height: 6rem;
+        width: 100%;
+        left: 0;
+    }
 
     &.is-gramming {
         background-color: $white-08;
     }
 }
 
-.nav-item {
-    @mixin clearfix;
-    float: right;
-}
-
 .nav-link {
     @mixin mono-font;
-    text-rendering: geometricPrecision;
-    float: right;
-    @mixin responsive-font-size 1.1;
+    @mixin responsive-font-size 1.4;
+    line-height: 3;
+    /*float: right;*/
     padding: $nav-link-padding;
     position: relative;
+    text-rendering: geometricPrecision;
 
     @media (--fablet)  { line-height: 1.7; }
-
 
     &.active {
         color: $darkest-gray;

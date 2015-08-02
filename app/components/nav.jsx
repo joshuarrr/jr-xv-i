@@ -57,7 +57,6 @@ var Nav = React.createClass({
     return (
       <nav className='nav'>
         <NavLinks />
-        <NavToggle />
       </nav>
     )
   }

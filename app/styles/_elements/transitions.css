@@ -1,6 +1,18 @@
-/*! Transitions -------------------------------------------------------------*/
+/*! Transitions --------------------------------------------------------------*/
 
-/* fade-in ------------------------------------------------------------------*/
+$default-duration: .3s;
+$default-ease: ease-out;
+$bounce-in: cubic-bezier(0.160, 0.035, 0.240, 1.295);
+
+@define-mixin default-transition {
+    transition-duration: $default-duration;
+    transition-timing-function: $default-ease;
+}
+
+$slide-duration: .3s;
+
+
+/* fade-in -------------------------------------------------------------------*/
 .fade-in-appear {
     opacity: .01;
     transition: opacity .5s ease-in;
@@ -28,7 +40,8 @@
     opacity: 0;
 }
 
-/* slide-in -----------------------------------------------------------------*/
+
+/* slide-in ------------------------------------------------------------------*/
 
 .slide-in-appear {
     transform: translateY(-100%);
@@ -54,7 +67,8 @@
     transform: translateY(-100%);
 }
 
-/* slide-in -----------------------------------------------------------------*/
+
+/* slide-in ------------------------------------------------------------------*/
 .logo-fade-in-appear {
     opacity: .01;
     transform: scale(.9, .9);
@@ -66,10 +80,7 @@
 }
 
 
-
-
-
-/* Loader -----------------------------------------------------------------*/
+/* Loader --------------------------------------------------------------------*/
 .loader-fade-in-appear {
     opacity: .01;
 }
