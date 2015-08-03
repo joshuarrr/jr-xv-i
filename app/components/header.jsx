@@ -22,28 +22,16 @@ var NavToggle = React.createClass({
 });
 
 var Header = React.createClass({
-  componentWillMount: function() {
-    this.setMobile(this.props.isMobile);
-    // console.log('props = ' + this.props.isMobile);
-  },
-
-  setMobile(val) {
-    store.isMobile = this.props.isMobile;
-    // console.log('seMobile = ' + store.isMobile);
-  },
-
   render: function() {
     console.log('header render, isNavShowing = ' + store.isNavShowing);
-    // console.log('store = ' + store.isMobile);
     return (
-      <span>
         <header className={ this.props.class}>
+          {/* Animate the Nav */}
           <VelocityTransitionGroup
             appear={true}
             enter="transition.bounceDownIn"
             leave="transition.bounceUpOut"
             duration={500}
-            wrapper={true}
             defaults={{
                 stagger: false,
                 delay: 100
@@ -51,9 +39,11 @@ var Header = React.createClass({
           >
           {
             store.isNavShowing &&
-            <Nav />
+            <Nav mq={this.props.mq} />
           }
           </VelocityTransitionGroup>
+
+          {/* Animate the Logo */}
           <VelocityTransitionGroup
             appear="transition.fadeIn"
             enter="transition.fadeIn"
@@ -62,9 +52,8 @@ var Header = React.createClass({
           >
             <Logo />
           </VelocityTransitionGroup>
+          <NavToggle />
         </header>
-        <NavToggle />
-      </span>
     );
   }
 });

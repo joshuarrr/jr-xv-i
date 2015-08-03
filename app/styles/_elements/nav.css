@@ -12,8 +12,15 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .nav {
     position: relative;
+    width: 100%;
     background-color: $lightest-gray;
     border-bottom: $default-border;
+
+    /* narrow devices */
+    &.mobile  {
+        position: fixed;
+        height: 100vh;
+    }
 }
 
 .nav-toggle {
@@ -27,11 +34,9 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     text-align: center;
     @mixin clearfix;
     opacity: .9;
-    padding-bottom: $logo-size;
-    padding-top: calc($logo-size / 2);
+    padding-top: calc($logo-size * 2);
+    padding-bottom: calc($logo-size / 2);
     position: relative;
-    transition:
-        transform $slide-duration $bounce-in;
 
     /* Shim behind the nav-links so that the bg doesn't show during bounce */
     &:before {
@@ -54,8 +59,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 }
 
 .nav-link {
-    @mixin mono-font;
-    @mixin responsive-font-size 1.4;
+    @mixin mono-font 1;
     line-height: 3;
     /*float: right;*/
     padding: $nav-link-padding;
@@ -63,6 +67,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     text-rendering: geometricPrecision;
 
     @media (--fablet)  { line-height: 1.7; }
+
 
     &.active {
         color: $darkest-gray;

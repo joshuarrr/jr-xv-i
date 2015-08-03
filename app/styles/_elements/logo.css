@@ -23,11 +23,11 @@ $border-color: $black-05;
     font-weight: 400;
     height: $logo-size;
     margin: 0 auto;
-    position: absolute;
+    position: fixed;
     right: 0;
     left: 0;
     opacity: 0;
-    bottom: calc(-$logo-size / 2);
+    top: calc($logo-size / 2);
     width: $logo-size;
     z-index: 101;
 

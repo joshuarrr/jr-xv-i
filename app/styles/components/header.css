@@ -5,6 +5,11 @@
 .header {
     position: relative;
 
+    /* Not to be confused with phone, mobile is based on deviceWidth */
+    &.mobile {
+        /* background: red; */
+    }
+
     &.tablet {
         .logo {
             width: calc($logo-size + .5);

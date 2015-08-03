@@ -8,6 +8,24 @@ import { Link, RouteHandler } from 'react-router';
 import store from './store';
 require('./styles/app.css');
 
+var Main = React.createClass({
+  render: function() {
+    console.log('mq = ' + this.props.mq);
+
+    return (
+      <VelocityTransitionGroup
+        className='page-wrapper'
+        enter="transition.fadeIn"
+        enterOptions={{delay: 100}}
+        leave="transition.fadeOut"
+        defaults={{duration: 2000}}
+      >
+        <RouteHandler />
+      </VelocityTransitionGroup>
+    );
+  }
+});
+
 // Main App //
 var App = React.createClass({
   componentDidMount: function() {
@@ -41,46 +59,44 @@ var App = React.createClass({
   render() {
     console.log('(App render) isNavShowing = ' + store.isNavShowing);
     return (
-      <main role='main' id='app'>
-        <MediaQuery component='span' key={'m-phone'} maxWidth={568}>
-          <Waypoint
-            onLeave={this.switchPos}
-            threshold={0}
-            className={'page-top'}
-          />
-          <Header class={'header'} isMobile={ true } />
-          <VelocityTransitionGroup
-            enter="transition.fadeIn"
-            enterOptions={{delay: 100}}
-            leave="transition.fadeOut"
-            defaults={{duration: 2000}}
-          >
-            <RouteHandler />
-          </VelocityTransitionGroup>
+      <MediaQuery key={'mq'} className='main' component='main' screen={true}>
+
+        {/* Mobile ----------------------------------------------------------*/}
+        <MediaQuery component='span' key={'mq-mobile'} maxWidth={767} and maxDeviceWidth={767} >
+          <Header class='header mobile' mq='mobile' />
+          <Main mq='mobile' />
         </MediaQuery>
-        <MediaQuery component='span' key={'m-tablet'} minWidth={569} maxWidth={1023}>
-          <Header class={'header tablet'} isMobile={ true } />
-          <RouteHandler />
+
+        {/* Phone -----------------------------------------------------------*/}
+        <MediaQuery component='span' key={'mq-phone'} maxWidth={767} and minDeviceWidth={768}>
+          <Header class='header phone' mq='phone' />
+          <Main mq='phone' />
         </MediaQuery>
-        <MediaQuery component='span' key={'m-laptop'} minWidth={1024} maxWidth={1439}>
-          <Waypoint
-            onLeave={this.hideHeader}
-            threshold={0}
-            class={'page-top'}
-          />
-          <Header class={'header laptop'} isMobile={ false } />
-          <RouteHandler />
-          <Waypoint
-            onEnter={this.showHeader}
-            threshold={0}
-            class={'page-bottom'}
-          />
+
+        {/* Tablet ----------------------------------------------------------*/}
+        <MediaQuery component='span' key={'mq-tablet'} minWidth={768} maxWidth={1023}>
+          <Header class='header tablet' mq='tablet' />
+          <Main mq='tablet' />
         </MediaQuery>
-        <MediaQuery component='span' key={'m-highres'} minWidth={1440}>
-          <Header class={'header highres'} isMobile={ false } />
-          <RouteHandler />
+
+        {/* Laptop ----------------------------------------------------------*/}
+        <MediaQuery component='span' key={'mq-laptop'} minWidth={1024} maxWidth={1279}>
+          <Header class='header laptop' mq='laptop'  />
+          <Main mq='laptop' />
         </MediaQuery>
-      </main>
+
+        {/* Desktop ----------------------------------------------------------*/}
+        <MediaQuery component='span' key={'mq-desktop'} minWidth={1280} maxWidth={1439}>
+          <Header class='header desktop' mq='desktop' />
+          <Main mq='desktop' />
+        </MediaQuery>
+
+        {/* highres ---------------------------------------------------------*/}
+        <MediaQuery component='span' key={'mq-highres'} minWidth={1440}>
+          <Header class='header highres' mq='highres' />
+          <Main mq='highres' />
+        </MediaQuery>
+      </MediaQuery>
     );
   }
 });

@@ -1,6 +1,5 @@
 var React = require('react');
-import VelocityTransitionGroup from 'VelocityTransitionGroup';
-import 'velocity-animate';
+
 import { Link, RouteHandler } from 'react-router';
 import navLinkList from '../data/nav_links.js';
 import store from '../store';
@@ -41,8 +40,9 @@ var NavLinks = React.createClass({
 // Primary Nav //
 var Nav = React.createClass({
   render() {
+    var mqclass = this.props.mq;
     return (
-      <nav className='nav'>
+      <nav className={'nav ' + mqclass}>
         <NavLinks />
       </nav>
     )
