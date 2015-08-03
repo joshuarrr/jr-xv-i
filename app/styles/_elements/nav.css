@@ -16,10 +16,25 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     background-color: $lightest-gray;
     border-bottom: $default-border;
 
+    &.is-gramming {
+        background-color: $white-08;
+
+        &:before {
+            background-color: transparent;
+        }
+    }
+
     /* narrow devices */
     &.mobile  {
+        background-color: color(#EDEDED a(95%));
         position: fixed;
-        height: 100vh;
+        height: 110vh;
+        margin-top: -10vh;
+
+        .nav-links {
+            margin-top: 10vh;
+            padding-top: 17.3rem;
+        }
     }
 }
 
@@ -39,7 +54,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     position: relative;
 
     /* Shim behind the nav-links so that the bg doesn't show during bounce */
-    &:before {
+/*    &:before {
         background-color: $lightest-gray;
         content: '';
         position: absolute;
@@ -47,15 +62,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
         height: 6rem;
         width: 100%;
         left: 0;
-    }
-
-    &.is-gramming {
-        background-color: $white-08;
-
-        &:before {
-            background-color: transparent;
-        }
-    }
+    }*/
 }
 
 .nav-link {

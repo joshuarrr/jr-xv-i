@@ -12,7 +12,6 @@ var NavLinks = React.createClass({
   render: function() {
   var self = this;
   // console.log('mobile = ' + store.isMobile);
-    var infiniClass = store.isInfinigramming ? " is-gramming" : "";
     var links = navLinkList.map(function (l) {
       return (
         <li className="nav-item" key={l.to}>
@@ -28,7 +27,7 @@ var NavLinks = React.createClass({
       )
     });
     return (
-      <ul key='navLinks' className={'nav-links' + infiniClass}>
+      <ul key='navLinks' className='nav-links'>
         { links }
       </ul>
     );
@@ -38,9 +37,10 @@ var NavLinks = React.createClass({
 // Primary Nav //
 var Nav = React.createClass({
   render() {
+    var isGramming = store.isInfinigramming ? " is-gramming" : "";
     var mqclass = this.props.mq;
     return (
-      <nav className={'nav ' + mqclass}>
+      <nav className={'nav ' + mqclass + isGramming}>
         <NavLinks />
       </nav>
     )

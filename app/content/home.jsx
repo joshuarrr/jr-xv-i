@@ -14,7 +14,7 @@ var Bio = React.createClass({
           Beyond <Link to='design' tabIndex='4'>design</Link>, he likes
           to <Link to='art' tabIndex='4'>draw</Link>,
           take <Link to='instagram' tabIndex='6'>pictures</Link>, and sometimes
-          write about his <Link to='thoughts' tabIndex='7'>thoughts</Link>.
+          write about his <Link to='words' tabIndex='7'>thoughts</Link>.
         </p>
       </div>
     );

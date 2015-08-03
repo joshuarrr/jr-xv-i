@@ -1,11 +1,6 @@
 var store = window.store = {
   _watchers: [],
 
-  // Squishy Logo
-  _isSquished: true,
-  get isSquished() { return this._isSquished; },
-  set isSquished(squished) { this._isSquished = squished; this.notify(); },
-
   // Loaded
   _isLoaded: false,
   get isLoaded() { return this._isLoaded; },

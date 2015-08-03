@@ -1,7 +1,7 @@
 export default [
   {
-    to: 'thoughts',
-    title: 'thoughts'
+    to: 'words',
+    title: 'words'
   },
   {
     to: 'instagram',

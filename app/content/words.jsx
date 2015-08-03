@@ -1,11 +1,11 @@
 var React = require('react');
 
-var Thoughts = React.createClass({
+var Words = React.createClass({
   render: function() {
     return (
       <div className="page">
-        <article key="thoughts" className="thoughts text-measure">
           <h1 className="intro">art</h1>
+        <article key="words" className="words text-measure">
           <p>
             Sometimes I draw things, and I wonder if what I’ve drawn is art, or something else. Doodles? Scribbles? Drawings? There must be  something else I can call it besides <em>art</em>. I don’t know why I’m so adverse to that term when referencing my own work — I use it generously when referring to other people’s efforts. But, when it comes up, I don’t call myself an artist. I just say, <em>“I like to draw”</em>.
             </p>
@@ -29,4 +29,4 @@ var Thoughts = React.createClass({
   }
 });
 
-module.exports = Thoughts;
+module.exports = Words;

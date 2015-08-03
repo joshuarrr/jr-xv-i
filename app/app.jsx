@@ -15,6 +15,7 @@ var Main = React.createClass({
     return (
       <VelocityTransitionGroup
         className={'page-wrapper' + noScroll}
+        appear="transition.fadeIn"
         enter="transition.fadeIn"
         enterOptions={{delay: 100}}
         leave="transition.fadeOut"
