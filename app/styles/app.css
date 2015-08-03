@@ -21,15 +21,21 @@ body {
     min-height: 100%;
 }
 
-main {
+.main {
     position: relative;
     min-height: 100vh;
+    z-index: 1;
 }
 
 /* Page */
 .page {
     @mixin clearfix;
     @mixin container-padding 12rem, $outer-margin, 10rem;
+}
+
+.no-scroll {
+    position: fixed;
+    overflow: hidden;
 }
 
 .react-waypoint.page-top {

@@ -8,7 +8,7 @@ import store from '../store';
 var NavToggle = React.createClass({
   toggleNav() {
     store.isNavShowing = !store.isNavShowing;
-    console.log('After toggle, isNavShowing = ' + store.isNavShowing);
+    // console.log('After toggle, isNavShowing = ' + store.isNavShowing);
   },
 
   render: function() {
@@ -23,7 +23,7 @@ var NavToggle = React.createClass({
 
 var Header = React.createClass({
   render: function() {
-    console.log('header render, isNavShowing = ' + store.isNavShowing);
+    // console.log('header render, isNavShowing = ' + store.isNavShowing);
     return (
         <header className={ this.props.class}>
           {/* Animate the Nav */}

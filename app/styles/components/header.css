@@ -4,6 +4,7 @@
 
 .header {
     position: relative;
+    z-index: 2;
 
     /* Not to be confused with phone, mobile is based on deviceWidth */
     &.mobile {

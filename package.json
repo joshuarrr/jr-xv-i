@@ -36,7 +36,6 @@
     "postcss-simple-vars": "^0.3.0",
     "react-hot-loader": "^1.2.7",
     "react-medium-spinner": "^1.0.6",
-    "react-motion": "^0.2.4",
     "react-responsive": "0.0.6",
     "react-router": "^0.13.3",
     "react-waypoint": "^1.0.1",

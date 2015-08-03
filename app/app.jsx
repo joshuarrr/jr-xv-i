@@ -11,10 +11,10 @@ require('./styles/app.css');
 var Main = React.createClass({
   render: function() {
     console.log('mq = ' + this.props.mq);
-
+    var noScroll = store.isNavShowing ? ' no-scroll' : '';
     return (
       <VelocityTransitionGroup
-        className='page-wrapper'
+        className={'page-wrapper' + noScroll}
         enter="transition.fadeIn"
         enterOptions={{delay: 100}}
         leave="transition.fadeOut"
@@ -57,7 +57,7 @@ var App = React.createClass({
   },
 
   render() {
-    console.log('(App render) isNavShowing = ' + store.isNavShowing);
+    // console.log('(App render) isNavShowing = ' + store.isNavShowing);
     return (
       <MediaQuery key={'mq'} className='main' component='main' screen={true}>
 
