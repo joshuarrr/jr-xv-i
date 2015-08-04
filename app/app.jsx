@@ -10,19 +10,8 @@ require('./styles/app.css');
 
 var Main = React.createClass({
   render: function() {
-    console.log('mq = ' + this.props.mq);
-    var noScroll = store.isNavShowing ? ' no-scroll' : '';
     return (
-      <VelocityTransitionGroup
-        className={'page-wrapper' + noScroll}
-        appear="transition.fadeIn"
-        enter="transition.fadeIn"
-        enterOptions={{delay: 100}}
-        leave="transition.fadeOut"
-        defaults={{duration: 2000}}
-      >
-        <RouteHandler />
-      </VelocityTransitionGroup>
+      <RouteHandler />
     );
   }
 });

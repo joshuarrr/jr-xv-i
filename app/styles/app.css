@@ -30,13 +30,17 @@ body {
 /* Page */
 .page {
     @mixin clearfix;
-    @mixin container-padding 12rem, $outer-margin, 10rem;
+    @mixin container-padding 12rem, $outer-margin, 3rem;
+
+    @media (--fablet)  {
+        @mixin container-padding 12rem, $outer-margin, 10rem;
+    }
 }
 
 .no-scroll {
-    overflow: hidden;
+/*    overflow: hidden;
     position: fixed;
-    width: 100%;
+    width: 100%;*/
 }
 
 .react-waypoint.page-top {

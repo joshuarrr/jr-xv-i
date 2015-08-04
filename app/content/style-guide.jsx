@@ -42,16 +42,26 @@ var StyleGuide = React.createClass({
     devClasses += " dev-mode-toggle-icon icon-gear";
 
     return (
-      <div className='page style-guide'>
-        <DevMode />
-        <h1>Style Guide</h1>
-        <button className="button dev-mode-toggle" onClick={this.handleClick}>
-            <span className={devClasses} />
-            <span className="dev-mode-toggle-text">Toggle Dev Mode</span>
-        </button>
-        <Colors />
-        <Typography />
-      </div>
+      <VelocityTransitionGroup
+        appear="transition.fadeIn"
+        enter="transition.fadeIn"
+        leave="transition.fadeOut"
+        defaults={{
+          duration: 2000,
+          delay: 0
+        }}
+      >
+        <div className='page style-guide'>
+          <DevMode />
+          <h1>Style Guide</h1>
+          <button className="button dev-mode-toggle" onClick={this.handleClick}>
+              <span className={devClasses} />
+              <span className="dev-mode-toggle-text">Toggle Dev Mode</span>
+          </button>
+          <Colors />
+          <Typography />
+        </div>
+      </VelocityTransitionGroup>
     );
   }
 });

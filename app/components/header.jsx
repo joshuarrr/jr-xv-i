@@ -28,6 +28,7 @@ var Header = React.createClass({
         <header className={ this.props.class}>
           {/* Animate the Nav */}
           <VelocityTransitionGroup
+            className='nav-wrap'
             appear={true}
             enter="transition.bounceDownIn"
             leave="transition.bounceUpOut"
@@ -45,9 +46,10 @@ var Header = React.createClass({
 
           {/* Animate the Logo */}
           <VelocityTransitionGroup
-            appear="transition.fadeIn"
+            className='logo-wrap'
+            appear="transition.perspectiveDownIn"
             enter="transition.fadeIn"
-            enterOptions={{delay: 100}}
+            enterOptions={{delay: 500}}
             defaults={{duration: 1000}}
           >
             <Logo />

@@ -1,5 +1,7 @@
 var React = require('react');
 import { Link, RouteHandler, Routes } from 'react-router';
+import VelocityTransitionGroup from 'VelocityTransitionGroup';
+import 'velocity-animate/velocity.ui';
 import socialLinkList from '../data/social_links.js';
 import styles from '../styles/about.css';
 
@@ -53,10 +55,20 @@ var SocialLinks = React.createClass({
 var Home = React.createClass({
   render: function() {
     return (
-      <div className='page homeabout-page'>
-        <Bio key='bio' />
-        <SocialLinks key='socialLinks' />
-      </div>
+      <VelocityTransitionGroup
+        appear="transition.fadeIn"
+        enter="transition.fadeIn"
+        leave="transition.fadeOut"
+        defaults={{
+          duration: 2000,
+          delay: 0
+        }}
+      >
+        <div className='page homeabout-page'>
+          <Bio key='bio' />
+          <SocialLinks key='socialLinks' />
+        </div>
+      </VelocityTransitionGroup>
     );
   }
 });
