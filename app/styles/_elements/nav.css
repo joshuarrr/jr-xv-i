@@ -11,7 +11,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 
 .nav {
-    position: relative;
+    position: fixed;
     width: 100%;
     background-color: $lightest-gray;
     border-bottom: $default-border;
@@ -30,6 +30,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
         position: fixed;
         height: 110vh;
         margin-top: -10vh;
+        z-index: 3;
 
         .nav-links {
             margin-top: 10vh;
@@ -42,7 +43,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     position: fixed;
     right: $grid-padding;
     top: $grid-padding;
-    z-index: 2;
+    z-index: 5;
 }
 
 .nav-links {
@@ -52,17 +53,6 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     padding-top: calc($logo-size * 2);
     padding-bottom: calc($logo-size / 2);
     position: relative;
-
-    /* Shim behind the nav-links so that the bg doesn't show during bounce */
-/*    &:before {
-        background-color: $lightest-gray;
-        content: '';
-        position: absolute;
-        top: -3rem;
-        height: 6rem;
-        width: 100%;
-        left: 0;
-    }*/
 }
 
 .nav-link {

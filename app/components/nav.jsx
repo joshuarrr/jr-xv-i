@@ -1,5 +1,6 @@
 var React = require('react');
 import { Link, RouteHandler } from 'react-router';
+import Logo from './logo.jsx';
 import navLinkList from '../data/nav_links.js';
 import store from '../store';
 
@@ -41,6 +42,7 @@ var Nav = React.createClass({
     var mqclass = this.props.mq;
     return (
       <nav className={'nav ' + mqclass + isGramming}>
+        <Logo class='navLogo' />
         <NavLinks />
       </nav>
     )

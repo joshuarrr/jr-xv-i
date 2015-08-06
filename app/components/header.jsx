@@ -47,7 +47,7 @@ var Header = React.createClass({
           {/* Animate the Logo */}
           <VelocityTransitionGroup
             className='logo-wrap'
-            appear="transition.perspectiveDownIn"
+            appear={{scale: [1, .9], opacity: [1, 0]}}
             enter="transition.fadeIn"
             enterOptions={{delay: 500}}
             defaults={{duration: 1000}}

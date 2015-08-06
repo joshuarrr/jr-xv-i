@@ -10,11 +10,4 @@
     &.mobile {
         /* background: red; */
     }
-
-    &.tablet {
-        .logo {
-            width: calc($logo-size + .5);
-            height: calc($logo-size + .5);
-        }
-    }
 }

@@ -7,9 +7,10 @@ var Logo = React.createClass({
   },
 
  render() {
+    var logoClass = this.props.class ? ' nav' : '';
     return (
       <Link
-        className='logo'
+        className={'logo ' + logoClass}
         to='home'
         tabIndex='-1'
         onClick={this.handleClick}

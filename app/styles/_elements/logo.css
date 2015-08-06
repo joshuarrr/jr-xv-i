@@ -17,11 +17,9 @@ $border-color: $black-05;
     border: $border-width solid $border-color;
     box-shadow: 0 0 0 2px $background-color,
                 0 0 0 3px color(black a(10%)),
-                0 0 10px 3px color(black a(10%)),
                 -0px -0px 15px 1px $black-04 inset;
     display: block;
     font-weight: 400;
-    height: $logo-size;
     margin: 0 auto;
     position: absolute;
     right: 0;
@@ -29,8 +27,67 @@ $border-color: $black-05;
     opacity: 0;
     top: calc($logo-size / 2);
     transition: background-color 1s $default-ease;
-    width: $logo-size;
-    z-index: 101;
+    width: calc($logo-size - .8rem);
+    height: calc($logo-size - .8rem);
+    z-index: 1;
+
+    @media (--phone) {
+        width: calc($logo-size - .2rem);
+        height: calc($logo-size - .2rem);
+   }
+
+    @media (--laptop) {
+        width: calc($logo-size);
+        height: calc($logo-size);
+   }
+
+    @media (--desktop) {
+        width: calc($logo-size + .5);
+        height: calc($logo-size + .5);
+   }
+
+    @media (--highRes) {
+        width: calc($logo-size + 1);
+        height: calc($logo-size + 1);
+   }
+
+    /* Duplicate logo for the mobile nav. May be a terrible idea. */
+    &.nav {
+        opacity: 1;
+        position: fixed;
+        z-index: 2;
+        top: 8.8rem;
+        /*background-color: red;*/
+        box-shadow: 0 0 0 2px $background-color,
+                    0 0 0 3px color(black a(10%)),
+                    0 0 10px 3px color(black a(10%)),
+                    -0px -0px 15px 1px $black-04 inset;
+
+        @media(--phone) {
+            top: 9.25rem;
+        }
+
+        @media (--fablet) {
+            top: 6.25rem;
+        }
+
+        @media (--tablet) {
+            top: 3.25rem;
+        }
+
+        @media (--laptop) {
+
+        }
+
+        @media (--desktop) {
+
+        }
+
+        @media (--highRes) {
+
+        }
+
+    }
 
     &:after {
         color: white;
@@ -55,4 +112,10 @@ $border-color: $black-05;
             cursor: default;
         }
     }
+}
+
+.logo-wrap {
+    z-index: -1;
+    position: absolute;
+    width: 100%;
 }

@@ -1,5 +1,5 @@
 /* Custom min-width media queries */
-@custom-media --phone (width >= 320px);
+@custom-media --phone (width >= 321px);
 @custom-media --fablet (width >= 568px);
 @custom-media --tablet (width >= 768px);
 @custom-media --laptop (width >= 1024px);
