@@ -9,12 +9,29 @@ $menu-icon-padding: $grid-padding * 2;
 /* Move the nav links over to clear the toggle */
 $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
-
 .nav {
-    position: fixed;
+    position: absolute;
     width: 100%;
     background-color: $lightest-gray;
     border-bottom: $default-border;
+    transform: translateY(-90vh);
+    transition: transform .5s $bounce-in;
+
+    /* vertical centering part 1 of 2 */
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+
+    &.is-expanded {
+        transform: translateY(0);
+
+        .logo {
+            transform: translateY(-3.25rem);
+        }
+    }
 
     &.is-gramming {
         background-color: $white-08;
@@ -28,13 +45,12 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     &.mobile  {
         background-color: color(#EDEDED a(95%));
         position: fixed;
+        bottom: 0;
         height: 110vh;
-        margin-top: -10vh;
         z-index: 3;
 
         .nav-links {
             margin-top: 10vh;
-            padding-top: 17.3rem;
         }
     }
 }
@@ -48,11 +64,11 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .nav-links {
     text-align: center;
-    @mixin clearfix;
-    opacity: .9;
-    padding-top: calc($logo-size * 2);
-    padding-bottom: calc($logo-size / 2);
     position: relative;
+    width: 100%;
+    /* vertical centering part 2 of 2 */
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .nav-link {

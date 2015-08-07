@@ -3,14 +3,13 @@ import { Link, RouteHandler } from 'react-router';
 
 var Logo = React.createClass({
   handleClick() {
-    store.isNavShowing = false;
+    store.isNavExpanded = false;
   },
 
  render() {
-    var logoClass = this.props.class ? ' nav' : '';
     return (
       <Link
-        className={'logo ' + logoClass}
+        className='logo'
         to='home'
         tabIndex='-1'
         onClick={this.handleClick}

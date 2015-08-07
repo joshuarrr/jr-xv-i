@@ -6,6 +6,12 @@
 $border-width: 1px;
 $border-color: $black-05;
 
+.logo-wrap {
+    position: fixed;
+    width: 100vw;
+    z-index: 5;
+}
+
 /* Hide the h1 */
 .name { @mixin hidden-text; }
 
@@ -25,16 +31,22 @@ $border-color: $black-05;
     right: 0;
     left: 0;
     opacity: 0;
-    top: calc($logo-size / 2);
+    top: calc($header-height - ($logo-size / 2) + .5rem);
     transition: background-color 1s $default-ease;
     width: calc($logo-size - .8rem);
     height: calc($logo-size - .8rem);
     z-index: 1;
+    pointer-events: auto;
 
     @media (--phone) {
         width: calc($logo-size - .2rem);
         height: calc($logo-size - .2rem);
+        top: calc($header-height - ($logo-size / 2) + .2rem);
    }
+
+    @media (--fablet) {
+        top: calc($header-height - ($logo-size / 2));
+    }
 
     @media (--laptop) {
         width: calc($logo-size);
@@ -50,44 +62,6 @@ $border-color: $black-05;
         width: calc($logo-size + 1);
         height: calc($logo-size + 1);
    }
-
-    /* Duplicate logo for the mobile nav. May be a terrible idea. */
-    &.nav {
-        opacity: 1;
-        position: fixed;
-        z-index: 2;
-        top: 8.8rem;
-        /*background-color: red;*/
-        box-shadow: 0 0 0 2px $background-color,
-                    0 0 0 3px color(black a(10%)),
-                    0 0 10px 3px color(black a(10%)),
-                    -0px -0px 15px 1px $black-04 inset;
-
-        @media(--phone) {
-            top: 9.25rem;
-        }
-
-        @media (--fablet) {
-            top: 6.25rem;
-        }
-
-        @media (--tablet) {
-            top: 3.25rem;
-        }
-
-        @media (--laptop) {
-
-        }
-
-        @media (--desktop) {
-
-        }
-
-        @media (--highRes) {
-
-        }
-
-    }
 
     &:after {
         color: white;
@@ -112,10 +86,4 @@ $border-color: $black-05;
             cursor: default;
         }
     }
-}
-
-.logo-wrap {
-    z-index: -1;
-    position: absolute;
-    width: 100%;
 }

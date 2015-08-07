@@ -16,6 +16,11 @@ var store = window.store = {
   get isNavShowing() { return this._isNavShowing; },
   set isNavShowing(showing) { this._isNavShowing = showing; this.notify(); },
 
+  // Nav Expansion
+  _isNavExpanded: false,
+  get isNavExpanded() { return this._isNavExpanded; },
+  set isNavExpanded(expanded) { this._isNavExpanded = expanded; this.notify(); },
+
   // Mobile
   _isMobile: null,
   get isMobile() { return this._isMobile; },
