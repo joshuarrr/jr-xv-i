@@ -12,9 +12,9 @@ var NavToggle = React.createClass({
   },
 
   render: function() {
-    var toggleClass = store.isNavExpanded ? " is-active" : "";
+    var isExpanded = store.isNavExpanded ? " is-expanded" : "";
     return (
-      <button className={'nav-toggle' + toggleClass} onClick={this.toggleNav}>
+      <button className={'nav-toggle' + isExpanded} onClick={this.toggleNav}>
         <span className='inner'>toggle menu</span>
       </button>
     );
@@ -31,7 +31,7 @@ var Header = React.createClass({
           className='logo-wrap'
           appear={{scale: [1, .9], opacity: [1, 0]}}
           enter="transition.fadeIn"
-          enterOptions={{delay: 500}}
+          enterOptions={{delay: 300}}
           defaults={{duration: 1000}}
         >
           <Logo />

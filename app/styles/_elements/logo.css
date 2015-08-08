@@ -7,9 +7,9 @@ $border-width: 1px;
 $border-color: $black-05;
 
 .logo-wrap {
-    position: fixed;
-    width: 100vw;
-    z-index: 5;
+  position: fixed;
+  width: 100vw;
+  z-index: 5;
 }
 
 /* Hide the h1 */
@@ -17,73 +17,92 @@ $border-color: $black-05;
 
 /* Logo styles */
 .logo {
-    @mixin serif-font;
-    background-color: $black-07;
-    border-radius: 50%;
-    border: $border-width solid $border-color;
-    box-shadow: 0 0 0 2px $background-color,
-                0 0 0 3px color(black a(10%)),
-                -0px -0px 15px 1px $black-04 inset;
-    display: block;
+  @mixin serif-font;
+  background-color: $black-07;
+  border-radius: 50%;
+  border: $border-width solid $border-color;
+  box-shadow: 0 0 0 2px $background-color,
+  0 0 0 3px color(black a(10%)),
+  -0px -0px 15px 1px $black-04 inset;
+  display: block;
+  font-weight: 400;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  top: calc($header-height - ($logo-size / 2) + .5rem);
+  transition:
+    background-color 1s $default-ease,
+    transform 1s $default-ease;
+  width: calc($logo-size - .8rem);
+  height: calc($logo-size - .8rem);
+  z-index: 1;
+  pointer-events: auto;
+
+  &:after {
+    color: white;
+    content: 'j';
+    font-size: 3.6rem;
     font-weight: 400;
-    margin: 0 auto;
+    left: 46%;
+    line-height: 0;
     position: absolute;
-    right: 0;
-    left: 0;
-    opacity: 0;
-    top: calc($header-height - ($logo-size / 2) + .5rem);
-    transition: background-color 1s $default-ease;
-    width: calc($logo-size - .8rem);
-    height: calc($logo-size - .8rem);
-    z-index: 1;
-    pointer-events: auto;
+    text-rendering: geometricPrecision;
+    top: 45%;
+  }
 
-    @media (--phone) {
-        width: calc($logo-size - .2rem);
-        height: calc($logo-size - .2rem);
-        top: calc($header-height - ($logo-size / 2) + .2rem);
-   }
-
-    @media (--fablet) {
-        top: calc($header-height - ($logo-size / 2));
-    }
-
-    @media (--laptop) {
-        width: calc($logo-size);
-        height: calc($logo-size);
-   }
-
-    @media (--desktop) {
-        width: calc($logo-size + .5);
-        height: calc($logo-size + .5);
-   }
-
-    @media (--highRes) {
-        width: calc($logo-size + 1);
-        height: calc($logo-size + 1);
-   }
+  /* Change size of logo instead of scale due to js transform on appear */
+  @media (--phone) {
+    width: calc($logo-size - .2rem);
+    height: calc($logo-size - .2rem);
+    top: calc($header-height - ($logo-size / 2) + .2rem);
 
     &:after {
-        color: white;
-        content: 'j';
-        font-size: calc($logo-size / 1.7);
-        font-weight: 400;
-        left: 46%;
-        line-height: 0;
-        position: absolute;
-        text-rendering: geometricPrecision;
-        top: 45%;
+      font-size: 3.8rem;
     }
+  }
 
+  @media (--fablet) {
+    top: calc($header-height - ($logo-size / 2));
+  }
+
+  @media (--laptop) {
+    width: calc($logo-size);
+    height: calc($logo-size);
+
+    &:after {
+      font-size: 4rem;
+    }
+  }
+
+  @media (--desktop) {
+    width: calc($logo-size + .5);
+    height: calc($logo-size + .5);
+
+    &:after {
+      font-size: 4.2rem;
+    }
+  }
+
+  @media (--highRes) {
+    width: calc($logo-size + 1);
+    height: calc($logo-size + 1);
+
+    &:after {
+      font-size: 4.6rem;
+    }
+  }
+
+  &:hover {
+    background: #000;
+    cursor: pointer;
+  }
+
+  &.active {
     &:hover {
-        background: #000;
-        cursor: pointer;
+      background-color: $black-07;
+      cursor: default;
     }
-
-    &.active {
-        &:hover {
-            background-color: $black-07;
-            cursor: default;
-        }
-    }
+  }
 }

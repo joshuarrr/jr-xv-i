@@ -14,9 +14,11 @@ var NotFound = React.createClass({
           delay: 0
         }}
       >
-        <div className="not-found text-measure intro">
+        <div className="not-found page text-measure intro">
           <h1>lost</h1>
-          <p>Sorry, there’s nothing here to be found.</p>
+          <section key="not-found">
+            <p>Sorry, there’s nothing here to be found.</p>
+          </section>
         </div>
       </VelocityTransitionGroup>
     );

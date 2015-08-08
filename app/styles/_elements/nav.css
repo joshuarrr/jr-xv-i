@@ -12,7 +12,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 .nav {
     position: absolute;
     width: 100%;
-    background-color: $lightest-gray;
+    background-color: $header-bg;
     border-bottom: $default-border;
     transform: translateY(-90vh);
     transition: transform .5s $bounce-in;
@@ -34,7 +34,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     }
 
     &.is-gramming {
-        background-color: $white-08;
+        background-color: $header-ig-bg;
 
         &:before {
             background-color: transparent;
@@ -43,7 +43,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
     /* narrow devices */
     &.mobile  {
-        background-color: color(#EDEDED a(95%));
+        background-color: $header-bg;
         position: fixed;
         bottom: 0;
         height: 110vh;

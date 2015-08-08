@@ -27,16 +27,8 @@ $black-07: color(black a(70%));
 $black-08: color(black a(80%));
 $black-09: color(black a(90%));
 
-/* Transparent white */
-$white-01: color(white a(5%));
-$white-02: color(white a(20%));
-$white-03: color(white a(30%));
-$white-04: color(white a(40%));
-$white-05: color(white a(50%));
-$white-06: color(white a(60%));
-$white-07: color(white a(70%));
-$white-08: color(white a(80%));
-$white-09: color(white a(90%));
-
 /* Color Variables */
 $background-color: $lightester-gray;
+$header-bg: $lightest-gray;
+/*$header-bg: color(black a(07%));*/
+$header-ig-bg: color(white a(80%));
