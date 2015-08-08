@@ -12,13 +12,16 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 .nav {
     background-color: $header-bg;
     border-bottom: $default-border;
-    position: absolute;
-    transform: translateY(-90vh);
-    transition: transform .5s $bounce-in;
+    height: $header-height;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    transition: height .5s $bounce-in;
     width: 100%;
+    z-index: 3;
 
     @media (--short-max)  {
-        transform: translateY(-80vh);
+        height: calc($header-height * 2);
     }
 
     /* vertical centering part 1 of 2 */
@@ -30,7 +33,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
     }
 
     &.is-expanded {
-        transform: translateY(0);
+        height: 100vh;
 
         .logo {
             transform: translateY(-3.25rem);
@@ -47,11 +50,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
     /* narrow devices */
     &.mobile  {
-        background-color: $header-bg;
-        position: fixed;
-        bottom: 0;
-        height: 110vh;
-        z-index: 3;
+
 
         .nav-links {
             margin-top: 10vh;
