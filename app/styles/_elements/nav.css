@@ -37,6 +37,8 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
         .logo {
             transform: translateY(-3.25rem);
+            /* Trigger hardware accelleration */
+            -webkit-transform: translate3d(0, 0, 0);
         }
     }
 
