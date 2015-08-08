@@ -10,12 +10,16 @@ $menu-icon-padding: $grid-padding * 2;
 $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 .nav {
-    position: absolute;
-    width: 100%;
     background-color: $header-bg;
     border-bottom: $default-border;
+    position: absolute;
     transform: translateY(-90vh);
     transition: transform .5s $bounce-in;
+    width: 100%;
+
+    @media (--short-max)  {
+        transform: translateY(-80vh);
+    }
 
     /* vertical centering part 1 of 2 */
     &:before {

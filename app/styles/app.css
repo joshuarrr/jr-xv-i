@@ -30,11 +30,27 @@ body {
 /* Page */
 .page {
     @mixin clearfix;
-    @mixin container-padding 12rem, $outer-margin, 3rem;
+    @mixin container-padding 11rem, $outer-margin, 3rem;
 
-    @media (--fablet)  {
-        @mixin container-padding 12rem, $outer-margin, 10rem;
+    @media (--short)  {
+        padding-top: 12rem;
     }
+
+    @media (--tall)  {
+        padding-top: 10rem;
+    }
+
+    @media (--grande)  {
+        padding-top: 12rem;
+    }
+
+    @media (--venti)  {
+        padding-top: 12rem;
+    }
+
+/*    @media (--fablet)  {
+        @mixin container-padding 12rem, $outer-margin, 10rem;
+    }*/
 }
 
 .no-scroll {
