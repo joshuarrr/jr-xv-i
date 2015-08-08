@@ -30,5 +30,6 @@ $black-09: color(black a(90%));
 /* Color Variables */
 $background-color: $lightester-gray;
 $header-bg: $lightest-gray;
+$nav-bg: rgba(237, 237, 237, .5);
 /*$header-bg: color(black a(07%));*/
 $header-ig-bg: color(white a(80%));

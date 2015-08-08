@@ -34,15 +34,39 @@ var NavLinks = React.createClass({
   }
 });
 
-// Primary Nav //
-var Nav = React.createClass({
+var Blurrer = React.createClass({
   componentWillUpdate: function() {
     if (store.isNavExpanded) {
-      window.scrollTo(0, 100);
+      var content = document.querySelector('.page');
+      content.className += ' blurred-content';
+      var duplicate = content.cloneNode(true);
+
+      var where = document.querySelector('.blurred-container');
+      var dupe = where.appendChild(duplicate);
+      // console.log('Content duplicated');
+    }
+
+     else {
+      var where = document.querySelector('.blurred-container');
+      var dupe = document.querySelector('.blurred-content')
+      if (dupe) { where.removeChild(dupe); }
+      // console.log('Duplicate removed.');
     }
   },
 
+  render: function() {
+    var navState = store.isNavExpanded ? ' is-expanded' : '';
+    return (
+      <div className={'blurred-container' + navState}>
+        { store.isNavExpanded && this.dupe}
+      </div>
+    );
+  }
+});
 
+
+// Primary Nav //
+var Nav = React.createClass({
   render() {
     var isGramming = store.isInfinigramming ? " is-gramming" : "";
     var mqclass = this.props.mq;
@@ -50,6 +74,7 @@ var Nav = React.createClass({
     return (
       <nav className={'nav ' + mqclass + isGramming + isExpanded}>
         <NavLinks />
+        <Blurrer />
       </nav>
     )
   }
