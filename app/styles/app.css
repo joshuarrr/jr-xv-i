@@ -45,12 +45,12 @@ body {
     }
 
     @media (--venti)  {
-        padding-top: 12rem;
+        padding-top: 15rem;
     }
 
-/*    @media (--fablet)  {
-        @mixin container-padding 12rem, $outer-margin, 10rem;
-    }*/
+    @media (--trenta)  {
+        padding-top: 18rem;
+    }
 }
 
 .no-scroll {
