@@ -24,9 +24,7 @@ var Words = React.createClass({
     // }, false);
   },
 
-
   render: function() {
-    // var uh = require("../img/content/lines.jpg");
     var url = require("file!../img/content/lines.jpg");
     return (
       <VelocityTransitionGroup

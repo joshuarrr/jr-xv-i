@@ -8,6 +8,7 @@ import { Link, RouteHandler } from 'react-router';
 import store from './store';
 require('./styles/app.css');
 
+require('file?name=favicon.png!./favicon.png');
 
 // Pages //
 var Main = React.createClass({
