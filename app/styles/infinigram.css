@@ -60,6 +60,7 @@
 .ig-picture,
 .ig-video {
     width: 100%;
+    opacity: 0;
 
     @media (--fablet)  {
         width: 50vw;
