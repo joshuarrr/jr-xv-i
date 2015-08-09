@@ -26,9 +26,17 @@ var Blurifier = React.createClass({
   },
 
   componentDidUpdate: function() {
+    if (store.isNavExpanded) {
+      // ESC key (key code 27) closes the nav
+      window.addEventListener('keyup', function(e) {
+          if (e.keyCode == 27) {
+              store.isNavExpanded = false;
+          }
+      });
+    }
+
     // sync up the content and blurred-content scroll positions
     var dupeContainer = document.querySelector('.blurred-container');
-
     window.addEventListener("scroll", function(event) {
       var top = this.scrollY;
       var verticalScroll = document.querySelector(".page");
@@ -36,9 +44,8 @@ var Blurifier = React.createClass({
       dupeContainer.scrollTop = top;
     }, false);
 
-    //-- Totally not the React way but it works for now  ----------------------/
-    // If the nav isn't showing, get rid of the duplicate
     if (!store.isNavExpanded) {
+    // If the nav isn't showing, get rid of the duplicate
       var where = document.querySelector('.blurred-container');
       var dupe = document.querySelector('.page')
 
@@ -49,10 +56,8 @@ var Blurifier = React.createClass({
 
       // Set a timeout to allow for the exit transition // super hacky
       window.setTimeout(removeBlur, 1000);
-
       // console.log('Duplicate removed.');
     }
-    //-------------------------------------------------------------------------/
   },
 
   render: function() {

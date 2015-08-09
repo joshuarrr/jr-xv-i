@@ -77,41 +77,15 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   z-index: 5;
 
   /* FIXME - better toggle positioning */
-  @media (--short-max) {
-    top: 5vh;
-  }
-
-  @media (height >= 376px) {
-      top: 0vh;
-    }
-
-  @media (--tall) {
-      top: 1vh;
-    }
-
-  @media (--grande) {
-      top: 1.6vh;
-    }
-
-  @media (height >= 668px) {
-      top: 2.1vh;
-    }
-
-  @media (--venti) {
-      top: 2.5vh;
-    }
-
-  @media (height >= 868px) {
-      top: 3vh;
-    }
-
-  @media (--trenta) {
-      top: 3.2vh;
-    }
-
-  @media (height >= 1400px) {
-      top: 3.7vh;
-    }
+  @media (--short-max)      { top: 5vh; }
+  @media (height >= 376px)  { top: 0vh; }
+  @media (--tall)           { top: 1vh; }
+  @media (--grande)         { top: 1.6vh; }
+  @media (height >= 668px)  { top: 2.1vh; }
+  @media (--venti)          { top: 2.5vh; }
+  @media (height >= 868px)  { top: 3vh; }
+  @media (--trenta)         { top: 3.2vh; }
+  @media (height >= 1400px) { top: 3.7vh; }
 }
 
 .nav-links {
