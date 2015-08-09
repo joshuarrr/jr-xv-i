@@ -97,8 +97,10 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   position: relative;
   text-rendering: geometricPrecision;
 
-  @media (--laptop)  {
-    float: right;
+  /* override responsive font line-height */
+  @media (--laptop),
+  @media(--highRes)  {
+    line-height: 3;
   }
 
   &.active {
