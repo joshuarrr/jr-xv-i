@@ -14,7 +14,7 @@ var Blurifier = React.createClass({
       dupeContainer.appendChild(duplicate);
 
       var yPos = window.scrollY;
-      console.log('yPos = ' + yPos);
+      // console.log('yPos = ' + yPos);
 
       dupeContainer.scrollTop = yPos;
       // console.log('Content duplicated');
@@ -44,7 +44,7 @@ var Blurifier = React.createClass({
 
       // Remove the blurred content
       var removeBlur = function() {
-        if (dupe) { where.removeChild(dupe); }
+        where.innerHTML = '';
       }
 
       // Set a timeout to allow for the exit transition // super hacky
