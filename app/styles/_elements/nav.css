@@ -15,7 +15,9 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   overflow: hidden;
   position: fixed;
   top: 0;
-  transition: height 2s $bounce-in;
+  transition:
+    height 1s $bounce-in,
+    background-color 1s $bounce-in;
   width: 100%;
   z-index: 3;
 
@@ -37,7 +39,8 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   }
 
   &.is-expanded {
-    height: 100vh;
+    background-color: rgba(255, 255, 255, .8);
+    height: 100%;
 
     .logo {
       transform: translateY(-3.25rem);
@@ -104,18 +107,35 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 }
 
 .blurred-container {
-  position: absolute;
-  -webkit-filter: blur(5px);
-  filter: url(#blur-effect);
+  position: fixed;
   width: 100%;
   height: $header-height;
-  top: 0;
-  background-color: white;
-  transition: height 2s $bounce-in;
+  transition:
+    height 1s $bounce-in,
+    opacity 1s $bounce-in;
+  opacity: 0;
   overflow: hidden;
-  z-index: -1;
+  z-index: 1;
+  pointer-events: none;
+
+  &:before {
+    background-color: white;
+    content: '';
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+  }
 
   &.is-expanded {
     height: 100vh;
+    opacity: 1;
+  }
+
+  .page {
+    -webkit-filter: blur(2px);
+    filter: url(#blur-effect);
   }
 }
+

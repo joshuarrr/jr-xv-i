@@ -8,6 +8,8 @@ import { Link, RouteHandler } from 'react-router';
 import store from './store';
 require('./styles/app.css');
 
+
+// Pages //
 var Main = React.createClass({
   render: function() {
     return (

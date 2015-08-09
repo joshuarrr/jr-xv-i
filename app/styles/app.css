@@ -10,11 +10,12 @@
 /*! App ---------------------------------------------------------------------*/
 html,
 body {
-    height: 100%;
+    min-height: 100%;
 }
 
 body {
     background: $background-color;
+    position: relative;
 }
 
 #root {
