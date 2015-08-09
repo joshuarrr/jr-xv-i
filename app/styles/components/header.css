@@ -3,11 +3,10 @@
 @import '../_elements/logo.css';
 
 .header {
-    position: relative;
-    z-index: 2;
-
-    /* Not to be confused with phone, mobile is based on deviceWidth */
-    &.mobile {
-        /* background: red; */
-    }
+  position: relative;
+  z-index: 2;
+  height: $header-height;
+  @media (--short-max)  {
+    height: calc($header-height * 2);
+  }
 }

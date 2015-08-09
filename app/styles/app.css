@@ -31,26 +31,26 @@ body {
 /* Page */
 .page {
     @mixin clearfix;
-    @mixin container-padding 11rem, $outer-margin, 3rem;
+    @mixin container-padding 6rem, $outer-margin, 3rem;
 
     @media (--short)  {
-        padding-top: 12rem;
+        padding-top: 7rem;
     }
 
     @media (--tall)  {
-        padding-top: 10rem;
+        padding-top: 5rem;
     }
 
     @media (--grande)  {
-        padding-top: 12rem;
+        padding-top: 7rem;
     }
 
     @media (--venti)  {
-        padding-top: 15rem;
+        padding-top: 10rem;
     }
 
     @media (--trenta)  {
-        padding-top: 18rem;
+        padding-top: 13rem;
     }
 }
 

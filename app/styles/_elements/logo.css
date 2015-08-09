@@ -1,7 +1,7 @@
 /*! Logo --------------------------------------------------------------------*/
 
 @import '../_lib/_mixins.css';
-@import '../_lib/_element-vars.css';
+@import '../_lib/_vars.css';
 
 $border-width: 1px;
 $border-color: $black-05;

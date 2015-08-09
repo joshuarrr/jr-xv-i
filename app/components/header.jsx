@@ -14,8 +14,10 @@ var NavToggle = React.createClass({
   render: function() {
     var isExpanded = store.isNavExpanded ? " is-expanded" : "";
     return (
-      <button className={'nav-toggle' + isExpanded} onClick={this.toggleNav}>
-        <span className='inner'>toggle menu</span>
+      <button className='nav-toggle-btn' onClick={this.toggleNav}>
+        <span className={'nav-toggle' + isExpanded} >
+          <span className='inner'>toggle menu</span>
+        </span>
       </button>
     );
   }
