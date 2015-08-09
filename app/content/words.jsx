@@ -6,22 +6,22 @@ require('../styles/words.css');
 var Words = React.createClass({
 
   componentDidMount: function() {
-    var banner = document.querySelector('.banner');
-    // change the image height on scroll
-    window.addEventListener("scroll", function(event) {
-      var banner = document.querySelector('.banner');
-      var top = this.scrollY;
-      console.log('top = ' + top);
-      var verticalScroll = document.querySelector(".page");
-      // console.log('Scroll Y: ' + top + "px");
-      var imgHeight = banner.clientHeight;
-      console.log('imgHeight = ' + imgHeight);
-      var i = top * .1;
-      console.log('i = ' + i);
-      var computedHeight = imgHeight - (top * .8);
-      console.log('computedHeight = ' + computedHeight);
-      banner.style.height = computedHeight + 'px';
-    }, false);
+    // var banner = document.querySelector('.banner');
+    // // change the image height on scroll
+    // window.addEventListener("scroll", function(event) {
+    //   var banner = document.querySelector('.banner');
+    //   var top = this.scrollY;
+    //   console.log('top = ' + top);
+    //   var verticalScroll = document.querySelector(".page");
+    //   // console.log('Scroll Y: ' + top + "px");
+    //   var imgHeight = banner.clientHeight;
+    //   console.log('imgHeight = ' + imgHeight);
+    //   var i = top * .1;
+    //   console.log('i = ' + i);
+    //   var computedHeight = imgHeight - (top * .8);
+    //   console.log('computedHeight = ' + computedHeight);
+    //   banner.style.height = computedHeight + 'px';
+    // }, false);
   },
 
 

@@ -106,6 +106,97 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   }
 }
 
+/* NAV link effect */
+/* Inspired by (via http://tympanus.net/Development/CreativeLinkEffects) */
+.nav-link:before,
+.nav-link:after {
+  display: inline-block;
+  transition:
+    transform .3s,
+    opacity .3s;
+}
+
+/* set up hover states */
+.nav-link:before {
+  opacity: 0;
+  margin-right: 10px;
+  content: '[';
+  transform: translateX(20px);
+}
+
+.nav-link:after {
+  opacity: 0;
+  margin-left: 10px;
+  content: ']';
+  transform: translateX(-20px);
+}
+
+/* set up active hover state */
+.nav-link.active:before {
+  opacity: 0;
+  margin-right: 10px;
+  content: '—';
+  transform: translateX(20px);
+}
+
+.nav-link.active:after {
+  opacity: 0;
+  margin-left: 10px;
+  content: '—';
+  transform: translateX(-20px);
+}
+
+/* initial active link marker is visible */
+.nav-links .nav-link.active:after,
+.nav-links .nav-link.active:before {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+/* hide all the link markers when hovering over the nav */
+.nav-links:hover .nav-link:before {
+  opacity: 0;
+  margin-right: 10px;
+  content: '[';
+  transform: translateX(20px);
+}
+
+.nav-links:hover .nav-link:after {
+  opacity: 0;
+  margin-left: 10px;
+  content: ']';
+  transform: translateX(-20px);
+}
+
+/* hide the active link markers when hovering over the nav */
+.nav-links:hover .nav-link.active:before {
+  opacity: 0;
+  margin-right: 10px;
+  content: '—';
+  transform: translateX(20px);
+}
+
+.nav-links:hover .nav-link.active:after {
+  opacity: 0;
+  margin-left: 10px;
+  content: '—';
+  transform: translateX(-20px);
+}
+
+/* show the actively hovered link marker */
+.nav-links .nav-link:hover:before,
+.nav-links .nav-link:hover:after,
+.nav-links .nav-link:focus:before,
+.nav-links .nav-link:focus:after,
+.nav-links .nav-link.active:hover:before,
+.nav-links .nav-link.active:hover:after,
+.nav-links .nav-link.active:focus:before,
+.nav-links .nav-link.active:focus:after  {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Frosted glass nav background effect ---------------------------------------*/
 .blurred-container {
   position: fixed;
   width: 100%;
