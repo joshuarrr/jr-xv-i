@@ -3,6 +3,10 @@
 /*! About Page --------------------------------------------------------------*/
 .social-links {
   margin-top: 3rem;
+
+  @media (--highRes) {
+    margin-top: 4rem;
+  }
 }
 
 .social-link-item {
