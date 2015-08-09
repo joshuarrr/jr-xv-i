@@ -62,11 +62,8 @@ var config = {
             test: /\.css$/,
             loader: 'style-loader!css-loader!postcss-loader'
         }, {
-            test: /\.(png|jpeg)$/,
-            loader: 'url-loader?limit=100000'
-        }, {
-            test: /\.(woff|woff2|eot|ttf|svg)$/,
-            loader: 'url-loader?limit=100000'
+            test: /\.(png|jpeg|woff|woff2|eot|ttf|svg)$/,
+            loader: 'url-loader?limit=8192'
         }]
     },
     postcss: function () {
