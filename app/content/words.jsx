@@ -4,6 +4,27 @@ import 'velocity-animate/velocity.ui';
 require('../styles/words.css');
 
 var Words = React.createClass({
+
+  componentDidMount: function() {
+    var banner = document.querySelector('.banner');
+    // change the image height on scroll
+    window.addEventListener("scroll", function(event) {
+      var banner = document.querySelector('.banner');
+      var top = this.scrollY;
+      console.log('top = ' + top);
+      var verticalScroll = document.querySelector(".page");
+      // console.log('Scroll Y: ' + top + "px");
+      var imgHeight = banner.clientHeight;
+      console.log('imgHeight = ' + imgHeight);
+      var i = top * .1;
+      console.log('i = ' + i);
+      var computedHeight = imgHeight - (top * .8);
+      console.log('computedHeight = ' + computedHeight);
+      banner.style.height = computedHeight + 'px';
+    }, false);
+  },
+
+
   render: function() {
     // var uh = require("../img/content/lines.jpg");
     var url = require("file!../img/content/lines.jpg");
@@ -20,7 +41,9 @@ var Words = React.createClass({
         <div className="page">
           <h1 className="intro">art</h1>
           <article key="words" className="words text-measure">
-            <img src={url} className="banner" alt="A drawing of some lines." />
+            <picture className="banner">
+              <img src={url} alt="A drawing of some lines." />
+            </picture>
             <p>
               Sometimes I draw things, and I wonder if what I’ve drawn is art, or something else. Doodles? Scribbles? Drawings? There must be  something else I can call it besides <em>art</em>. I don’t know why I’m so adverse to that term when referencing my own work — I use it generously when referring to other people’s efforts. But, when it comes up, I don’t call myself an artist. I just say, <em>“I like to draw”</em>.
             </p>
