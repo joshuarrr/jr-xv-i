@@ -27,14 +27,14 @@ var SocialLinks = React.createClass({
   render: function() {
     var links = socialLinkList.map(function (l, i) {
       return (
-        <li key={'link-' + i} className='about-link-item'>
+        <li key={'link-' + i} className='social-link-item'>
           <a
-            className={'about-link ' + l.class }
+            className={'social-link icon ' + l.class }
             href={l.url}
             rel='external'
             target='_blank'
           >
-            <span className='about-link-text'>
+            <span className='social-link-text'>
               {l.title}
             </span>
           </a>
@@ -43,11 +43,9 @@ var SocialLinks = React.createClass({
     });
 
     return (
-      <div className='about-links'>
-        <ul className='about-links-list'>
-          { links }
-        </ul>
-      </div>
+      <ul className='social-links'>
+        { links }
+      </ul>
     );
   }
 });

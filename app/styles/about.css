@@ -1,24 +1,32 @@
 @import './_lib.css';
 
 /*! About Page --------------------------------------------------------------*/
-.about-links-list {
-    margin-top: 3rem;
+.social-links {
+  margin-top: 3rem;
 }
 
-.about-link-item {
-    text-align: center;
+.social-link-item {
+  text-align: center;
+  margin-bottom: 1rem;
+
+  @media (--tablet) {
+    margin-bottom: 1.5rem;
+  }
+
+  @media (--laptop) {
+    margin-bottom: 2rem;
+  }
+
+  @media (--highRes) {
+    margin-bottom: 2.5rem;
+  }
 }
 
-.about-link:link,
-.about-link:visited
- {
-    color: $light-gray;
+.social-link:hover {
+  color: $dark-red;
 }
 
-.about-link:hover {
-    color: $dark-red;
+.social-link-text {
+  @mixin hidden-text;
 }
 
-.about-link-text {
-    @mixin hidden-text;
-}
