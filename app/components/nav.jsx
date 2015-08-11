@@ -14,10 +14,13 @@ var Blurifier = React.createClass({
       dupeContainer.appendChild(duplicate);
 
       var yPos = window.scrollY;
-      // console.log('yPos = ' + yPos);
+      console.log('yPos = ' + yPos);
+
+      var headerHeight = document.querySelector('.header').clientHeight;
+      console.log('headerHeight = ' + headerHeight);
 
       dupeContainer.scrollTop = yPos;
-      // console.log('Content duplicated');
+      console.log('dupeContainer.scrollTop = ' + dupeContainer.scrollTop);
 
       var runOnScroll =  function(evt) {
         dupeContainer.scrollTop = yPos;
