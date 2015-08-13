@@ -5,6 +5,9 @@ import store from '../store';
 
 // Blurred Background //
 var BlurredBackground = React.createClass({
+  getInitialState: function() {
+    return {scrollPos: window.scrollY};
+  },
 
   handleKeyup: function(e) {
     if (e.keyCode == 27) {
@@ -12,9 +15,21 @@ var BlurredBackground = React.createClass({
     }
   },
 
+  handleScroll: function(e) {
+    this.setState({scrollPos: window.scrollY});
+
+    if (store.isNavExpanded) {
+      var dupeContainer = document.querySelector('.blurred-container');
+      dupeContainer.scrollTop = this.state.scrollPos
+    };
+  },
+
   componentDidMount: function() {
     // listen for escape key
     window.addEventListener('keyup', this.handleKeyup);
+
+    // listen for scroll
+    window.addEventListener('scroll', this.handleScroll);
 
     var dupeContainer = document.querySelector('.blurred-container');
       // Create a duplicate of the page and shove it in the blurred container.
@@ -26,12 +41,13 @@ var BlurredBackground = React.createClass({
       dupeContainer.appendChild(duplicate);
 
       // position it according to current scroll (since it's fixed)
-      var yPos = window.scrollY;
-      dupeContainer.scrollTop = yPos;
+      // var yPos = window.scrollY;
+      dupeContainer.scrollTop = this.state.scrollPos;
   },
 
   componentWillUnmount: function() {
     window.removeEventListener('keyup', this.handleKeyup);
+    window.removeEventListener('scroll', this.handleScroll);
   },
 
   render: function() {
