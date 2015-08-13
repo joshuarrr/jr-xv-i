@@ -4,6 +4,11 @@
 
 .page.infinigram {
     padding: 0;
+    margin-top: calc(-$header-height);
+
+    @media (--short-max)  {
+        margin-top: calc(-$header-height * 2);
+    };
 }
 
 .ig-picture-list {

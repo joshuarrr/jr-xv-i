@@ -11,26 +11,19 @@ var Blurifier = React.createClass({
       var content = document.querySelector('.page');
       var duplicate = content.cloneNode(true);
       var dupeContainer = document.querySelector('.blurred-container');
+      // Add the duplicate content
       dupeContainer.appendChild(duplicate);
 
+      // position it according to current scroll (since it's fixed)
       var yPos = window.scrollY;
-      console.log('yPos = ' + yPos);
-
-      var headerHeight = document.querySelector('.header').clientHeight;
-      console.log('headerHeight = ' + headerHeight);
-
       dupeContainer.scrollTop = yPos;
-      console.log('dupeContainer.scrollTop = ' + dupeContainer.scrollTop);
-
-      var runOnScroll =  function(evt) {
-        dupeContainer.scrollTop = yPos;
-      };
     }
   },
 
+// MOUNT
   componentDidUpdate: function() {
+    // ESC key (key code 27) closes the nav
     if (store.isNavExpanded) {
-      // ESC key (key code 27) closes the nav
       window.addEventListener('keyup', function(e) {
           if (e.keyCode == 27) {
               store.isNavExpanded = false;

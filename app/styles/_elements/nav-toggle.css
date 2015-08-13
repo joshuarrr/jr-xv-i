@@ -23,10 +23,10 @@ via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
   padding: 0;
   position: relative;
   width: 18px;
-
+/*
   @media (--tablet) {
     transform: scale(1.2, 1.2);
-  }
+  }*/
 }
 
 .nav-toggle:focus {
