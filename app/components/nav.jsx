@@ -13,6 +13,7 @@ var BlurredBackground = React.createClass({
   },
 
   componentDidMount: function() {
+    // listen for escape key
     window.addEventListener('keyup', this.handleKeyup);
 
     var dupeContainer = document.querySelector('.blurred-container');
@@ -20,6 +21,7 @@ var BlurredBackground = React.createClass({
       var content = document.querySelector('.page');
       var duplicate = content.cloneNode(true);
       var dupeContainer = document.querySelector('.blurred-container');
+
       // Add the duplicate content
       dupeContainer.appendChild(duplicate);
 
@@ -86,7 +88,10 @@ var Nav = React.createClass({
         <nav className={'nav ' + mqclass + isGramming + isExpanded}>
           <NavLinks />
         </nav>
-        <BlurredBackground />
+        {
+          isExpanded &&
+          <BlurredBackground />
+        }
       </span>
     )
   }
