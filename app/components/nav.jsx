@@ -3,10 +3,19 @@ import { Link, RouteHandler } from 'react-router';
 import navLinkList from '../data/nav_links.js';
 import store from '../store';
 
-// Blurifier //
-var Blurifier = React.createClass({
-  componentWillUpdate: function() {
-    if (store.isNavExpanded) {
+// Blurred Background //
+var BlurredBackground = React.createClass({
+
+  handleKeyup: function(e) {
+    if (e.keyCode == 27) {
+        store.isNavExpanded = false;
+    }
+  },
+
+  componentDidMount: function() {
+    window.addEventListener('keyup', this.handleKeyup);
+
+    var dupeContainer = document.querySelector('.blurred-container');
       // Create a duplicate of the page and shove it in the blurred container.
       var content = document.querySelector('.page');
       var duplicate = content.cloneNode(true);
@@ -17,43 +26,10 @@ var Blurifier = React.createClass({
       // position it according to current scroll (since it's fixed)
       var yPos = window.scrollY;
       dupeContainer.scrollTop = yPos;
-    }
   },
 
-// MOUNT
-  componentDidUpdate: function() {
-    // ESC key (key code 27) closes the nav
-    if (store.isNavExpanded) {
-      window.addEventListener('keyup', function(e) {
-          if (e.keyCode == 27) {
-              store.isNavExpanded = false;
-          }
-      });
-    }
-
-    // sync up the content and blurred-content scroll positions
-    var dupeContainer = document.querySelector('.blurred-container');
-    window.addEventListener("scroll", function(event) {
-      var top = this.scrollY;
-      var verticalScroll = document.querySelector(".page");
-      // console.log('Scroll Y: ' + top + "px");
-      dupeContainer.scrollTop = top;
-    }, false);
-
-    if (!store.isNavExpanded) {
-    // If the nav isn't showing, get rid of the duplicate
-      var where = document.querySelector('.blurred-container');
-      var dupe = document.querySelector('.page')
-
-      // Remove the blurred content
-      var removeBlur = function() {
-        where.innerHTML = '';
-      }
-
-      // Set a timeout to allow for the exit transition // super hacky
-      window.setTimeout(removeBlur, 1000);
-      // console.log('Duplicate removed.');
-    }
+  componentWillUnmount: function() {
+    window.removeEventListener('keyup', this.handleKeyup);
   },
 
   render: function() {
@@ -65,6 +41,7 @@ var Blurifier = React.createClass({
     );
   }
 });
+
 
 // Nav Links //
 var NavLinks = React.createClass({
@@ -109,7 +86,7 @@ var Nav = React.createClass({
         <nav className={'nav ' + mqclass + isGramming + isExpanded}>
           <NavLinks />
         </nav>
-        <Blurifier />
+        <BlurredBackground />
       </span>
     )
   }
