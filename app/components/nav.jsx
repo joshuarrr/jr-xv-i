@@ -40,16 +40,12 @@ var BlurredBackground = React.createClass({
     var nodeToDuplicate = document.querySelector('.page');
     var duplicate = nodeToDuplicate.cloneNode(true);
 
-
     // Add the duplicate
+    var duplicateContainer = document.querySelector('.blurred-container');
+    duplicateContainer.appendChild(duplicate)
 
-    if (store.isNavExpanded) {
-      var duplicateContainer = document.querySelector('.blurred-container');
-      duplicateContainer.appendChild(duplicate)
-
-      // Position it according to current scroll (since it's fixed)
-      duplicateContainer.scrollTop = this.state.scrollPos;
-    };
+    // Position it according to current scroll (since it's fixed)
+    duplicateContainer.scrollTop = this.state.scrollPos;
   },
 
   componentWillUnmount: function() {
