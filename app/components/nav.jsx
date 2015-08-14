@@ -8,7 +8,9 @@ import 'velocity-animate/velocity.ui';
 // Blurred Background //
 var BlurredBackground = React.createClass({
   getInitialState: function() {
-    return {scrollPos: window.scrollY};
+    return {
+      scrollPos: window.scrollY
+    };
   },
 
   handleKeyup: function(e) {
@@ -21,8 +23,10 @@ var BlurredBackground = React.createClass({
     this.setState({scrollPos: window.scrollY});
 
     // Sync scroll position
+    if (store.isNavExpanded) {
       var dupe = React.findDOMNode(this.refs.dupe);
       dupe.scrollTop = this.state.scrollPos;
+    }
   },
 
   componentDidMount: function() {
@@ -32,10 +36,20 @@ var BlurredBackground = React.createClass({
     // Listen for scroll
     window.addEventListener('scroll', this.handleScroll);
 
-    // Position the dupe according to current scroll (since it's fixed)
-    var dupe = React.findDOMNode(this.refs.dupe);
-    console.log('dupe = ' + dupe);
-    dupe.scrollTop = this.state.scrollPos;
+    // Create a duplicate of the mounted dom node
+    var nodeToDuplicate = document.querySelector('.page');
+    var duplicate = nodeToDuplicate.cloneNode(true);
+
+
+    // Add the duplicate
+
+    if (store.isNavExpanded) {
+      var duplicateContainer = document.querySelector('.blurred-container');
+      duplicateContainer.appendChild(duplicate)
+
+      // Position it according to current scroll (since it's fixed)
+      duplicateContainer.scrollTop = this.state.scrollPos;
+    };
   },
 
   componentWillUnmount: function() {
@@ -44,9 +58,24 @@ var BlurredBackground = React.createClass({
   },
 
   render: function() {
-    var navState = store.isNavExpanded ? ' is-expanded' : '';
+    var isExpanded = store.isNavExpanded ? ' is-expanded' : '';
+
     return (
-        <RouteHandler ref='dupe' dupe='true' />
+      <VelocityTransitionGroup
+        className="duplicate-animation-wrapper"
+        appear="transition.fadeIn"
+        enter="transition.fadeIn"
+        leave="transition.fadeOut"
+        defaults={{
+          duration: 2000,
+          delay: 0
+        }}
+      >
+      {
+        store.isNavExpanded &&
+        <div className={'blurred-container' + isExpanded} ref='dupe' />
+      }
+      </VelocityTransitionGroup>
     );
   }
 });
@@ -91,27 +120,13 @@ var Nav = React.createClass({
     var isGramming = store.isInfinigramming ? " is-gramming" : "";
     var mqclass = this.props.mq;
     var isExpanded = store.isNavExpanded ? ' is-expanded' : '';
+
     return (
       <span className={'nav-wrapper' + isExpanded}>
         <nav className={'nav ' + mqclass + isGramming + isExpanded}>
           <NavLinks />
         </nav>
-        {
-          isExpanded &&
-                <VelocityTransitionGroup
-        className={'blurred-container'}
-
-        enter={{opacity: [1, 0]}}
-        leave={{opacity: [0, 1]}}
-        defaults={{
-          duration: 5000,
-          delay: 0
-        }}
-      >
-          <BlurredBackground />
-      </VelocityTransitionGroup>
-
-        }
+        <BlurredBackground className="duplicatePage" />
       </span>
     )
   }

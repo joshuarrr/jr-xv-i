@@ -40,7 +40,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
   &.is-expanded {
     background-color: rgba(255, 255, 255, .8);
-    height: 100%;
+    height: 100vh;
 
     .logo {
       transform: translateY(-3.25rem);
@@ -213,41 +213,34 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
 
 /* Frosted glass nav background effect ---------------------------------------*/
 .blurred-container {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+  /* webkit nightlies only
+  -webkit-backdrop-filter: blur(5px);*/
+
   /* Account for the header height since the duped content doesn't have one */
   padding-top: $header-height;
+
   @media (--short-max)  {
     padding-top: calc($header-height * 2);
   }
 
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-/*  transition:
-    height 1s $bounce-in,
-    opacity 1s $bounce-in;*/
-  /*opacity: 0;*/
-  overflow: hidden;
-  z-index: 1;
-  pointer-events: none;
-
   &:before {
-/*    background-color: white;
+    background-color: white;
     content: '';
     position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
-    z-index: -1;*/
-  }
-
-  &.is-expanded {
-/*    height: 100vh;
-    opacity: 1;*/
+    z-index: -1;
   }
 
   .page {
-    -webkit-filter: blur(5px);
+    -webkit-filter: blur(10px);
     filter: url(#blur-effect);
   }
 }
-

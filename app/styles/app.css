@@ -32,6 +32,7 @@ body {
 .page {
     @mixin clearfix;
     @mixin container-padding 6rem, $outer-margin, 3rem;
+    z-index: 1;
 
     @media (--short)   { padding-top: 7rem; }
     @media (--tall)    { padding-top: 5rem; }

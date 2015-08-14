@@ -48,9 +48,9 @@ var App = React.createClass({
   },
 
   render() {
-    // console.log('(App render) isNavShowing = ' + store.isNavShowing);
+    var isExpanded = store.isNavExpanded ? ' is-expanded' : '';
     return (
-      <MediaQuery key={'mq'} className='main' component='main' screen={true}>
+      <MediaQuery key={'mq'} className={'main' + isExpanded } component='main' screen={true}>
 
         {/* Mobile ----------------------------------------------------------*/}
         <MediaQuery component='span' key={'mq-mobile'} maxWidth={767} and maxDeviceWidth={767} >
