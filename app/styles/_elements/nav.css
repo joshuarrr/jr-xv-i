@@ -246,7 +246,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   }
 
   .page {
-    -webkit-filter: blur(2px);
+    -webkit-filter: blur(5px);
     filter: url(#blur-effect);
   }
 }

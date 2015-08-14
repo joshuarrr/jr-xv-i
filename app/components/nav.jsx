@@ -46,7 +46,6 @@ var BlurredBackground = React.createClass({
   render: function() {
     var navState = store.isNavExpanded ? ' is-expanded' : '';
     return (
-
         <RouteHandler ref='dupe' dupe='true' />
     );
   }
