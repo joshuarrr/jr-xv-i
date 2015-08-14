@@ -36,7 +36,7 @@ var Words = React.createClass({
           delay: 0
         }}
       >
-        <div className="page">
+        <div className="page" ref="page">
           <h1 className="intro">art</h1>
           <article key="words" className="words text-measure">
             <picture className="banner">

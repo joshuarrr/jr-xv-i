@@ -1,8 +1,6 @@
 var React = require('react');
 var MediaQuery = require('react-responsive');
 var Waypoint = require('react-waypoint');
-import VelocityTransitionGroup from 'VelocityTransitionGroup';
-import 'velocity-animate/velocity.ui';
 import Header from './components/header.jsx';
 import { Link, RouteHandler } from 'react-router';
 import store from './store';
