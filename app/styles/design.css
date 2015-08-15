@@ -11,8 +11,12 @@
 }
 
 .project-thumbnail {
-  border: $lighter-border;
   width: 100%;
+
+  img {
+    border: $lighter-border;
+    width: 100%;
+  }
 }
 
 .design .introduction {
