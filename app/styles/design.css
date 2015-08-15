@@ -1,0 +1,21 @@
+@import './_lib.css';
+
+/*! Design Page --------------------------------------------------------------*/
+.thumbs {
+  position: relative;
+  margin-top: 6rem;
+}
+
+.project {
+  margin-bottom: 6rem;
+}
+
+.project-thumbnail {
+  border: $lighter-border;
+  width: 320px;
+}
+
+.design .introduction {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
