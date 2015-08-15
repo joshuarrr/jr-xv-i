@@ -12,7 +12,7 @@
 
 .project-thumbnail {
   border: $lighter-border;
-  width: 320px;
+  width: 100%;
 }
 
 .design .introduction {
