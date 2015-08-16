@@ -1,25 +1,67 @@
 @import './_lib.css';
 
 /*! Design Page --------------------------------------------------------------*/
-.thumbs {
-  position: relative;
-  margin-top: 6rem;
+.design .introduction {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.projects {
+
 }
 
 .project {
   margin-bottom: 6rem;
+  border-top: 3px double $light-gray;
+  text-align: center;
+}
+
+.project-title {
+  background-color: $background-color;
+  display: inline-block;
+  line-height: 1;
+  margin: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transform: translateY(-53%);
+  z-index: 4;
+  @mixin responsive-font-size 1.6rem;
+}
+
+.project-thumbs {
+  margin: 6rem auto 0;
+  position: relative;
+  width: 100%;
+
+  @media (--fablet)  { width: 30rem; }
+
+  @media (--tablet)  {
+    width: 30rem;
+
+  }
+
+  @media (--laptop)  { width: 35rem; }
+  @media (--desktop) { width: 40rem; }
+  @media (--highRes) { width: 45rem; }
 }
 
 .project-thumbnail {
   width: 100%;
 
+  &.border {
+    img {
+      /*todo: inset border */
+      border: $lighter-border;
+    }
+  }
+
   img {
-    border: $lighter-border;
     width: 100%;
   }
 }
 
-.design .introduction {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+.project-details {
+  position: absolute;
+  transform: translateX(100%);
+  width: 100%;
 }

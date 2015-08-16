@@ -21,6 +21,11 @@ var store = window.store = {
   get isNavExpanded() { return this._isNavExpanded; },
   set isNavExpanded(expanded) { this._isNavExpanded = expanded; this.notify(); },
 
+  // Portfolio
+  _isProjectExpanded: false,
+  get isProjectExpanded() { return this._isProjectExpanded; },
+  set isProjectExpanded(expanded) { this._isProjectExpanded = expanded; this.notify(); },
+
   // Mobile
   _isMobile: null,
   get isMobile() { return this._isMobile; },

@@ -1,12 +1,52 @@
 export default [
   {
     title: 'idealist',
-    description: `I’ve been working at <a href="http://idealist.org" target="_blank">idealist</a> for a few years now.`,
-    file: 'idealist-homepage.jpg'
+    description: `test description`,
+    file: 'idealist-homepage.jpg',
+    class: 'border',
+    id: 'idealist'
   },
   {
-    title: 'another item',
+    title: 'grand canyon association',
     description: ``,
-    file: 'sample.jpg'
+    file: 'GCA.jpg',
+    class: 'border',
+    id: 'gca'
+  },
+
+  {
+    title: 'chali2na',
+    description: ``,
+    file: 'Chali2Na.jpg',
+    class: 'border',
+    id: 'chali'
+  },
+  {
+    title: 'skydance',
+    description: ``,
+    file: 'flyboys-02.jpg',
+    class: 'border',
+    id: 'skydance'
+  },
+  {
+    title: 'produce row',
+    description: ``,
+    file: 'prc.png',
+    class: '',
+    id: 'prc'
+  },
+  {
+    title: 'polar express',
+    description: ``,
+    file: 'polar-express-01.jpg',
+    class: 'border',
+    id: 'polar'
+  },
+  {
+    title: 'california college of the arts',
+    description: ``,
+    file: 'CCA-01.jpg',
+    class: 'border',
+    id: 'cca'
   }
 ]
