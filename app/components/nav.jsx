@@ -2,14 +2,11 @@ var React = require('react');
 import { Link, RouteHandler } from 'react-router';
 import navLinkList from '../data/nav_links.js';
 import store from '../store';
-import VelocityTransitionGroup from 'VelocityTransitionGroup';
-import 'velocity-animate/velocity.ui';
 
 // Nav Links //
 var NavLinks = React.createClass({
   handleClick() {
     store.isNavExpanded = false;
-    // console.log('hideNav = ' + store.isNavShowing);
   },
 
   render: function() {

@@ -1,22 +1,65 @@
 @import './_lib.css';
+@import "./_elements/transitions.css";
 
 /*! Design Page --------------------------------------------------------------*/
 .design .introduction {
+  @mixin clearfix;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  position: relative;
+  width: 100%;
 }
 
-.projects {
+.project-thumbs {
+  margin: 6rem 0 0;
+  position: relative;
+  transition: transform .5s $bounce-in;
+  /* since it's absolutely positioned, need to size at 100% - margins */
+  /*width: calc(100% - ($outer-margin * 2));*/
+  width: 100%;
 
+  @media (--fablet)  {
+  position: absolute;
+    /* center the thumbnails, but take outer margins into consideration */
+    transform: translateX(calc(50vw - $outer-margin-f));
+    width: 50vw;
+  }
+
+  @media (--tablet)  {
+    transform: translateX(calc(50vw - $outer-margin-t));
+    width: 40vw;
+
+    .project {
+      transition: transform .5s $bounce-in;
+      /* move the thumbs back over half their own width */
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (--laptop)  {
+    transform: translateX(calc(50vw - $outer-margin-l));
+    width: 35vw;
+  }
+
+  @media (--desktop) {
+    transform: translateX(calc(50vw - $outer-margin-d));
+    width: 30vw;
+  }
+
+  @media (--highRes) {
+    transform: translateX(calc(50vw - $outer-margin-h));
+    width: 25vw;
+  }
 }
 
 .project {
-  margin-bottom: 6rem;
   border-top: 3px double $light-gray;
+  margin-bottom: 6rem;
   text-align: center;
 }
 
 .project-title {
+  @mixin responsive-font-size 1.6rem;
   background-color: $background-color;
   display: inline-block;
   line-height: 1;
@@ -25,24 +68,6 @@
   padding-right: 1rem;
   transform: translateY(-53%);
   z-index: 4;
-  @mixin responsive-font-size 1.6rem;
-}
-
-.project-thumbs {
-  margin: 6rem auto 0;
-  position: relative;
-  width: 100%;
-
-  @media (--fablet)  { width: 30rem; }
-
-  @media (--tablet)  {
-    width: 30rem;
-
-  }
-
-  @media (--laptop)  { width: 35rem; }
-  @media (--desktop) { width: 40rem; }
-  @media (--highRes) { width: 45rem; }
 }
 
 .project-thumbnail {
@@ -60,8 +85,76 @@
   }
 }
 
+/* obsolete? */
 .project-details {
   position: absolute;
   transform: translateX(100%);
   width: 100%;
+}
+
+/* Projecting */
+/* If projects is projecting and it's not a narrow device */
+:not(.mobile) {
+  @media (--fablet) {
+
+
+    .projecting {
+      /* scooch over the thumbnails*/
+      .project-thumbs {
+        transform: translateX(0%);
+
+        .project {
+          transform: translateX(0%);
+        }
+      }
+
+
+      /* Layout the detailed project view */
+      .detailed-projects {
+        margin: 6rem 0 0;
+        position: relative;
+        transition:
+          transform .5s $bounce-in,
+          opacity .5s;
+        width: 100%;
+
+        @media (--fablet)  {
+          position: absolute;
+          width: calc(50vw - ($outer-margin-f * 2));
+          transform: translateX(50vw);
+
+          &.loading {
+            /* Align the detailed projects to the right of the viewport so they can slide in */
+            transform: translateX(100vw);
+          }
+        }
+
+        @media (--tablet)  {
+          width: calc(60vw - ($outer-margin-t * 2));
+          transform: translateX(40vw);
+        }
+
+        @media (--laptop)  {
+          width: calc(65vw - ($outer-margin-l * 2));
+          transform: translateX(35vw);
+        }
+
+        @media (--desktop) {
+          width: calc(70vw - ($outer-margin-d * 2));
+          transform: translateX(30vw);
+        }
+
+        @media (--highRes) {
+          width: calc(75vw - ($outer-margin-h * 2));
+          transform: translateX(25vw);
+        }
+
+        .project-main-image {
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
 }

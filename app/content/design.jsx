@@ -1,17 +1,14 @@
 var React = require('react');
+import { Link, RouteHandler } from 'react-router';
 import VelocityTransitionGroup from 'VelocityTransitionGroup';
-import 'velocity-animate/velocity.ui';
-import styles from '../styles/design.css';
-import projectList from '../data/design.js';
-
 import ResponsiveContainer from '../components/ResponsiveContainer'
 import ResponsiveImage from '../components/ResponsiveImage'
-import { Link, RouteHandler } from 'react-router';
+import projectList from '../data/design.js';
+import styles from '../styles/design.css';
 
 var Project = React.createClass({
   handleClick() {
     store.isProjectExpanded = !store.isProjectExpanded;
-    console.log('store.isProjectExpanded = ' + store.isProjectExpanded);
   },
 
   render: function() {
@@ -54,32 +51,41 @@ var Projects = React.createClass({
     var isProjecting = store.isProjectExpanded ? 'projecting' : '';
     return (
       <div className={'project-thumbs ' + isProjecting}>
-        { projects }
+          { projects }
       </div>
     );
   }
 });
 
 var DetailedProjects = React.createClass({
+  getInitialState: function() {
+    return { mounted: false };
+  },
+
+  componentDidMount: function() {
+      this.setState({ mounted: true });
+  },
+
   render: function() {
     var self = this;
     var projects = projectList.map(function (p, i) {
       return (
         <div className='project' key={'detailed-project' + i}>
-          <h2>{p.title}</h2>
+          <ResponsiveContainer>
+              <ResponsiveImage class={'project-main-image ' + p.class} src={p.file} />
+          </ResponsiveContainer>
           <span
             className='project-description'
             dangerouslySetInnerHTML={{__html: p.description}}
           />
-          <ResponsiveContainer>
-              <ResponsiveImage class={'project-main-image ' + p.class} src={p.file} />
-          </ResponsiveContainer>
         </div>
       )
     });
 
+    var loadingClass = this.state.mounted ? '' : ' loading';
+
     return (
-      <div className='projects-details'>
+      <div className={'detailed-projects' + loadingClass}>
         { projects }
       </div>
     );
@@ -88,6 +94,8 @@ var DetailedProjects = React.createClass({
 
 var Design = React.createClass({
   render: function() {
+    var isProjecting = store.isProjectExpanded ? 'projecting' : '';
+
     return (
       <VelocityTransitionGroup
         appear='transition.fadeIn'
@@ -98,8 +106,8 @@ var Design = React.createClass({
           delay: 0
         }}
       >
-        <div className='page'>
-          <div className='design text-measure'>
+        <div className={'page design ' + isProjecting}>
+          <div className='text-measure'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
                Blow on them. I've had a rough night, and I hate the fucking Eagles, man. Look, Larry… Have you ever heard of Vietnam? Okay, Jackie, done. I like the way you do business. Your money is being held by a kid named Larry Sellers. He lives in North Hollywood, on Radford, near the In-and-Out Burger. A real fuckin' brat, but I'm sure.
