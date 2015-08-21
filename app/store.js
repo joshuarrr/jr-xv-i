@@ -26,6 +26,10 @@ var store = window.store = {
   get isProjectExpanded() { return this._isProjectExpanded; },
   set isProjectExpanded(expanded) { this._isProjectExpanded = expanded; this.notify(); },
 
+  // Expanded Project
+  get expandedProjectId() { return this._projectId; },
+  set expandedProjectId(projectId) { this._projectId = projectId; this.notify(); },
+
   // Mobile
   _isMobile: null,
   get isMobile() { return this._isMobile; },

@@ -6,14 +6,79 @@ import ResponsiveImage from '../components/ResponsiveImage'
 import projectList from '../data/design.js';
 import styles from '../styles/design.css';
 
-var Project = React.createClass({
-  handleClick() {
-    store.isProjectExpanded = !store.isProjectExpanded;
+var DetailedProject = React.createClass({
+  getInitialState: function() {
+    return { mounted: false };
+  },
+
+  componentDidMount: function() {
+      this.setState({ mounted: true });
   },
 
   render: function() {
     var self = this;
+    var loadingClass = this.state.mounted ? '' : ' loading';
+    var isProjecting = store.isProjectExpanded ? 'projecting' : '';
 
+    if (store.isProjectExpanded) {
+      var index = store.expandedProjectId;
+      // console.log('index = ' + index);
+      var p = projectList[index];
+      // console.log('prjclass = ' + p.class);
+    };
+
+    return (
+      <div className={'detailed-project ' + isProjecting + ' ' + loadingClass}>
+        <div className='project'>
+          {
+            store.isProjectExpanded &&
+            <ResponsiveContainer>
+              <ResponsiveImage
+                class={'project-main-image ' + p.class}
+                src={p.file}
+              />
+            </ResponsiveContainer>
+          }
+        </div>
+      </div>
+    );
+  }
+});
+
+var Project = React.createClass({
+  handleClick: function() {
+      // what project was clicked?
+      // console.log('this.props.index = ' + this.props.index);
+
+      // if there's a project already clicked
+      if (store.expandedProjectId >= 0) {
+      // console.log('theres a project id');
+        // and if that project is the same one that's most recently been clicked
+        if (this.props.index == store.expandedProjectId) {
+          // console.log('it\'s the same!');
+          // then toggle its visibility
+            store.isProjectExpanded = !store.isProjectExpanded;
+        } else {
+          // otherwise, it hasn't been clicked yet, so open it
+          store.expandedProjectId = this.props.index;
+          // console.log('now the project id is ' + this.props.index);
+          store.isProjectExpanded = true;
+        }
+      }
+      else {
+        // if no project has been clicked
+        // console.log('No project id');
+        // set the project id
+        store.expandedProjectId = this.props.index;
+        // console.log('now the project id is ' + this.props.index);
+        // and open it
+        store.isProjectExpanded = true;
+      }
+  },
+
+  render: function() {
+    var self = this;
+    // console.log('project index = ' + this.props.index);
     return (
       <div className='project' key={this.props.key}>
         <h2 className='project-title'>{this.props.title}</h2>
@@ -36,6 +101,7 @@ var Project = React.createClass({
 
 var Projects = React.createClass({
   render: function() {
+
     var projects = projectList.map(function (p, i) {
       return (
         <Project
@@ -44,11 +110,13 @@ var Projects = React.createClass({
           title={p.title}
           src={p.file}
           id={p.id}
+          index={i}
         />
       )
     });
 
     var isProjecting = store.isProjectExpanded ? 'projecting' : '';
+    // console.log('store.isProjectExpanded = ' + store.isProjectExpanded);
     return (
       <div className={'project-thumbs ' + isProjecting}>
           { projects }
@@ -57,45 +125,10 @@ var Projects = React.createClass({
   }
 });
 
-var DetailedProjects = React.createClass({
-  getInitialState: function() {
-    return { mounted: false };
-  },
-
-  componentDidMount: function() {
-      this.setState({ mounted: true });
-  },
-
-  render: function() {
-    var self = this;
-    var projects = projectList.map(function (p, i) {
-      return (
-        <div className='project' key={'detailed-project' + i}>
-          <ResponsiveContainer>
-              <ResponsiveImage class={'project-main-image ' + p.class} src={p.file} />
-          </ResponsiveContainer>
-          <span
-            className='project-description'
-            dangerouslySetInnerHTML={{__html: p.description}}
-          />
-        </div>
-      )
-    });
-
-    var loadingClass = this.state.mounted ? '' : ' loading';
-
-    return (
-      <div className={'detailed-projects' + loadingClass}>
-        { projects }
-      </div>
-    );
-  }
-});
-
 var Design = React.createClass({
-  render: function() {
-    var isProjecting = store.isProjectExpanded ? 'projecting' : '';
 
+  render: function() {
+    // console.log('store.expandedProjectId = ' + store.expandedProjectId);
     return (
       <VelocityTransitionGroup
         appear='transition.fadeIn'
@@ -106,7 +139,7 @@ var Design = React.createClass({
           delay: 0
         }}
       >
-        <div className={'page design ' + isProjecting}>
+        <div className={'page design '}>
           <div className='text-measure'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
@@ -114,11 +147,8 @@ var Design = React.createClass({
             </p>
             <p>Shut the fuck up, Donny.</p>
           </div>
-           <Projects />
-          {
-            store.isProjectExpanded &&
-            <DetailedProjects />
-          }
+          <Projects />
+          <DetailedProject index={this.props.index} />
         </div>
       </VelocityTransitionGroup>
     );

@@ -13,7 +13,6 @@ export default [
     class: 'border',
     id: 'gca'
   },
-
   {
     title: 'chali2na',
     description: ``,

@@ -56,6 +56,14 @@
   border-top: 3px double $light-gray;
   margin-bottom: 6rem;
   text-align: center;
+
+
+  .border {
+    img {
+      /*todo: inset border */
+      border: $lighter-border;
+    }
+  }
 }
 
 .project-title {
@@ -73,13 +81,6 @@
 .project-thumbnail {
   width: 100%;
 
-  &.border {
-    img {
-      /*todo: inset border */
-      border: $lighter-border;
-    }
-  }
-
   img {
     width: 100%;
   }
@@ -92,69 +93,75 @@
   width: 100%;
 }
 
-/* Projecting */
+/* Projecting ----------------------------------------------------------------*/
 /* If projects is projecting and it's not a narrow device */
 :not(.mobile) {
   @media (--fablet) {
 
+  /* scooch the thumbnails over */
+  .project-thumbs.projecting {
+    transform: translateX(0%);
 
-    .projecting {
-      /* scooch over the thumbnails*/
-      .project-thumbs {
-        transform: translateX(0%);
+    .project {
+      transform: translateX(0%);
+    }
+  }
+
+  .detailed-project {
+    /* Layout the detailed project view */
+      /*background-color: white;*/
+      margin: 6rem 0 0;
+      position: relative;
+      transition:
+        transform .5s $bounce-in,
+        opacity .5s;
+      width: 100%;
+
+      @media (--fablet)  {
+        position: absolute;
+        width: calc(50vw - ($outer-margin-f * 2));
+        transform: translateX(50vw);
+
+        &.loading {
+          /* Align the detailed projects to the right of the viewport so they can slide in */
+          transform: translateX(100vw);
+        }
 
         .project {
-          transform: translateX(0%);
+          padding: calc($outer-margin-f * 2);
         }
       }
 
+      @media (--tablet)  {
+        width: calc(60vw - ($outer-margin-t * 2));
+        transform: translateX(40vw);
 
-      /* Layout the detailed project view */
-      .detailed-projects {
-        margin: 6rem 0 0;
-        position: relative;
-        transition:
-          transform .5s $bounce-in,
-          opacity .5s;
-        width: 100%;
-
-        @media (--fablet)  {
-          position: absolute;
-          width: calc(50vw - ($outer-margin-f * 2));
-          transform: translateX(50vw);
-
-          &.loading {
-            /* Align the detailed projects to the right of the viewport so they can slide in */
-            transform: translateX(100vw);
-          }
-        }
-
-        @media (--tablet)  {
-          width: calc(60vw - ($outer-margin-t * 2));
-          transform: translateX(40vw);
-        }
-
-        @media (--laptop)  {
-          width: calc(65vw - ($outer-margin-l * 2));
-          transform: translateX(35vw);
-        }
-
-        @media (--desktop) {
-          width: calc(70vw - ($outer-margin-d * 2));
-          transform: translateX(30vw);
-        }
-
-        @media (--highRes) {
-          width: calc(75vw - ($outer-margin-h * 2));
-          transform: translateX(25vw);
-        }
-
-        .project-main-image {
-          img {
-            width: 100%;
-          }
+        .project {
+          padding: 3rem 0 0 calc($outer-margin-f * 2);
         }
       }
+
+      @media (--laptop)  {
+        width: calc(65vw - ($outer-margin-l * 2));
+        transform: translateX(35vw);
+      }
+
+      @media (--desktop) {
+        width: calc(70vw - ($outer-margin-d * 2));
+        transform: translateX(30vw);
+      }
+
+      @media (--highRes) {
+        width: calc(75vw - ($outer-margin-h * 2));
+        transform: translateX(25vw);
+      }
+
+      .project-main-image {
+        img {
+          width: 100%;
+        }
+      }
+
     }
   }
 }
