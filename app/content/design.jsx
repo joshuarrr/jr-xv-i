@@ -16,6 +16,7 @@ var DetailedProject = React.createClass({
   },
 
   render: function() {
+
     var loadingClass = this.state.mounted ? '' : ' loading';
     var isProjecting = store.isProjectExpanded ? 'projecting' : '';
     var index = store.expandedProjectId;
