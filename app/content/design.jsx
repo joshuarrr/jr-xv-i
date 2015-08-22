@@ -5,6 +5,7 @@ import ResponsiveContainer from '../components/ResponsiveContainer'
 import ResponsiveImage from '../components/ResponsiveImage'
 import projectList from '../data/design.js';
 import styles from '../styles/design.css';
+var StickyDiv = require('react-stickydiv');
 
 var DetailedProject = React.createClass({
   getInitialState: function() {
@@ -12,23 +13,22 @@ var DetailedProject = React.createClass({
   },
 
   componentDidMount: function() {
-      this.setState({ mounted: true });
+    this.setState({ mounted: true });
   },
 
   render: function() {
-
     var loadingClass = this.state.mounted ? '' : ' loading';
     var isProjecting = store.isProjectExpanded ? 'projecting' : '';
     var index = store.expandedProjectId;
     var p = projectList[index];
 
     return (
-      <div className={'detailed-project ' + isProjecting + ' ' + loadingClass}>
+      <div className={ 'detailed-project ' + isProjecting + ' ' + loadingClass }>
         <div className='project'>
             <ResponsiveContainer>
               <ResponsiveImage
-                class={'project-main-image ' + p.class}
-                src={p.file}
+                class={ 'project-main-image ' + p.class }
+                src={ p.file }
               />
             </ResponsiveContainer>
         </div>
@@ -64,23 +64,27 @@ var Project = React.createClass({
     var self = this;
 
     return (
-      <div className='project' key={this.props.key}>
-        <h2 className='project-title'>{this.props.title}</h2>
+      <div className='project' key={ this.props.key }>
+        <h2 className='project-title'>{ this.props.title }</h2>
         <Link
-          to={'/design#' + this.props.id}
+          to={ '/design#' + this.props.id }
           className='img-link'
-          onClick={self.handleClick}
+          onClick={ self.handleClick }
         >
           <ResponsiveContainer>
-              <ResponsiveImage
-                class={'project-thumbnail ' + this.props.class}
-                src={this.props.src}
-              />
+            <ResponsiveImage
+              class={ 'project-thumbnail ' + this.props.class }
+              src={ this.props.src }
+            />
           </ResponsiveContainer>
         </Link>
-       { this.props.index == store.expandedProjectId && store.isProjectExpanded &&
-        <DetailedProject index={this.props.index} key={'detailed-project-' + this.props.index} />
-      }
+        {
+          this.props.index == store.expandedProjectId && store.isProjectExpanded &&
+          <DetailedProject
+            index={ this.props.index }
+            key={ 'detailed-project-' + this.props.index }
+          />
+        }
       </div>
     );
   }
@@ -88,16 +92,15 @@ var Project = React.createClass({
 
 var Projects = React.createClass({
   render: function() {
-
     var projects = projectList.map(function (p, i) {
       return (
         <Project
-          key={'project-' + i}
-          class={p.class}
-          title={p.title}
-          src={p.file}
-          id={p.id}
-          index={i}
+          key={ 'project-' + i }
+          class={ p.class }
+          title={ p.title }
+          src={ p.file }
+          id={ p.id }
+          index={ i }
         />
       )
     });
@@ -106,7 +109,7 @@ var Projects = React.createClass({
     // console.log('store.isProjectExpanded = ' + store.isProjectExpanded);
     return (
       <div className={'project-thumbs ' + isProjecting}>
-          { projects }
+        { projects }
       </div>
     );
   }
@@ -130,7 +133,7 @@ var Design = React.createClass({
           <div className='text-measure'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
-               Blow on them. I've had a rough night, and I hate the fucking Eagles, man. Look, Larry… Have you ever heard of Vietnam? Okay, Jackie, done. I like the way you do business. Your money is being held by a kid named Larry Sellers. He lives in North Hollywood, on Radford, near the In-and-Out Burger. A real fuckin' brat, but I'm sure.
+              Blow on them. I've had a rough night, and I hate the fucking Eagles, man. Look, Larry… Have you ever heard of Vietnam? Okay, Jackie, done. I like the way you do business. Your money is being held by a kid named Larry Sellers. He lives in North Hollywood, on Radford, near the In-and-Out Burger. A real fuckin' brat, but I'm sure.
             </p>
             <p>Shut the fuck up, Donny.</p>
           </div>

@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "react": "^0.13.2",
+    "react-stickydiv": "^3.4.15",
     "webpack": "^1.9.12"
   }
 }
