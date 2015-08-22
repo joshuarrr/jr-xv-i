@@ -27,7 +27,7 @@ var Header = React.createClass({
   render: function() {
     // console.log('header render, isNavShowing = ' + store.isNavShowing);
     return (
-      <header className={ this.props.class}>
+      <header className={ this.props.class }>
         {/* Animate the Logo */}
         <VelocityTransitionGroup
           className='logo-wrap'

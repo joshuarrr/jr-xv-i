@@ -3,12 +3,77 @@ import { Link, RouteHandler } from 'react-router';
 import navLinkList from '../data/nav_links.js';
 import store from '../store';
 
+// Blurred Background //
+var BlurredBackground = React.createClass({
+
+  getInitialState: function() {
+    return {
+      scrollPos: window.scrollY,
+      mounted: false
+    };
+  },
+
+  handleKeyup: function(e) {
+    if (e.keyCode == 27) {
+        store.isNavExpanded = !store.isNavExpanded;
+    }
+  },
+
+  handleScroll: function(e) {
+    this.setState({ scrollPos: window.scrollY });
+
+    if (store.isNavExpanded) {
+      var dupeContainer = document.querySelector('.blurred-container');
+      dupeContainer.scrollTop = this.state.scrollPos
+    };
+  },
+
+  componentDidMount: function() {
+    this.setState({ mounted: true });
+
+          console.log('cdm');
+    // listen for escape key
+    window.addEventListener('keyup', this.handleKeyup);
+
+    // listen for scroll
+    window.addEventListener('scroll', this.handleScroll);
+
+    // Create a duplicate of the page and shove it in the blurred container.
+    var content = document.querySelector('.page');
+    var duplicate = content.cloneNode(true);
+    var dupeContainer = document.querySelector('.blurred-container');
+    // Add the duplicate content
+    dupeContainer.appendChild(duplicate);
+
+    // position it according to current scroll (since it's fixed)
+    // var yPos = window.scrollY;
+    dupeContainer.scrollTop = this.state.scrollPos;
+  },
+
+  componentDidUpdate() {
+      console.log('cdu');
+    var dupeContainer = document.querySelector('.blurred-container');
+    dupeContainer.scrollTop = this.state.scrollPos;
+  },
+
+  componentWillUnmount: function() {
+    window.removeEventListener('keyup', this.handleKeyup);
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+
+  render: function() {
+    var navState = this.state.mounted ? ' is-expanded' : '';
+    return (
+      <div className={'blurred-container' + navState} />
+    );
+  }
+});
+
 // Nav Links //
 var NavLinks = React.createClass({
   handleClick() {
     store.isNavExpanded = false;
   },
-
   render: function() {
   var self = this;
   // console.log('mobile = ' + store.isMobile);
@@ -34,7 +99,6 @@ var NavLinks = React.createClass({
   }
 });
 
-
 // Primary Nav //
 var Nav = React.createClass({
   render() {
@@ -47,6 +111,10 @@ var Nav = React.createClass({
         <nav className={'nav ' + mqclass + isGramming + isExpanded}>
           <NavLinks />
         </nav>
+        {
+          store.isNavExpanded &&
+          <BlurredBackground />
+        }
       </span>
     )
   }
