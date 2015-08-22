@@ -53,10 +53,19 @@
 }
 
 .project {
-  border-top: 3px double $light-gray;
+  border-top: 1px solid $light-gray;
   margin-bottom: 6rem;
   text-align: center;
 
+  &:before{
+    content: '';
+    width: 100%;
+    border-bottom: 1px solid white;
+    height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
 
   .border {
     img {
@@ -82,6 +91,7 @@
   width: 100%;
 
   img {
+    transition: transform .5s $bounce-in;
     width: 100%;
   }
 }
@@ -105,13 +115,17 @@
     .project {
       transform: translateX(0%);
     }
+
+    .project-thumbnail img {
+      transform: translateY(-25%) scale(.5, .5);
+    }
   }
 
   .detailed-project {
     /* Layout the detailed project view */
       /*background-color: white;*/
-      margin: 6rem 0 0;
-      position: relative;
+      position: absolute;
+      top: -1px; /* border width */
       transition:
         transform .5s $bounce-in,
         opacity .5s;

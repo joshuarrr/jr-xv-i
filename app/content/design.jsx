@@ -16,29 +16,20 @@ var DetailedProject = React.createClass({
   },
 
   render: function() {
-    var self = this;
     var loadingClass = this.state.mounted ? '' : ' loading';
     var isProjecting = store.isProjectExpanded ? 'projecting' : '';
-
-    if (store.isProjectExpanded) {
-      var index = store.expandedProjectId;
-      // console.log('index = ' + index);
-      var p = projectList[index];
-      // console.log('prjclass = ' + p.class);
-    };
+    var index = store.expandedProjectId;
+    var p = projectList[index];
 
     return (
       <div className={'detailed-project ' + isProjecting + ' ' + loadingClass}>
         <div className='project'>
-          {
-            store.isProjectExpanded &&
             <ResponsiveContainer>
               <ResponsiveImage
                 class={'project-main-image ' + p.class}
                 src={p.file}
               />
             </ResponsiveContainer>
-          }
         </div>
       </div>
     );
@@ -47,30 +38,22 @@ var DetailedProject = React.createClass({
 
 var Project = React.createClass({
   handleClick: function() {
-      // what project was clicked?
-      // console.log('this.props.index = ' + this.props.index);
-
       // if there's a project already clicked
       if (store.expandedProjectId >= 0) {
-      // console.log('theres a project id');
         // and if that project is the same one that's most recently been clicked
         if (this.props.index == store.expandedProjectId) {
-          // console.log('it\'s the same!');
           // then toggle its visibility
             store.isProjectExpanded = !store.isProjectExpanded;
         } else {
           // otherwise, it hasn't been clicked yet, so open it
           store.expandedProjectId = this.props.index;
-          // console.log('now the project id is ' + this.props.index);
           store.isProjectExpanded = true;
         }
       }
       else {
         // if no project has been clicked
-        // console.log('No project id');
         // set the project id
         store.expandedProjectId = this.props.index;
-        // console.log('now the project id is ' + this.props.index);
         // and open it
         store.isProjectExpanded = true;
       }
@@ -78,7 +61,7 @@ var Project = React.createClass({
 
   render: function() {
     var self = this;
-    // console.log('project index = ' + this.props.index);
+
     return (
       <div className='project' key={this.props.key}>
         <h2 className='project-title'>{this.props.title}</h2>
@@ -94,6 +77,9 @@ var Project = React.createClass({
               />
           </ResponsiveContainer>
         </Link>
+       { this.props.index == store.expandedProjectId && store.isProjectExpanded &&
+        <DetailedProject index={this.props.index} key={'detailed-project-' + this.props.index} />
+      }
       </div>
     );
   }
@@ -148,7 +134,6 @@ var Design = React.createClass({
             <p>Shut the fuck up, Donny.</p>
           </div>
           <Projects />
-          <DetailedProject index={this.props.index} />
         </div>
       </VelocityTransitionGroup>
     );
