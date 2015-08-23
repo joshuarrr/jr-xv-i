@@ -225,9 +225,7 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   width: 100%;
   height: $header-height;
   transition:
-    height 1s $bounce-in,
-    opacity 1s $bounce-in;
-  opacity: 0;
+    height 1s $bounce-in;
   overflow: hidden;
   z-index: 1;
   pointer-events: none;

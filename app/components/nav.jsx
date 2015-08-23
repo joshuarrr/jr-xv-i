@@ -31,7 +31,6 @@ var BlurredBackground = React.createClass({
   componentDidMount: function() {
     this.setState({ mounted: true });
 
-          console.log('cdm');
     // listen for escape key
     window.addEventListener('keyup', this.handleKeyup);
 
@@ -51,7 +50,6 @@ var BlurredBackground = React.createClass({
   },
 
   componentDidUpdate() {
-      console.log('cdu');
     var dupeContainer = document.querySelector('.blurred-container');
     dupeContainer.scrollTop = this.state.scrollPos;
   },

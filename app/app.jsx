@@ -58,34 +58,10 @@ var App = React.createClass({
           <Main mq='mobile' />
         </MediaQuery>
 
-        {/* Phone -----------------------------------------------------------*/}
-        <MediaQuery component='span' key={'mq-phone'} maxWidth={767} and minDeviceWidth={768}>
-          <Header class='header phone' mq='phone' />
-          <Main mq='phone' />
-        </MediaQuery>
-
-        {/* Tablet ----------------------------------------------------------*/}
-        <MediaQuery component='span' key={'mq-tablet'} minWidth={768} maxWidth={1023}>
-          <Header class='header tablet' mq='tablet' />
-          <Main mq='tablet' />
-        </MediaQuery>
-
-        {/* Laptop ----------------------------------------------------------*/}
-        <MediaQuery component='span' key={'mq-laptop'} minWidth={1024} maxWidth={1279}>
-          <Header class='header laptop' mq='laptop'  />
-          <Main mq='laptop' />
-        </MediaQuery>
-
-        {/* Desktop ----------------------------------------------------------*/}
-        <MediaQuery component='span' key={'mq-desktop'} minWidth={1280} maxWidth={1439}>
+        {/* Desktop ---------------------------------------------------------*/}
+        <MediaQuery component='span' key={'mq-desktop'} minDeviceWidth={769}>
           <Header class='header desktop' mq='desktop' />
           <Main mq='desktop' />
-        </MediaQuery>
-
-        {/* highres ---------------------------------------------------------*/}
-        <MediaQuery component='span' key={'mq-highres'} minWidth={1440}>
-          <Header class='header highres' mq='highres' />
-          <Main mq='highres' />
         </MediaQuery>
       </MediaQuery>
     );
