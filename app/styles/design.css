@@ -15,18 +15,18 @@
   position: relative;
   transition: transform .5s $bounce-in;
   /* since it's absolutely positioned, need to size at 100% - margins */
-  /*width: calc(100% - ($outer-margin * 2));*/
+  /*width: calc(100% - ($page-margin * 2));*/
   width: 100%;
 
   @media (--fablet)  {
   position: absolute;
     /* center the thumbnails, but take outer margins into consideration */
-    transform: translateX(calc(50vw - $outer-margin-f));
+    transform: translateX(calc(50vw - $page-margin-f));
     width: 50vw;
   }
 
   @media (--tablet)  {
-    transform: translateX(calc(50vw - $outer-margin-t));
+    transform: translateX(calc(50vw - $page-margin-t));
     width: 40vw;
 
     .project {
@@ -37,17 +37,17 @@
   }
 
   @media (--laptop)  {
-    transform: translateX(calc(50vw - $outer-margin-l));
+    transform: translateX(calc(50vw - $page-margin-l));
     width: 35vw;
   }
 
   @media (--desktop) {
-    transform: translateX(calc(50vw - $outer-margin-d));
+    transform: translateX(calc(50vw - $page-margin-d));
     width: 30vw;
   }
 
   @media (--highRes) {
-    transform: translateX(calc(50vw - $outer-margin-h));
+    transform: translateX(calc(50vw - $page-margin-h));
     width: 25vw;
   }
 }
@@ -133,7 +133,7 @@
 
       @media (--fablet)  {
         position: absolute;
-        width: calc(50vw - ($outer-margin-f * 2));
+        width: calc(50vw - ($page-margin-f * 2));
         transform: translateX(50vw);
 
         &.loading {
@@ -142,31 +142,31 @@
         }
 
         .project {
-          padding: calc($outer-margin-f * 2);
+          padding: calc($page-margin-f * 2);
         }
       }
 
       @media (--tablet)  {
-        width: calc(60vw - ($outer-margin-t * 2));
+        width: calc(60vw - ($page-margin-t * 2));
         transform: translateX(40vw);
 
         .project {
-          padding: 3rem 0 0 calc($outer-margin-f * 2);
+          padding: 3rem 0 0 calc($page-margin-f * 2);
         }
       }
 
       @media (--laptop)  {
-        width: calc(65vw - ($outer-margin-l * 2));
+        width: calc(65vw - ($page-margin-l * 2));
         transform: translateX(35vw);
       }
 
       @media (--desktop) {
-        width: calc(70vw - ($outer-margin-d * 2));
+        width: calc(70vw - ($page-margin-d * 2));
         transform: translateX(30vw);
       }
 
       @media (--highRes) {
-        width: calc(75vw - ($outer-margin-h * 2));
+        width: calc(75vw - ($page-margin-h * 2));
         transform: translateX(25vw);
       }
 
