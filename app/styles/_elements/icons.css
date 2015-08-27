@@ -14,8 +14,9 @@
 .icon {
 	filter: saturate(05%);
 	opacity: .9;
-	transition: .5s,
-		opacity, .5s,
+	transition:
+		filter, .5s,
+		opacity .5s,
 	  transform .5s $bounce-in;
 	transform: scale(.65, .65);
 
@@ -29,24 +30,49 @@
 	@media (--tablet) {
 		transform: scale(.7, .7);
 
-		&:hover { transform: scale(1, 1); }
+		&:hover {
+			transform: scale(1, 1);
+		}
 	}
 
 	@media (--laptop) {
 		transform: scale(.75, .75);
 
-		&:hover { transform: scale(1.1, 1.1); }
+		&:hover {
+			transform: scale(1.1, 1.1);
+		}
 	}
 
 	@media (--highRes) {
 		transform: scale(.8, .8);
 
-		&:hover { transform: scale(1.1, 1.1); }
+		&:hover {
+			transform: scale(1.1, 1.1);
+		}
 	}
 }
 
-.icon.idealist  { background-position: 0 0; }
-.icon.linkedin  { background-position: 0 -66px; }
-.icon.instagram { background-position: 0 -130px; }
-.icon.codepen   { background-position: 0 -192px; }
-.icon.github    { background-position: 0 -258px; }
+.icon.idealist {
+	background-position: 0 0;
+}
+
+.icon.linkedin {
+	background-position: 0 -66px;
+}
+
+.icon.instagram {
+	background-position: 0 -130px;
+}
+
+.icon.codepen {
+	background-position: 0 -192px;
+	filter: contrast(0%);
+
+	&:hover {
+		filter: contrast(100%);
+	}
+}
+
+.icon.github {
+	background-position: 0 -258px;
+}
