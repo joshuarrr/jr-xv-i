@@ -10,7 +10,7 @@
   width: 100%;
 }
 
-.project-thumbs {
+.projects {
   margin: 6rem 0 0;
   position: relative;
   transition: transform .5s $bounce-in;
@@ -20,35 +20,31 @@
 
   @media (--fablet)  {
   position: absolute;
-    /* center the thumbnails, but take outer margins into consideration */
+    /* Push the projects container halfway across the viewport to the right, */
+    /* but take outer margins into consideration */
     transform: translateX(calc(50vw - $page-margin-f));
-    width: 50vw;
+    /*width: 50vw;*/
   }
 
   @media (--tablet)  {
     transform: translateX(calc(50vw - $page-margin-t));
-    width: 40vw;
-
-    .project {
-      transition: transform .5s $bounce-in;
-      /* move the thumbs back over half their own width */
-      transform: translateX(-50%);
-    }
+    /*width: 40vw;*/
+    width: 80vw;
   }
 
   @media (--laptop)  {
     transform: translateX(calc(50vw - $page-margin-l));
-    width: 35vw;
+    /*width: 35vw;*/
   }
 
   @media (--desktop) {
     transform: translateX(calc(50vw - $page-margin-d));
-    width: 30vw;
+    /*width: 30vw;*/
   }
 
   @media (--highRes) {
     transform: translateX(calc(50vw - $page-margin-h));
-    width: 25vw;
+    /*width: 25vw;*/
   }
 }
 
@@ -56,6 +52,14 @@
   border-top: 1px solid $light-gray;
   margin-bottom: 6rem;
   text-align: center;
+  transition:
+    transform .5s $bounce-in,
+    width .5s $bounce-in;
+  /* move the thumbs back over half their own width to center them */
+  transform:
+    translateX(-50%)
+    translate3d(0, 0, 0);
+  width: 100%;
 
   &:before{
     content: '';
@@ -65,13 +69,6 @@
     position: absolute;
     left: 0;
     top: 0;
-  }
-
-  .border {
-    img {
-      /*todo: inset border */
-      border: $lighter-border;
-    }
   }
 }
 
@@ -87,95 +84,25 @@
   z-index: 4;
 }
 
-.project-thumbnail {
+.responsive-container {
+    transform: scale(.4);
+
+}
+
+.img-wrap {
   width: 100%;
+
+  &.border {
+    img {
+      /*todo: inset border */
+      border: $lighter-border;
+    }
+  }
 
   img {
-    transition: transform .5s $bounce-in;
+    transform-origin: top;
+    transition:
+      transform .5s $bounce-in;
     width: 100%;
-  }
-}
-
-/* obsolete? */
-.project-details {
-  position: absolute;
-  transform: translateX(100%);
-  width: 100%;
-}
-
-/* Projecting ----------------------------------------------------------------*/
-/* If projects is projecting and it's not a narrow device */
-:not(.mobile) {
-  @media (--fablet) {
-
-  /* scooch the thumbnails over */
-  .project-thumbs.projecting {
-    transform: translateX(0%);
-
-    .project {
-      transform: translateX(0%);
-    }
-
-    .project-thumbnail img {
-      transform: translateY(-25%) scale(.5, .5);
-    }
-  }
-
-  .detailed-project {
-    /* Layout the detailed project view */
-      /*background-color: white;*/
-      position: absolute;
-      top: -1px; /* border width */
-      transition:
-        transform .5s $bounce-in,
-        opacity .5s;
-      width: 100%;
-
-      @media (--fablet)  {
-        position: absolute;
-        width: calc(50vw - ($page-margin-f * 2));
-        transform: translateX(50vw);
-
-        &.loading {
-          /* Align the detailed projects to the right of the viewport so they can slide in */
-          transform: translateX(100vw);
-        }
-
-        .project {
-          padding: calc($page-margin-f * 2);
-        }
-      }
-
-      @media (--tablet)  {
-        width: calc(60vw - ($page-margin-t * 2));
-        transform: translateX(40vw);
-
-        .project {
-          padding: 3rem 0 0 calc($page-margin-f * 2);
-        }
-      }
-
-      @media (--laptop)  {
-        width: calc(65vw - ($page-margin-l * 2));
-        transform: translateX(35vw);
-      }
-
-      @media (--desktop) {
-        width: calc(70vw - ($page-margin-d * 2));
-        transform: translateX(30vw);
-      }
-
-      @media (--highRes) {
-        width: calc(75vw - ($page-margin-h * 2));
-        transform: translateX(25vw);
-      }
-
-      .project-main-image {
-        img {
-          width: 100%;
-        }
-      }
-
-    }
   }
 }

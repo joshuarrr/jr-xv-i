@@ -18,12 +18,11 @@ var DetailedProject = React.createClass({
 
   render: function() {
     var loadingClass = this.state.mounted ? '' : ' loading';
-    var isProjecting = store.isProjectExpanded ? 'projecting' : '';
     var index = store.expandedProjectId;
     var p = projectList[index];
 
     return (
-      <div className={ 'detailed-project ' + isProjecting + ' ' + loadingClass }>
+      <div className={ 'detailed-project ' + loadingClass }>
         <div className='project'>
             <ResponsiveContainer>
               <ResponsiveImage
@@ -38,48 +37,40 @@ var DetailedProject = React.createClass({
 });
 
 var Project = React.createClass({
+  getInitialState: function() {
+    return { clicked: false };
+  },
+
   handleClick: function() {
-      // if there's a project already clicked
-      if (store.expandedProjectId >= 0) {
-        // and if that project is the same one that's most recently been clicked
-        if (this.props.index == store.expandedProjectId) {
-          // then toggle its visibility
-            store.isProjectExpanded = !store.isProjectExpanded;
-        } else {
-          // otherwise, it hasn't been clicked yet, so open it
-          store.expandedProjectId = this.props.index;
-          store.isProjectExpanded = true;
-        }
-      }
-      else {
-        // if no project has been clicked
-        // set the project id
-        store.expandedProjectId = this.props.index;
-        // and open it
-        store.isProjectExpanded = true;
-      }
+    this.setState({ clicked: !this.state.clicked });
+  },
+
+  componentDidMount() {
+    var height = this.refs.project.getDOMNode('img').getBoundingClientRect();
+    console.log('height = ' + height);
   },
 
   render: function() {
     var self = this;
+    var projectClass = this.state.clicked ? ' big' : '';
 
     return (
-      <div className='project' key={ this.props.key }>
+      <div className={'project' + projectClass} ref='project'>
         <h2 className='project-title'>{ this.props.title }</h2>
         <Link
           to={ '/design#' + this.props.id }
-          className='img-link'
+          className='imgLink'
           onClick={ self.handleClick }
         >
-          <ResponsiveContainer>
+          <ResponsiveContainer wasClicked={this.state.clicked}>
             <ResponsiveImage
-              class={ 'project-thumbnail ' + this.props.class }
+              class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
               src={ this.props.src }
             />
           </ResponsiveContainer>
         </Link>
         {
-          this.props.index == store.expandedProjectId && store.isProjectExpanded &&
+          this.props.index == store.expandedProjectId &&
           <DetailedProject
             index={ this.props.index }
             key={ 'detailed-project-' + this.props.index }
@@ -105,10 +96,8 @@ var Projects = React.createClass({
       )
     });
 
-    var isProjecting = store.isProjectExpanded ? 'projecting' : '';
-    // console.log('store.isProjectExpanded = ' + store.isProjectExpanded);
     return (
-      <div className={'project-thumbs ' + isProjecting}>
+      <div className='projects'>
         { projects }
       </div>
     );
@@ -118,7 +107,6 @@ var Projects = React.createClass({
 var Design = React.createClass({
 
   render: function() {
-    // console.log('store.expandedProjectId = ' + store.expandedProjectId);
     return (
       <VelocityTransitionGroup
         appear='transition.fadeIn'
@@ -129,15 +117,15 @@ var Design = React.createClass({
           delay: 0
         }}
       >
-        <div className={'page design '}>
-          <div className='text-measure'>
+        <div className={'page design '} key='design'>
+          <div className='text-measure' key='intro'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
               Blow on them. I've had a rough night, and I hate the fucking Eagles, man. Look, Larry… Have you ever heard of Vietnam? Okay, Jackie, done. I like the way you do business. Your money is being held by a kid named Larry Sellers. He lives in North Hollywood, on Radford, near the In-and-Out Burger. A real fuckin' brat, but I'm sure.
             </p>
             <p>Shut the fuck up, Donny.</p>
           </div>
-          <Projects />
+          <Projects key='projects' />
         </div>
       </VelocityTransitionGroup>
     );

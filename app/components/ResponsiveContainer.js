@@ -13,7 +13,7 @@ export default class ResponsiveContainer extends React.Component {
   }
 
   updateDimensions() {
-    const node = React.findDOMNode(this)
+    const node = React.findDOMNode(this);
 
     this.setState({
       width: node.offsetWidth,
@@ -23,15 +23,16 @@ export default class ResponsiveContainer extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.updateDimensions)
-
     this.updateDimensions()
   }
+
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions)
   }
 
   render() {
+
     let image
 
     if(this.state.width) {
