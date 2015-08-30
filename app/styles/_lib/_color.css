@@ -19,7 +19,7 @@ $darkest-gray: color(black lightness(20%));
 /* Transparent Black */
 $black-01: color(black a(5%));
 $black-02: color(black a(10%));
-$black-03: color(black a(30%));
+$black-03: color(black a(15%));
 $black-04: color(black a(40%));
 $black-05: color(black a(50%));
 $black-06: color(black a(60%));

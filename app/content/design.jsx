@@ -128,9 +128,12 @@ var Design = React.createClass({
           <div className='text-measure' key='intro'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
-              At the ripe age of 9, I bought my first copy of Dark Side of the Moon. On cassette. I'd never heard of Pink FLoyd, I just liked the cover. A ray of light going through a prism, which divides the light into a rainbow of frequencies. I pondered that cover for a long time, and eventually went on to study light and optics because of it. I became a designer because images like these captivate me.
+              I see design as problem solving. How can we best communicate complex ideas using simple tools of color, shape, text? How can we use imagination and creativity to make those ideas more compelling?
             </p>
-            <p>Good design has made me who I am today, and I hope that my short journey around the fat old sun allows me the opportunity to create something that inspires someone else.</p>
+            <p>
+              At the ripe age of 9 years old, I bought my first copy of Dark Side of the Moon. I'd never heard of Pink Floyd, I just liked the cover: a ray of light going into a prism, which divides the light into a rainbow of frequencies. I studied that cover for a long time, and eventually went on to study light and optics because of it. I became a designer because images like these captivate me.
+            </p>
+            <p>Good design has heavily influenced who I am today. Below are some of my favorite attempts from the past ten or so trips around the fat old sun.</p>
           </div>
           <Projects key='projects' />
         </div>

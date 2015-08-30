@@ -47,5 +47,12 @@ export default [
     file: 'CCA-01.jpg',
     class: 'border',
     id: 'cca'
+  },
+  {
+    title: 'pink floyd',
+    description: ``,
+    file: 'pink-floyd-logo.png',
+    class: '',
+    id: 'pinkfloyd'
   }
 ]
