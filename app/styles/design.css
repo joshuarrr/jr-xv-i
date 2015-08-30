@@ -11,47 +11,17 @@
 }
 
 .projects {
-  margin: 6rem 0 0;
-  position: relative;
-  transition: transform .5s $bounce-in;
-
-  /* since it's absolutely positioned, need to size at 100% - margins */
-  width: calc(100% - ($page-margin * 2));
-
-  @media (--fablet)  {
-    /* Push the projects container halfway across the viewport to the right, */
-    /* but take outer margins into consideration */
-    transform: translateX(calc(50vw - $page-margin-f));
-    /*width: 50vw;*/
-  }
-
-  @media (--tablet)  {
-    transform: translateX(calc(50vw - $page-margin-t));
-    width: 80vw;
-  }
-
-  @media (--laptop)  {
-    transform: translateX(calc(50vw - $page-margin-l));
-  }
-
-  @media (--desktop) {
-    transform: translateX(calc(50vw - $page-margin-d));
-    width: 70vw;
-  }
-
-  @media (--highRes) {
-    transform: translateX(calc(50vw - $page-margin-h));
-    width: 60vw;
-  }
+  margin-top: 10vh;
 }
 
 .project {
-  margin-bottom: 10vh;
+  margin: 0 auto;
+  position: relative;
   text-align: center;
 
-  /* move the thumbs back over half their own width to center them */
-  transform:
-    translateX(-50%);
+  @media (--fablet)  {
+    margin-bottom: 10vh;
+  }
 
   &:before {
     background: $light-gray;
@@ -61,44 +31,50 @@
     left: 25%;
     position: absolute;
     top: 0;
-    transition:
-      left .5s $default-ease,
-      width .5s $default-ease;
-    width: 50%;
+    width: 25vw;
+  }
+
+  .responsive-container {
+    display: block;
+    position: relative;
   }
 }
 
 .project-title {
   @mixin responsive-font-size 1.6rem;
   background-color: $background-color;
-  display: inline-block;
+  display: block;
   line-height: 1;
   letter-spacing: .05rem;
   margin: 0;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding: 0 1rem;
   transform: translateY(-53%);
   z-index: 4;
 }
 
-.responsive-container {
+.imgLink {
 }
 
 .img-wrap {
-  &.border {
-    img {
-      /*todo: inset border */
-      border: $lighter-border;
-      width: 100%;
-    }
-  }
+  display: block;
 
   img {
+    transition: width .6s;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    width: 25vw;
+  }
+
+  &.border {
+    img {
+      border: $lighter-border;
+    }
   }
 }
 
-.project.expanded {
-  &:before {
-    left: 0;
+
+.expanded {
+  .img-wrap img {
+    width: 80vw;
   }
 }
