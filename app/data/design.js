@@ -1,10 +1,15 @@
 export default [
   {
     title: 'idealist',
-    description: `test <a href=#>description</a>`,
+    description: `<p>
+                    I've been at <a href='http://www.idealist.org'>Idealist</a> since the beginning of 2012, where we’ve developed and employ an agile software development strategy against an oftentimes daunting challenge: <em>how can we help more people do more good in the world</em>?
+                  </p>
+                  <p>Their first full-time designer, I've championed design driven product development, user research, analytics tracking and a/b testing for data based design decisions, and brought a clean, simple, and modern design aesthetic and interface to the new responsive incarnation of the site.</p>
+                  `,
     file: 'idealist-homepage.jpg',
     class: 'border',
-    id: 'idealist'
+    id: 'idealist',
+
   },
   {
     title: 'grand canyon association',

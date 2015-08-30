@@ -14,6 +14,10 @@
   margin-top: 10vh;
 }
 
+.project-wrap {
+  margin-bottom: 10vh;
+}
+
 .project {
   margin: 0 auto;
   position: relative;
@@ -22,7 +26,6 @@
   transform: translate3d(0, 0, 0);
 
   @media (--fablet)  {
-    margin-bottom: 10vh;
     width: 25vw;
     transition:
       width .6s;
@@ -96,5 +99,17 @@
 
 .expanded {
   .img-wrap img {
+  }
+}
+
+.project-description {
+  margin-top: 3rem;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  &.loading {
+      opacity: 0;
   }
 }

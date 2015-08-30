@@ -24,12 +24,22 @@ var ProjectDetails = React.createClass({
     var p = projectList[index];
 
     return (
-      <div className={ 'project-details ' + loadingClass }>
-        <span
-          className='project-description'
-          dangerouslySetInnerHTML={{__html: this.props.description}}
-        />
-      </div>
+      <VelocityTransitionGroup
+        appear='transition.slideDownBigIn'
+        enter='transition.slideDownBigIn'
+        enterOptions={{ delay: 300, duration: 500 }}
+        leave='transition.slideUpBigOut'
+        leaveOptions={{ delay: 0, duration: 400 }}
+        wrapper={ true }
+      >
+        {
+          this.props.expanded &&
+          <div
+            className={ 'project-description text-measure' + loadingClass }
+            dangerouslySetInnerHTML={{__html: this.props.description}}
+          />
+        }
+      </VelocityTransitionGroup>
     );
   }
 });
@@ -50,38 +60,28 @@ var Project = React.createClass({
     console.log('this.state.expanded = ' + this.state.expanded);
 
     return (
-      <div className={'project' + projectClass} ref='project'>
-        <h2 className='project-title'>{ this.props.title }</h2>
-        <Link
-          to={ '/design#' + this.props.id }
-          className='img-link'
-          onClick={ self.handleClick }
-        >
-          <ResponsiveContainer>
-            <ResponsiveImage
-              class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
-              src={ this.props.src }
-            />
-          </ResponsiveContainer>
-        </Link>
-        {
-          this.state.expanded &&
-          <VelocityTransitionGroup
-            appear='transition.slideDownIn'
-            enter='transition.slideDownIn'
-            leave='transition.slideUpOut'
-            defaults={{
-              duration: 500,
-              delay: 0
-            }}
+      <div className='project-wrap'>
+        <div className={'project' + projectClass} ref='project'>
+          <h2 className='project-title'>{ this.props.title }</h2>
+          <Link
+            to={ '/design#' + this.props.id }
+            className='img-link'
+            onClick={ self.handleClick }
           >
-            <ProjectDetails
-              index={ this.props.index }
-              key={ 'detailed-project-' + this.props.index }
-              description={this.props.description}
-            />
-          </VelocityTransitionGroup>
-        }
+            <ResponsiveContainer>
+              <ResponsiveImage
+                class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
+                src={ this.props.src }
+              />
+            </ResponsiveContainer>
+          </Link>
+        </div>
+        <ProjectDetails
+          index={ this.props.index }
+          key={ 'detailed-project-' + this.props.index }
+          description={this.props.description}
+          expanded={this.state.expanded}
+        />
       </div>
     );
   }
