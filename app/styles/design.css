@@ -18,9 +18,14 @@
   margin: 0 auto;
   position: relative;
   text-align: center;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
 
   @media (--fablet)  {
     margin-bottom: 10vh;
+    width: 25vw;
+    transition:
+      width .6s;
   }
 
   &:before {
@@ -28,41 +33,48 @@
     border-bottom: 1px solid rgba(255, 255, 255, .9);
     content: "";
     height: 1px;
-    left: 25%;
+    left: 0;
     position: absolute;
     top: 0;
-    width: 25vw;
+    width: 100%;
+    z-index: 1;
   }
 
-  .responsive-container {
-    display: block;
-    position: relative;
+  &.expanded {
+    @media (--fablet)  {
+      width: 80vw;
+    }
+
+    @media (--tablet)  {
+      width: 70vw;
+    }
+
+    @media (--laptop)  {
+      width: 70vw;
+    }
+
+    @media (--desktop)  {
+      width: 60vw;
+    }
   }
 }
 
 .project-title {
   @mixin responsive-font-size 1.6rem;
   background-color: $background-color;
-  display: block;
+  display: inline-block;
   line-height: 1;
   letter-spacing: .05rem;
   margin: 0;
   padding: 0 1rem;
-  transform: translateY(-53%);
-  z-index: 4;
-}
-
-.imgLink {
+  position: relative;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .img-wrap {
-  display: block;
-
   img {
-    transition: width .6s;
-    backface-visibility: hidden;
-    transform: translate3d(0, 0, 0);
-    width: 25vw;
+    width: 100%;
   }
 
   &.border {
@@ -75,6 +87,5 @@
 
 .expanded {
   .img-wrap img {
-    width: 80vw;
   }
 }

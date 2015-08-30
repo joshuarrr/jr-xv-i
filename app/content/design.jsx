@@ -1,13 +1,15 @@
 var React = require('react');
 import { Link, RouteHandler } from 'react-router';
 import VelocityTransitionGroup from 'VelocityTransitionGroup';
+var Velocity = require('velocity-animate/velocity');
+require('velocity-animate/velocity.ui');
 import ResponsiveContainer from '../components/ResponsiveContainer'
 import ResponsiveImage from '../components/ResponsiveImage'
 import projectList from '../data/design.js';
 import styles from '../styles/design.css';
 var StickyDiv = require('react-stickydiv');
 
-var DetailedProject = React.createClass({
+var ProjectDetails = React.createClass({
   getInitialState: function() {
     return { mounted: false };
   },
@@ -22,15 +24,11 @@ var DetailedProject = React.createClass({
     var p = projectList[index];
 
     return (
-      <div className={ 'detailed-project ' + loadingClass }>
-        <div className='project'>
-            <ResponsiveContainer>
-              <ResponsiveImage
-                class={ 'project-main-image ' + p.class }
-                src={ p.file }
-              />
-            </ResponsiveContainer>
-        </div>
+      <div className={ 'project-details ' + loadingClass }>
+        <span
+          className='project-description'
+          dangerouslySetInnerHTML={{__html: this.props.description}}
+        />
       </div>
     );
   }
@@ -38,31 +36,28 @@ var DetailedProject = React.createClass({
 
 var Project = React.createClass({
   getInitialState: function() {
-    return { clicked: false };
+    return { expanded: false };
   },
 
   handleClick: function() {
-    this.setState({ clicked: !this.state.clicked });
-  },
-
-  componentDidMount() {
-    var height = this.refs.project.getDOMNode('img').getBoundingClientRect();
-    console.log('height = ' + height);
+    this.setState({ expanded: !this.state.expanded });
   },
 
   render: function() {
     var self = this;
-    var projectClass = this.state.clicked ? ' expanded' : '';
+    var projectClass = this.state.expanded ? ' expanded' : '';
+
+    console.log('this.state.expanded = ' + this.state.expanded);
 
     return (
       <div className={'project' + projectClass} ref='project'>
         <h2 className='project-title'>{ this.props.title }</h2>
         <Link
           to={ '/design#' + this.props.id }
-          className='imgLink'
+          className='img-link'
           onClick={ self.handleClick }
         >
-          <ResponsiveContainer wasClicked={this.state.clicked}>
+          <ResponsiveContainer>
             <ResponsiveImage
               class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
               src={ this.props.src }
@@ -70,11 +65,22 @@ var Project = React.createClass({
           </ResponsiveContainer>
         </Link>
         {
-          this.props.index == store.expandedProjectId &&
-          <DetailedProject
-            index={ this.props.index }
-            key={ 'detailed-project-' + this.props.index }
-          />
+          this.state.expanded &&
+          <VelocityTransitionGroup
+            appear='transition.slideDownIn'
+            enter='transition.slideDownIn'
+            leave='transition.slideUpOut'
+            defaults={{
+              duration: 500,
+              delay: 0
+            }}
+          >
+            <ProjectDetails
+              index={ this.props.index }
+              key={ 'detailed-project-' + this.props.index }
+              description={this.props.description}
+            />
+          </VelocityTransitionGroup>
         }
       </div>
     );
@@ -88,6 +94,7 @@ var Projects = React.createClass({
         <Project
           key={ 'project-' + i }
           class={ p.class }
+          description={ p.description }
           title={ p.title }
           src={ p.file }
           id={ p.id }

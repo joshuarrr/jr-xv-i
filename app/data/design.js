@@ -1,7 +1,7 @@
 export default [
   {
     title: 'idealist',
-    description: `test description`,
+    description: `test <a href=#>description</a>`,
     file: 'idealist-homepage.jpg',
     class: 'border',
     id: 'idealist'

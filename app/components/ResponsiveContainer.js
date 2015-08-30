@@ -6,6 +6,7 @@ export default class ResponsiveContainer extends React.Component {
 
     this.updateDimensions = this.updateDimensions.bind(this)
 
+
     this.state = {
       width: null,
       height: null
@@ -25,7 +26,6 @@ export default class ResponsiveContainer extends React.Component {
     window.addEventListener('resize', this.updateDimensions)
     this.updateDimensions()
   }
-
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateDimensions)
