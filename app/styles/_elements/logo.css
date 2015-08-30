@@ -12,8 +12,10 @@ $border-color: $black-05;
   z-index: 5;
 }
 
-/* Hide the h1 */
-.name { @mixin hidden-text; }
+/* hide the h1 */
+.name {
+  @mixin hidden-text;
+}
 
 /* Logo styles */
 .logo {
@@ -32,11 +34,13 @@ $border-color: $black-05;
   left: 0;
   opacity: 0;
   top: calc($header-height - ($logo-size / 2) + .5rem);
+
+  /* trigger hardware accelleration */
+  transform: translate3d(0, 0, 0);
+
   transition:
     background-color 1s $default-ease,
     transform 1s $default-ease;
-  /* Trigger hardware accelleration */
-  -webkit-transform: translate3d(0, 0, 0);
   width: calc($logo-size - .8rem);
   height: calc($logo-size - .8rem);
   z-index: 1;
@@ -54,7 +58,7 @@ $border-color: $black-05;
     top: 45%;
   }
 
-  /* Change size of logo instead of scale due to js transform on appear */
+  /* change size of logo instead of scale due to js transform on appear */
   @media (--phone) {
     width: calc($logo-size - .2rem);
     height: calc($logo-size - .2rem);

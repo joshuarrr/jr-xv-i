@@ -211,8 +211,6 @@ $nav-links-pad-right: calc( $menu-icon-width + $menu-icon-padding );
   transform: translateX(0);
 }
 
-
-
 /* Frosted glass nav background effect ---------------------------------------*/
 .blurred-container {
   /* Account for the header height since the duped content doesn't have one */

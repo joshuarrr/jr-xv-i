@@ -14,12 +14,11 @@
   margin: 6rem 0 0;
   position: relative;
   transition: transform .5s $bounce-in;
+
   /* since it's absolutely positioned, need to size at 100% - margins */
-  /*width: calc(100% - ($page-margin * 2));*/
-  width: 100%;
+  width: calc(100% - ($page-margin * 2));
 
   @media (--fablet)  {
-  position: absolute;
     /* Push the projects container halfway across the viewport to the right, */
     /* but take outer margins into consideration */
     transform: translateX(calc(50vw - $page-margin-f));
@@ -28,47 +27,44 @@
 
   @media (--tablet)  {
     transform: translateX(calc(50vw - $page-margin-t));
-    /*width: 40vw;*/
     width: 80vw;
   }
 
   @media (--laptop)  {
     transform: translateX(calc(50vw - $page-margin-l));
-    /*width: 35vw;*/
   }
 
   @media (--desktop) {
     transform: translateX(calc(50vw - $page-margin-d));
-    /*width: 30vw;*/
+    width: 70vw;
   }
 
   @media (--highRes) {
     transform: translateX(calc(50vw - $page-margin-h));
-    /*width: 25vw;*/
+    width: 60vw;
   }
 }
 
 .project {
-  border-top: 1px solid $light-gray;
-  margin-bottom: 6rem;
+  margin-bottom: 10vh;
   text-align: center;
-  transition:
-    transform .5s $bounce-in,
-    width .5s $bounce-in;
+
   /* move the thumbs back over half their own width to center them */
   transform:
-    translateX(-50%)
-    translate3d(0, 0, 0);
-  width: 100%;
+    translateX(-50%);
 
-  &:before{
-    content: '';
-    width: 100%;
-    border-bottom: 1px solid white;
-    height: 0;
+  &:before {
+    background: $light-gray;
+    border-bottom: 1px solid rgba(255, 255, 255, .9);
+    content: "";
+    height: 1px;
+    left: 25%;
     position: absolute;
-    left: 0;
     top: 0;
+    transition:
+      left .5s $default-ease,
+      width .5s $default-ease;
+    width: 50%;
   }
 }
 
@@ -77,6 +73,7 @@
   background-color: $background-color;
   display: inline-block;
   line-height: 1;
+  letter-spacing: .05rem;
   margin: 0;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -85,24 +82,23 @@
 }
 
 .responsive-container {
-    transform: scale(.4);
-
 }
 
 .img-wrap {
-  width: 100%;
-
   &.border {
     img {
       /*todo: inset border */
       border: $lighter-border;
+      width: 100%;
     }
   }
 
   img {
-    transform-origin: top;
-    transition:
-      transform .5s $bounce-in;
-    width: 100%;
+  }
+}
+
+.project.expanded {
+  &:before {
+    left: 0;
   }
 }

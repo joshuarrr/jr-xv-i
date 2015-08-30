@@ -52,7 +52,7 @@ var Project = React.createClass({
 
   render: function() {
     var self = this;
-    var projectClass = this.state.clicked ? ' big' : '';
+    var projectClass = this.state.clicked ? ' expanded' : '';
 
     return (
       <div className={'project' + projectClass} ref='project'>
@@ -121,9 +121,9 @@ var Design = React.createClass({
           <div className='text-measure' key='intro'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
-              Blow on them. I've had a rough night, and I hate the fucking Eagles, man. Look, Larry… Have you ever heard of Vietnam? Okay, Jackie, done. I like the way you do business. Your money is being held by a kid named Larry Sellers. He lives in North Hollywood, on Radford, near the In-and-Out Burger. A real fuckin' brat, but I'm sure.
+              At the ripe age of 9, I bought my first copy of Dark Side of the Moon. On cassette. I'd never heard of Pink FLoyd, I just liked the cover. A ray of light going through a prism, which divides the light into a rainbow of frequencies. I pondered that cover for a long time, and eventually went on to study light and optics because of it. I became a designer because images like these captivate me.
             </p>
-            <p>Shut the fuck up, Donny.</p>
+            <p>Good design has made me who I am today, and I hope that my short journey around the fat old sun allows me the opportunity to create something that inspires someone else.</p>
           </div>
           <Projects key='projects' />
         </div>
