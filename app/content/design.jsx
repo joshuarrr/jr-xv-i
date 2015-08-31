@@ -9,6 +9,78 @@ import projectList from '../data/design.js';
 import styles from '../styles/design.css';
 var StickyDiv = require('react-stickydiv');
 
+var SubProject = React.createClass({
+  getInitialState: function() {
+    return { expanded: false };
+  },
+
+  handleClick: function() {
+    this.setState({ expanded: !this.state.expanded });
+  },
+
+  render: function() {
+    var projectClass = this.state.expanded ? ' expanded' : '';
+    var isMoblie = this.props.class === 'mobile' ? ' mobile' : '';
+
+    return (
+      <div className="sub-project">
+        <div className='sub-project-details'>
+          <h3 className='sub-project-title'>
+            {this.props.title}
+          </h3>
+          <span
+            className='sub-project-description'
+            dangerouslySetInnerHTML={{__html: this.props.description}}
+          />
+        </div>
+          <Link
+            to={ '/design#' + this.props.id }
+            className='img-link'
+            onClick={ self.handleClick }
+          >
+            <ResponsiveContainer class={isMoblie}>
+              <ResponsiveImage
+                class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
+                src={ this.props.src }
+              />
+            </ResponsiveContainer>
+          </Link>
+      </div>
+    );
+  }
+});
+
+var SubProjects = React.createClass({
+  render: function() {
+    // console.log('Subprojects = ' + this.props.index);
+    var thisProject = this.props.index;
+    // console.log('thisProject = ' + thisProject);
+
+    var subProject = projectList[thisProject].subprojects;
+    // console.log('subProjects = ' + subProjects);
+
+    var subProjects = subProject.map(function (p, i) {
+      return (
+        <SubProject
+          key={ 'project-' + i }
+          class={ p.class }
+          description={ p.description }
+          title={ p.title }
+          src={ p.file }
+          id={ p.id }
+          index={ i }
+        />
+      )
+    });
+
+    return (
+      <div className="sub-projects text-measure">
+        {subProjects}
+      </div>
+    );
+  }
+});
+
 var ProjectDetails = React.createClass({
   getInitialState: function() {
     return { mounted: false };
@@ -22,22 +94,28 @@ var ProjectDetails = React.createClass({
     var loadingClass = this.state.mounted ? '' : ' loading';
     var index = store.expandedProjectId;
     var p = projectList[index];
+    // console.log('ProjectDetails / this.props.index = ' + this.props.index);
 
     return (
       <VelocityTransitionGroup
+        className="expanded-project-details"
         appear='transition.slideDownBigIn'
         enter='transition.slideDownBigIn'
         enterOptions={{ delay: 300, duration: 500 }}
         leave='transition.slideUpBigOut'
         leaveOptions={{ delay: 0, duration: 400 }}
-        wrapper={ true }
       >
         {
           this.props.expanded &&
-          <div
-            className={ 'project-description text-measure' + loadingClass }
-            dangerouslySetInnerHTML={{__html: this.props.description}}
-          />
+          <div className='project-details-wrap'>
+            <div
+              className={ 'project-description text-measure' + loadingClass }>
+              <span
+                dangerouslySetInnerHTML={{__html: this.props.description}}
+              />
+              <SubProjects index={this.props.index} />
+            </div>
+          </div>
         }
       </VelocityTransitionGroup>
     );
@@ -62,7 +140,9 @@ var Project = React.createClass({
     return (
       <div className='project-wrap'>
         <div className={'project' + projectClass} ref='project'>
-          <h2 className='project-title'>{ this.props.title }</h2>
+          <h2 className='project-title'>
+            { this.props.title }
+          </h2>
           <Link
             to={ '/design#' + this.props.id }
             className='img-link'

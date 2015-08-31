@@ -44,7 +44,7 @@ export default class ResponsiveContainer extends React.Component {
     }
 
     return (
-      <div className="responsive-container">
+      <div className={"responsive-container" + this.props.class} >
         {image}
       </div>
     )

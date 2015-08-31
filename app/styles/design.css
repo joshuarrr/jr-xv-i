@@ -105,11 +105,78 @@
 .project-description {
   margin-top: 3rem;
   text-align: left;
-  position: absolute;
-  left: 0;
-  right: 0;
 
   &.loading {
       opacity: 0;
   }
+}
+
+.expanded-project-details {
+  /*display: block;*/
+  @mixin clearfix;
+    min-height: 640px;
+
+}
+
+.sub-projects {
+  float: left;
+  margin-top: 5vh;
+}
+
+.sub-project {
+  float: left;
+  width: 100%;
+
+  .responsive-container {
+    float: right;
+    position: relative;
+    width: 200px;
+
+    &.mobile {
+      height: 420px;
+      margin-top: 1rem;
+      width: 200px;
+
+      &:before {
+        background-image: url('../img/content/iphone-6.png');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        pointer-events: none;
+        z-index: 5;
+      }
+
+      .imageloader p {
+        position: relative;
+        text-align: center;
+        top: 45%;
+      }
+
+      .img-wrap {
+        cursor: all-scroll;
+        height: 300px;
+        left: 13px;
+        overflow: auto;
+        top: 62px;
+        width: 174px;
+        z-index: 4;
+      }
+    }
+  }
+}
+
+.sub-project-title {
+  @mixin responsive-font-size 1.4rem;
+  letter-spacing: .05rem;
+  border-bottom: $default-border;
+}
+
+.sub-project-description {
+  float: left;
+  width: 50%;
 }
