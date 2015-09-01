@@ -9,6 +9,7 @@ import projectList from '../data/design.js';
 import styles from '../styles/design.css';
 var StickyDiv = require('react-stickydiv');
 
+
 var SubProject = React.createClass({
   getInitialState: function() {
     return { expanded: false };
@@ -18,54 +19,87 @@ var SubProject = React.createClass({
     this.setState({ expanded: !this.state.expanded });
   },
 
+  hasRoleOrTech() {
+    var role = this.props.role;
+    var tech = this.props.tech;
+    var index = this.props.index;
+
+    function hasRole() {
+      if (role) {
+        return [
+          (<dt key={'sub-role-dt-' + index}>Role:</dt>),
+          (<dd key={'sub-role-dd-' + index}>{ role }</dd>)
+        ];
+      }
+    }
+
+    function hasTech() {
+      if (tech) {
+        return [
+          (<dt key={'sub-tech-dt-' + index}>Tech:</dt>),
+          (<dd key={'sub-tech-dd-' + index}>{ tech }</dd>)
+        ];
+      }
+    }
+
+    if (role || tech) {
+      return (
+        <dl>
+          { hasRole() }
+          { hasTech() }
+        </dl>
+      );
+    }
+  },
+
   render: function() {
     var projectClass = this.state.expanded ? ' expanded' : '';
     var isMoblie = this.props.class === 'mobile' ? ' mobile' : '';
 
     return (
       <div className="sub-project">
-        <div className='sub-project-details'>
           <h3 className='sub-project-title'>
-            {this.props.title}
+            { this.props.title }
           </h3>
+        <div className='sub-project-details'>
           <span
             className='sub-project-description'
             dangerouslySetInnerHTML={{__html: this.props.description}}
           />
+          { this.hasRoleOrTech() }
         </div>
-          <Link
-            to={ '/design#' + this.props.id }
-            className='img-link'
-            onClick={ self.handleClick }
-          >
-            <ResponsiveContainer class={isMoblie}>
-              <ResponsiveImage
-                class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
-                src={ this.props.src }
-              />
-            </ResponsiveContainer>
-          </Link>
+        <Link
+          to={ '/design#' + this.props.id }
+          className='img-link'
+          onClick={ self.handleClick }
+        >
+          <ResponsiveContainer class={isMoblie}>
+            <ResponsiveImage
+              class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
+              src={ this.props.src }
+            />
+          </ResponsiveContainer>
+        </Link>
       </div>
     );
   }
 });
 
+
 var SubProjects = React.createClass({
   render: function() {
-    // console.log('Subprojects = ' + this.props.index);
     var thisProject = this.props.index;
-    // console.log('thisProject = ' + thisProject);
-
     var subProject = projectList[thisProject].subprojects;
-    // console.log('subProjects = ' + subProjects);
 
     var subProjects = subProject.map(function (p, i) {
       return (
         <SubProject
           key={ 'project-' + i }
           class={ p.class }
-          description={ p.description }
           title={ p.title }
+          description={ p.description }
+          role={ p.role }
+          tech={ p.tech }
           src={ p.file }
           id={ p.id }
           index={ i }
@@ -75,11 +109,12 @@ var SubProjects = React.createClass({
 
     return (
       <div className="sub-projects text-measure">
-        {subProjects}
+        { subProjects }
       </div>
     );
   }
 });
+
 
 var ProjectDetails = React.createClass({
   getInitialState: function() {
@@ -90,11 +125,43 @@ var ProjectDetails = React.createClass({
     this.setState({ mounted: true });
   },
 
+  hasRoleOrTech() {
+    var role = this.props.role;
+    var tech = this.props.tech;
+    var index = this.props.index;
+
+    function hasRole() {
+      if (role) {
+        return [
+          (<dt key={'role-dt--' + index}>Role:</dt>),
+          (<dd key={'role-dd--' + index}>{ role }</dd>)
+        ];
+      }
+    }
+
+    function hasTech() {
+      if (tech) {
+        return [
+          (<dt key={'tech-dt-' + index}>Tech:</dt>),
+          (<dd key={'tech-dd-' + index}>{ tech }</dd>)
+        ];
+      }
+    }
+
+    if (role || tech) {
+      return (
+        <dl >
+          { hasRole() }
+          { hasTech() }
+        </dl>
+      );
+    }
+  },
+
   render: function() {
     var loadingClass = this.state.mounted ? '' : ' loading';
     var index = store.expandedProjectId;
     var p = projectList[index];
-    // console.log('ProjectDetails / this.props.index = ' + this.props.index);
 
     return (
       <VelocityTransitionGroup
@@ -113,6 +180,7 @@ var ProjectDetails = React.createClass({
               <span
                 dangerouslySetInnerHTML={{__html: this.props.description}}
               />
+              { this.hasRoleOrTech() }
               <SubProjects index={this.props.index} />
             </div>
           </div>
@@ -121,6 +189,7 @@ var ProjectDetails = React.createClass({
     );
   }
 });
+
 
 var Project = React.createClass({
   getInitialState: function() {
@@ -134,8 +203,6 @@ var Project = React.createClass({
   render: function() {
     var self = this;
     var projectClass = this.state.expanded ? ' expanded' : '';
-
-    console.log('this.state.expanded = ' + this.state.expanded);
 
     return (
       <div className='project-wrap'>
@@ -159,13 +226,16 @@ var Project = React.createClass({
         <ProjectDetails
           index={ this.props.index }
           key={ 'detailed-project-' + this.props.index }
-          description={this.props.description}
-          expanded={this.state.expanded}
+          description={ this.props.description }
+          role={ this.props.role }
+          tech={ this.props.tech }
+          expanded={ this.state.expanded }
         />
       </div>
     );
   }
 });
+
 
 var Projects = React.createClass({
   render: function() {
@@ -174,8 +244,10 @@ var Projects = React.createClass({
         <Project
           key={ 'project-' + i }
           class={ p.class }
-          description={ p.description }
           title={ p.title }
+          description={ p.description }
+          role={ p.role }
+          tech={ p.tech }
           src={ p.file }
           id={ p.id }
           index={ i }
@@ -191,8 +263,8 @@ var Projects = React.createClass({
   }
 });
 
-var Design = React.createClass({
 
+var Design = React.createClass({
   render: function() {
     return (
       <VelocityTransitionGroup
@@ -208,12 +280,14 @@ var Design = React.createClass({
           <div className='text-measure' key='intro'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
-              I see design as problem solving. How can we best communicate complex ideas using simple tools of color, shape, text? How can we use imagination and creativity to make those ideas more compelling?
+              I see design as problem solving. How can we best communicate complex ideas using simple tools such as color, shape, and text? How can we use imagination and creativity to make those ideas more compelling?
             </p>
             <p>
-              At the ripe age of 9 years old, I bought my first copy of Dark Side of the Moon. I'd never heard of Pink Floyd, I just liked the cover: a ray of light going into a prism, which divides the light into a rainbow of frequencies. I studied that cover for a long time, and eventually went on to study light and optics because of it. I became a designer because images like these captivate me.
+              At the ripe age of 9 years old, I bought my first copy of Dark Side of the Moon. I'd never heard of Pink Floyd, I just liked the cover: a ray of light entering a prism, which divides the light into a rainbow of frequencies. I studied that cover for a long time, and eventually went on to study light and optics because of it. I became a designer because images like these captivate me.
             </p>
-            <p>Good design has heavily influenced who I am today. Below are some of my favorite attempts from the past ten or so trips around the fat old sun.</p>
+            <p>
+              Design has heavily influenced who I am today. Below are some of my favorite efforts from the past dozen or so trips around the fat old sun.
+            </p>
           </div>
           <Projects key='projects' />
         </div>

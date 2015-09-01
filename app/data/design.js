@@ -2,10 +2,14 @@ export default [
   {
     title: 'idealist',
     description: `<p>
-                    I've been at <a href='http://www.idealist.org'>Idealist</a> since the beginning of 2012, where we’ve developed and employ an agile software development strategy against a broad and oftentimes daunting challenge: <em>how can we help more people do more good in the world</em>?
+                    I've been working at <a href='http://www.idealist.org'>Idealist</a> since the beginning of 2012, where we employ an agile software development strategy against a broad and oftentimes daunting challenge: <em>how can we help more people do more good in the world</em>?
                   </p>
-                  <p>As their first full-time designer, I've championed design driven product development, user research, analytics tracking and a/b testing for data based design decisions, and brought a clean design aesthetic and modern interface to the new responsive incarnation of the site.</p>
+                  <p>
+                    As their first full-time designer, I've championed design driven product development, user research, analytics tracking and a/b testing for data driven design decisions, and brought a clean design aesthetic and modern interface to the new responsive incarnation of the site.
+                  </p>
                   `,
+    role: 'UX, UI, Web Designer, Front-end Developer',
+    tech: 'HTML, CSS, Sass, Git',
     file: 'idealist-homepage.jpg',
     class: 'border',
     id: 'idealist',
@@ -13,9 +17,24 @@ export default [
       {
         title: 'mobile homepage',
         description: 'Idealist gets around 25 million pageviews a month, and about 20% of that traffic is mobile. Developing a responsive home page and wrapper was our first step towards providing an equally rewarding mobile experience.',
+        role: 'Mobile UX, UI, Web Designer, Front-end Developer',
         file: 'idealist-homepage-mobile.jpg',
         class: 'mobile',
         id: 'idealist-mobile'
+      },{
+        title: 'about us',
+        description: `<p>
+                        For years, the Idealist ‘about us’ page was <a href="https://web.archive.org/web/20141128135648/http://www.idealist.org/info/About" target="_blank">not very appealing or engaging</a>. Traffic was particularly poor and exit rates particularly high for this section of the site.
+                      </p>
+                      <p>
+                        With the release of this new iteration, we wanted to validate the design. We were curious if people would scroll through the long introductory section. We employed <a href="http://scrolldepth.parsnip.io/" target="_blank">Scroll Depth</a>, a plugin that lets us analyze scroll behavior in Google Analytics.
+                      </p>
+                      `,
+        role: 'UX, UI, Web Designer',
+        tech: 'poop',
+        file: 'idealist-about.jpg',
+        class: 'border',
+        id: 'idealist-about'
       }
     ]
   },

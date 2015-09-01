@@ -7,10 +7,9 @@ $link-hover-color: $dark-red;
 $link-active-color: $light-red;
 
 a {
-    @mixin  default-transition;
-    transition-property: color;
+    @mixin default-transition;
     text-decoration: none;
-    color: $red;
+    transition-property: color;
 }
 
 a:link {

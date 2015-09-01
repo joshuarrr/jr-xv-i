@@ -96,7 +96,6 @@
   }
 }
 
-
 .expanded {
   .img-wrap img {
   }
@@ -115,7 +114,6 @@
   /*display: block;*/
   @mixin clearfix;
     min-height: 640px;
-
 }
 
 .sub-projects {
@@ -129,12 +127,12 @@
 
   .responsive-container {
     float: right;
+    margin-top: 1rem;
     position: relative;
     width: 200px;
 
     &.mobile {
       height: 420px;
-      margin-top: 1rem;
       width: 200px;
 
       &:before {
@@ -170,13 +168,25 @@
   }
 }
 
+.sub-project-details {
+  float: left;
+  width: 60%;
+
+  dl { margin-top: 1.5rem; }
+
+  dt {
+    display: inline-block;
+    clear: both;
+  }
+
+  dd {
+    display: inline;
+    width: 80%;
+  }
+}
+
 .sub-project-title {
   @mixin responsive-font-size 1.4rem;
   letter-spacing: .05rem;
   border-bottom: $default-border;
-}
-
-.sub-project-description {
-  float: left;
-  width: 50%;
 }

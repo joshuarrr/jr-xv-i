@@ -49,18 +49,18 @@
     }
 }
 
-dl {
+.sg-dl {
     background-color: $lightester-gray;
     padding: 1rem 1rem 0;
     margin: .1rem -1.5rem 0;
 }
 
-dt {
+.sg-dt {
     font-weight: bold;
 }
 
-dt,
-dd {
+.sg-dt,
+.sg-dd {
     border-bottom: $default-border;
     margin: 0 -1rem 1rem;
     padding-bottom: 1rem;
