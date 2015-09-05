@@ -1,5 +1,8 @@
 var React = require('react');
 import VelocityTransitionGroup from 'VelocityTransitionGroup';
+import Velocity from 'VelocityTransitionGroup';
+var MediaQuery = require('react-responsive');
+var Waypoint = require('react-waypoint');
 import 'velocity-animate';
 import Nav from './nav.jsx';
 import Logo from './logo.jsx';
@@ -24,6 +27,7 @@ var NavToggle = React.createClass({
 });
 
 var Header = React.createClass({
+
   render: function() {
     // console.log('header render, isNavShowing = ' + store.isNavShowing);
     return (
@@ -35,6 +39,7 @@ var Header = React.createClass({
           enter="transition.fadeIn"
           enterOptions={{delay: 300}}
           defaults={{duration: 1000}}
+          ref='logoTransition'
         >
           <Logo />
         </VelocityTransitionGroup>

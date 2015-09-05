@@ -6,7 +6,6 @@ export default class ResponsiveContainer extends React.Component {
 
     this.updateDimensions = this.updateDimensions.bind(this)
 
-
     this.state = {
       width: null,
       height: null
@@ -43,8 +42,12 @@ export default class ResponsiveContainer extends React.Component {
       })
     }
 
+    var propClass = this.props.class ? this.props.class : '';
+
     return (
-      <div className={"responsive-container" + this.props.class} >
+      <div
+        className={"responsive-container  " + propClass}
+      >
         {image}
       </div>
     )

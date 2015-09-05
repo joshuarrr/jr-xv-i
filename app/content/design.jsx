@@ -193,16 +193,36 @@ var ProjectDetails = React.createClass({
 
 var Project = React.createClass({
   getInitialState: function() {
-    return { expanded: false };
+    return {
+      expanded: false,
+      updated: false
+    };
   },
 
-  handleClick: function() {
+  componentDidUpdate: function() {
+    this.getDOMNode().addEventListener('transitionend', this.updateImg, false);
+  },
+
+  handleClick() {
     this.setState({ expanded: !this.state.expanded });
+  },
+
+  updateImg() {
+    var img = React.findDOMNode(this.refs.imgContainer);
+
+    if (img !== undefined) {
+      var updatedWidth = img.clientWidth;
+      this.refs.imgContainer.setState({ width: updatedWidth });
+    }
+    else {
+      console.log('error');
+    }
   },
 
   render: function() {
     var self = this;
     var projectClass = this.state.expanded ? ' expanded' : '';
+    var containerHeight = '100px';
 
     return (
       <div className='project-wrap'>
@@ -214,10 +234,14 @@ var Project = React.createClass({
             to={ '/design#' + this.props.id }
             className='img-link'
             onClick={ self.handleClick }
+            ref='imgLink'
           >
-            <ResponsiveContainer>
+            <ResponsiveContainer
+              class={ 'rc-' + this.props.index + ' ' }
+              ref='imgContainer'
+            >
               <ResponsiveImage
-                class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
+                class={ 'img-wrap ' + this.props.class + ' ' +projectClass + ' img-' + this.props.index}
                 src={ this.props.src }
               />
             </ResponsiveContainer>

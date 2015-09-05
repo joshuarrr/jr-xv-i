@@ -27,6 +27,7 @@ var store = window.store = {
   set isProjectExpanded(expanded) { this._isProjectExpanded = expanded; this.notify(); },
 
   // Expanded Project
+  _expandedProjectId: null,
   get expandedProjectId() { return this._projectId; },
   set expandedProjectId(projectId) { this._projectId = projectId; this.notify(); },
 

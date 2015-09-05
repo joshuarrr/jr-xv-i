@@ -40,3 +40,12 @@ body {
     @media (--venti)   { padding-top: 10rem; }
     @media (--trenta)  { padding-top: 13rem; }
 }
+
+/* Header Waypoint */
+.header-waypoint {
+    height: 1px;
+    width: 100%;
+    background: red;
+    position: absolute;
+    bottom: 0;
+}
