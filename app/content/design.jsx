@@ -7,7 +7,6 @@ import ResponsiveContainer from '../components/ResponsiveContainer'
 import ResponsiveImage from '../components/ResponsiveImage'
 import projectList from '../data/design.js';
 import styles from '../styles/design.css';
-var StickyDiv = require('react-stickydiv');
 
 
 var SubProject = React.createClass({
@@ -150,7 +149,7 @@ var ProjectDetails = React.createClass({
 
     if (role || tech) {
       return (
-        <dl >
+        <dl>
           { hasRole() }
           { hasTech() }
         </dl>
@@ -237,24 +236,25 @@ var Project = React.createClass({
             ref='imgLink'
           >
             <ResponsiveContainer
-              class={ 'rc-' + this.props.index + ' ' }
+              class={ 'rc rc-' + this.props.index + ' ' }
               ref='imgContainer'
             >
               <ResponsiveImage
-                class={ 'img-wrap ' + this.props.class + ' ' +projectClass + ' img-' + this.props.index}
+                class={ 'img-wrap ' + this.props.class + ' ' + projectClass + ' img-' + this.props.index}
                 src={ this.props.src }
               />
             </ResponsiveContainer>
           </Link>
+          <ProjectDetails
+            index={ this.props.index }
+            key={ 'detailed-project-' + this.props.index }
+            description={ this.props.description }
+            role={ this.props.role }
+            tech={ this.props.tech }
+            expanded={ this.state.expanded }
+            src={ this.props.src }
+          />
         </div>
-        <ProjectDetails
-          index={ this.props.index }
-          key={ 'detailed-project-' + this.props.index }
-          description={ this.props.description }
-          role={ this.props.role }
-          tech={ this.props.tech }
-          expanded={ this.state.expanded }
-        />
       </div>
     );
   }

@@ -31,7 +31,6 @@ export default [
                       </p>
                       `,
         role: 'UX, UI, Web Designer',
-        tech: 'poop',
         file: 'idealist-about.jpg',
         class: 'border',
         id: 'idealist-about'
