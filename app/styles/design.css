@@ -26,9 +26,17 @@
   transform: translate3d(0, 0, 0);
 
   @media (--fablet)  {
-    width: 25vw;
+    width: 40vw;
     transition:
       width .6s;
+  }
+
+  @media (--laptop)  {
+    width: 30vw;
+  }
+
+  @media (--desktop)  {
+    width: 25vw;
   }
 
   &:before {
@@ -96,11 +104,6 @@
   }
 }
 
-.expanded {
-  .img-wrap img {
-  }
-}
-
 .project-description {
   margin-top: 3rem;
   text-align: left;
@@ -119,6 +122,7 @@
 .sub-projects {
   float: left;
   margin-top: 5vh;
+  width: 100%;
 }
 
 .sub-project {
@@ -126,10 +130,16 @@
   width: 100%;
 
   .responsive-container {
-    float: right;
-    margin-top: 1rem;
+    clear: both;
     position: relative;
     width: 200px;
+    margin: 8rem auto 4rem;
+
+    @media(--fablet) {
+      clear: none;
+      float: right;
+      margin-top: 1rem;
+    }
 
     &.mobile {
       height: 420px;
@@ -169,8 +179,16 @@
 }
 
 .sub-project-details {
-  float: left;
-  width: 60%;
+  width: 100%;
+
+  @media(--fablet) {
+    float: left;
+    width: 55%;
+  }
+
+  @media(--highRes) {
+    width: 60%;
+  }
 
   dl { margin-top: 1.5rem; }
 
