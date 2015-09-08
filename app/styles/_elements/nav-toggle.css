@@ -1,11 +1,11 @@
 /* Animated hamburger icon
-via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
+based on http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
+
 .nav-toggle-btn {
   background-color: transparent;
-  /*  Button overrides */
+  /*  button overrides */
   appearance: none;
   border: none;
-  /*border-radius: 0;*/
   box-shadow: none;
 
   &:hover {
@@ -23,10 +23,6 @@ via http://callmenick.com/post/animating-css-only-hamburger-menu-icons */
   padding: 0;
   position: relative;
   width: 18px;
-/*
-  @media (--tablet) {
-    transform: scale(1.2, 1.2);
-  }*/
 }
 
 .nav-toggle:focus {

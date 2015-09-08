@@ -50,9 +50,18 @@ var Colophon = React.createClass({
 
     return (
       <div className={'colophon'  + colophonStyles}>
-        <button onClick={this.handleClick}>
-          ?
-        </button>
+        <div className='colophon-toggle'>
+            <div className='front face'>
+                <button onClick={this.handleClick}>
+                  ?
+                </button>
+            </div>
+            <div className="back face">
+                <button onClick={this.handleClick}>
+                  ×
+                </button>
+            </div>
+        </div>
         <div className='colophon-content text-measure'>
           <p>
             This site was built from scratch using <a href="http://facebook.github.io/react/" target="_blank">React</a>, <a href="https://webpack.github.io/" target="_blank">Webpack</a>, and <a href="https://nodejs.org/en/" target="_blank">NPM</a>. It uses <a href="https://github.com/postcss" target="_blank">PostCSS</a> and numerous <a href="http://postcss.parts/" target="_blank">plugins</a> extensively.
