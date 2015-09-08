@@ -11,7 +11,7 @@ $lightester-gray: color(black lightness(97%));
 $lightest-gray: color(black lightness(93%));
 $lighter-gray: color(black lightness(90%));
 $light-gray: color(black lightness(85%));
-$gray: color(black lightness(60%));
+$gray: color(black lightness(70%));
 $dark-gray: color(black lightness(45%));
 $darker-gray: color(black lightness(35%));
 $darkest-gray: color(black lightness(30%));
@@ -26,6 +26,9 @@ $black-06: color(black a(60%));
 $black-07: color(black a(70%));
 $black-08: color(black a(80%));
 $black-09: color(black a(90%));
+
+
+$white-90: color(white a(90%));
 
 /* Color Variables */
 $background-color: $lightester-gray;

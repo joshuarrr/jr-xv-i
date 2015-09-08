@@ -31,6 +31,11 @@ var store = window.store = {
   get expandedProjectId() { return this._projectId; },
   set expandedProjectId(projectId) { this._projectId = projectId; this.notify(); },
 
+  // Expanded Colophon
+ _isColophonShowing: false,
+  get isColophonShowing() { return this._isColophonShowing; },
+  set isColophonShowing(showing) { this._isColophonShowing = showing; this.notify(); },
+
   // Mobile
   _isMobile: null,
   get isMobile() { return this._isMobile; },

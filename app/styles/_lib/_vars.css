@@ -5,6 +5,9 @@ $grid-padding: 1.5rem;
 $top-margin: 10rem;
 $bottom-margin: 3rem;
 
+/* Colophon */
+$colophon-height: 30vh;
+
 /* Accessible page-margin values */
 $page-margin: 1.5rem;
 $margin-modifier-f: 1rem;

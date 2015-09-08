@@ -1,14 +1,11 @@
 .icon {
 	background: rgba(0,0,0,0) url('../img/ico/icon-sprite.svg') no-repeat;
-/*	background-size: 230px 520px;
-*/
+	background-size: 37px 293px;
 	display: inline-block;
 	height: 40px;
-	margin-right: .25em;
 	position: relative;
 	vertical-align: middle;
 	width: 36px;
-	background-size: 37px 293px;
 }
 
 .icon {
@@ -21,10 +18,10 @@
 	transform: scale(.65, .65);
 
 	&:hover {
-		filter: saturate(100%);
 		cursor: pointer;
-		transform: scale(.9, .9);
+		filter: saturate(100%);
 		opacity: 1;
+		transform: scale(.9, .9);
 	}
 
 	@media (--tablet) {
