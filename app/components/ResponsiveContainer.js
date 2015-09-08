@@ -31,7 +31,6 @@ export default class ResponsiveContainer extends React.Component {
   }
 
   render() {
-
     let image
 
     if(this.state.width) {

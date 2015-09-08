@@ -27,7 +27,13 @@ export default [
                         For years, the Idealist ‘about us’ page was <a href="https://web.archive.org/web/20141128135648/http://www.idealist.org/info/About" target="_blank">not very appealing or engaging</a>. Traffic was particularly poor and exit rates particularly high for this section of the site.
                       </p>
                       <p>
-                        With the release of this new iteration, we wanted to validate the design. We were curious if people would scroll through the long introductory section. We employed <a href="http://scrolldepth.parsnip.io/" target="_blank">Scroll Depth</a>, a plugin that lets us analyze scroll behavior in Google Analytics.
+                        With the release of this new iteration, we wanted to validate the design. We were especially curious if people would scroll through the long introductory section. We employed <a href="http://scrolldepth.parsnip.io/" target="_blank">Scroll Depth</a>, a plugin that lets us analyze scroll behavior in Google Analytics. It turned out that most people do scroll through on desktop, but mobile visitors were far less likely to do so.
+                      </p>
+                      <p>
+                        In order to improve the mobile scroll rate, we employed <a href="http://optimizely.com" targt="_blank">Optimizely</a> to run an a/b test on a scroll arrow at the bottom of the first impression. It worked dramatically, bringing our initial mobile scroll rates up to about 85% from about 50%.
+                      </p>
+                      <p>
+                      Our next tests will bring paralax and animations to the page to determine their effectiveness.
                       </p>
                       `,
         role: 'UX, UI, Web Designer',

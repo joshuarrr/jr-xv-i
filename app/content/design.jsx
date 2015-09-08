@@ -194,7 +194,8 @@ var Project = React.createClass({
   getInitialState: function() {
     return {
       expanded: false,
-      updated: false
+      updated: false,
+      imageHeight: ''
     };
   },
 
@@ -207,11 +208,29 @@ var Project = React.createClass({
   },
 
   updateImg() {
+
+    // render the duplicate the image
+    this.setState({
+      updated: true
+    });
+
     var img = React.findDOMNode(this.refs.imgContainer);
 
+    // Set a min height on the imagewrapper
+    // console.log('img.offsetHeight = ' + img.offsetHeight);
+    this.setState({
+      imageHeight: img.offsetHeight
+    });
+
+    // update the duplicate to the bigger size
     if (img !== undefined) {
       var updatedWidth = img.clientWidth;
-      this.refs.imgContainer.setState({ width: updatedWidth });
+      var projectClass = this.state.expanded ? ' expanded' : '';
+
+      // this.refs.imgContainer.setState({ width: updatedWidth });
+
+      // finally, hide the original little image
+
     }
     else {
       console.log('error');
@@ -221,7 +240,6 @@ var Project = React.createClass({
   render: function() {
     var self = this;
     var projectClass = this.state.expanded ? ' expanded' : '';
-    var containerHeight = '100px';
 
     return (
       <div className='project-wrap'>
@@ -234,9 +252,11 @@ var Project = React.createClass({
             className='img-link'
             onClick={ self.handleClick }
             ref='imgLink'
+            style={{ minHeight: this.state.imageHeight }}
           >
             <ResponsiveContainer
               class={ 'rc rc-' + this.props.index + ' ' }
+              key={'rc-' + this.props.index}
               ref='imgContainer'
             >
               <ResponsiveImage
@@ -244,6 +264,21 @@ var Project = React.createClass({
                 src={ this.props.src }
               />
             </ResponsiveContainer>
+
+            {
+              this.state.updated &&
+              <ResponsiveContainer
+                class={ 'expanded rc rc-' + this.props.index + ' ' }
+                key={'big-rc-' + this.props.index}
+                ref='bigImgContainer'
+              >
+                <ResponsiveImage
+                  class={ 'img-wrap ' + this.props.class + ' ' + projectClass + ' img-' + this.props.index}
+                  src={ this.props.src }
+                />
+              </ResponsiveContainer>
+            }
+
           </Link>
           <ProjectDetails
             index={ this.props.index }

@@ -34,7 +34,8 @@ export default class ResponsiveImage extends React.Component {
       <ImageLoader
         src={src}
         className={this.props.class}
-        preloader={preloader}>
+        preloader={preloader}
+      >
         Image load failed!
       </ImageLoader>
     );

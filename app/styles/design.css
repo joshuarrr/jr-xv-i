@@ -83,6 +83,40 @@
   z-index: 1;
 }
 
+/* Responsive project expanded, the duplicate that reloads the high res version */
+.rc.expanded {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.img-link {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+
+.rc {
+  background: $gray;
+}
+
+.imageloader p {
+  /* Cargoed from infinigram.css. TODO: modularize this */
+    position: fixed;
+    left: 50%;
+    top: 10rem;
+    transform: translate(-50%, -50%);
+    @mixin mono-font .5rem;
+    background: color(white a(70%));
+    color: $black-07;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding: .5rem 1rem;
+    border-radius: .2rem;
+    text-rendering: geometricPrecision;
+    z-index: 100;
+}
+
 .img-wrap {
   display: block;
   position: relative;
@@ -128,6 +162,10 @@
 .sub-project {
   float: left;
   width: 100%;
+
+  .img-link {
+    display: inherit;
+  }
 
   .responsive-container {
     clear: both;
