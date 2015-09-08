@@ -36,7 +36,7 @@
   }
 
   @media (--desktop)  {
-    width: 25vw;
+    width: 20vw;
   }
 
   &:before {
@@ -94,10 +94,6 @@
   display: inline-block;
   position: relative;
   width: 100%;
-}
-
-.rc {
-  background: $gray;
 }
 
 .imageloader p {

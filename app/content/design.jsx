@@ -88,23 +88,26 @@ var SubProject = React.createClass({
 var SubProjects = React.createClass({
   render: function() {
     var thisProject = this.props.index;
-    var subProject = projectList[thisProject].subprojects;
 
-    var subProjects = subProject.map(function (p, i) {
-      return (
-        <SubProject
-          key={ 'project-' + i }
-          class={ p.class }
-          title={ p.title }
-          description={ p.description }
-          role={ p.role }
-          tech={ p.tech }
-          src={ p.file }
-          id={ p.id }
-          index={ i }
-        />
-      )
-    });
+    if (projectList[thisProject].subprojects) {
+      var subProject = projectList[thisProject].subprojects;
+
+      var subProjects = subProject.map(function (p, i) {
+        return (
+          <SubProject
+            key={ 'project-' + i }
+            class={ p.class }
+            title={ p.title }
+            description={ p.description }
+            role={ p.role }
+            tech={ p.tech }
+            src={ p.file }
+            id={ p.id }
+            index={ i }
+          />
+        )
+      });
+    }
 
     return (
       <div className="sub-projects text-measure">
@@ -217,24 +220,9 @@ var Project = React.createClass({
     var img = React.findDOMNode(this.refs.imgContainer);
 
     // Set a min height on the imagewrapper
-    // console.log('img.offsetHeight = ' + img.offsetHeight);
     this.setState({
       imageHeight: img.offsetHeight
     });
-
-    // update the duplicate to the bigger size
-    if (img !== undefined) {
-      var updatedWidth = img.clientWidth;
-      var projectClass = this.state.expanded ? ' expanded' : '';
-
-      // this.refs.imgContainer.setState({ width: updatedWidth });
-
-      // finally, hide the original little image
-
-    }
-    else {
-      console.log('error');
-    }
   },
 
   render: function() {
