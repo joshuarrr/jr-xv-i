@@ -9,6 +9,124 @@ import projectList from '../data/design.js';
 import styles from '../styles/design.css';
 
 
+var EtcProjects = React.createClass({
+  render: function() {
+    var thisProject = this.props.index;
+
+    if (projectList[thisProject].etcetera) {
+      var etcProject = projectList[thisProject].etcetera;
+
+      var etcProjects = etcProject.map(function (p, i) {
+        return (
+          <EtcProject
+            key={ 'project-' + i }
+            class={ p.class }
+            title={ p.title }
+            description={ p.description }
+            role={ p.role }
+            tech={ p.tech }
+            src={ p.file }
+            id={ p.id }
+            index={ i }
+          />
+        )
+      });
+    }
+
+    return (
+      <div className='etc-projects-wrap'>
+        <h3 className='sub-project-title'>et cetera</h3>
+        <div className='etc-projects text-measure'>
+          { etcProjects }
+        </div>
+      </div>
+    );
+  }
+});
+
+
+var EtcProject = React.createClass({
+  getInitialState: function() {
+    return { expanded: false };
+  },
+
+  handleClick: function() {
+    this.setState({ expanded: !this.state.expanded });
+  },
+
+  hasRoleOrTech() {
+    var role = this.props.role;
+    var tech = this.props.tech;
+    var index = this.props.index;
+
+    function hasRole() {
+      if (role) {
+        return [
+          (<dt key={'sub-role-dt-' + index}>Role:</dt>),
+          (<dd key={'sub-role-dd-' + index}>{ role }</dd>)
+        ];
+      }
+    }
+
+    function hasTech() {
+      if (tech) {
+        return [
+          (<dt key={'sub-tech-dt-' + index}>Tech:</dt>),
+          (<dd key={'sub-tech-dd-' + index}>{ tech }</dd>)
+        ];
+      }
+    }
+
+    if (role || tech) {
+      return (
+        <dl>
+          { hasRole() }
+          { hasTech() }
+        </dl>
+      );
+    }
+  },
+
+  render: function() {
+    var projectClass = this.state.expanded ? ' expanded' : '';
+    var isMoblie = this.props.class === 'mobile' ? ' mobile' : '';
+
+    return (
+      <div className="etc-project">
+          <h3 className='etc-project-title'>
+            { this.props.title }
+          </h3>
+        <div className='etc-project-details'>
+          <span
+            className='etc-project-description'
+            dangerouslySetInnerHTML={{__html: this.props.description}}
+          />
+          { this.hasRoleOrTech() }
+        </div>
+        <Link
+          to={ '/design#' + this.props.id }
+          className='img-link'
+          onClick={ self.handleClick }
+        >
+          <ResponsiveContainer class={isMoblie}>
+            <ResponsiveImage
+              class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
+              src={ this.props.src }
+            />
+          </ResponsiveContainer>
+        </Link>
+      </div>
+    );
+  }
+});
+
+
+
+
+
+
+
+
 var SubProject = React.createClass({
   getInitialState: function() {
     return { expanded: false };
@@ -184,6 +302,7 @@ var ProjectDetails = React.createClass({
               />
               { this.hasRoleOrTech() }
               <SubProjects index={this.props.index} />
+              <EtcProjects index={this.props.index} />
             </div>
           </div>
         }

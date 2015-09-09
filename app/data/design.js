@@ -41,6 +41,28 @@ export default [
         class: 'border',
         id: 'idealist-about'
       }
+    ],
+    etcetera: [
+      {
+        title: 'working here',
+        description: `<p>
+                        We\'re growing rapidly and needed a page that invites the type of candidates we\'re looking for: talented individuals with the greater good at heart. We went a bit nuts and threw out every trick in the book - paralax, scroll events, and more paralax.
+                      </p>`,
+        role: 'UX, UI, Web Designer, Front-end Developer',
+        file: 'sample.jpg',
+        class: '',
+        id: 'working-here'
+      },{
+        title: 'Manifesto',
+        description: `<p>
+                        The Idealist Manifesto is at the heart of our mission. This treatment attempts to inspire like-minded individuals.
+                      </p>
+                      `,
+        role: 'Graphic Designer',
+        file: 'sample.jpg',
+        class: 'border',
+        id: 'manifesto'
+      }
     ]
   },
   {
