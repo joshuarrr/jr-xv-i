@@ -72,9 +72,10 @@ var NavLinks = React.createClass({
   handleClick() {
     store.isNavExpanded = false;
   },
+
   render: function() {
   var self = this;
-  // console.log('mobile = ' + store.isMobile);
+    // console.log('mobile = ' + store.isMobile);
     var links = navLinkList.map(function (l) {
       return (
         <li className="nav-item" key={l.to}>
@@ -99,6 +100,21 @@ var NavLinks = React.createClass({
 
 // Primary Nav //
 var Nav = React.createClass({
+  handleKeyup: function(e) {
+    if (!store.isColophonShowing) {
+      if (e.keyCode == 27) {
+        store.isNavExpanded = !store.isNavExpanded;
+      }
+    }
+  },
+  componentDidMount() {
+    window.addEventListener('keyup', this.handleKeyup);
+  },
+
+  componentWillUnmount: function() {
+    window.removeEventListener('keyup', this.handleKeyup);
+  },
+
   render() {
     var isGramming = store.isInfinigramming ? " is-gramming" : "";
     var mqclass = this.props.mq;

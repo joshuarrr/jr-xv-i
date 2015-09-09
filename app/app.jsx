@@ -19,29 +19,21 @@ var Main = React.createClass({
 
 
 var Colophon = React.createClass({
-  colophonTrigger() {
-    console.log('I can see the colophon.');
-    window.addEventListener('keyup', this.handleKeyup);
-  },
-
   handleKeyup: function(e) {
-    if (!store.isNavExpanded) {
+    if (!store.isNavExpanded && store.isColophonShowing) {
       if (e.keyCode == 27) {
-          store.isColophonShowing = !store.isColophonShowing;
+        store.isColophonShowing = !store.isColophonShowing;
       }
     }
   },
 
-  removeColophonTrigger: function() {
-    window.removeEventListener('keyup', this.handleKeyup);
+  handleClick() {
+    store.isColophonShowing = !store.isColophonShowing;
+    window.addEventListener('keyup', this.handleKeyup);
   },
 
   componentWillUnmount: function() {
     window.removeEventListener('keyup', this.handleKeyup);
-  },
-
-  handleClick() {
-    store.isColophonShowing = !store.isColophonShowing;
   },
 
   render: function() {
@@ -49,12 +41,6 @@ var Colophon = React.createClass({
 
     return (
       <div className={'colophon'  + colophonStyles}>
-        <Waypoint
-          onEnter={this.colophonTrigger}
-          onLeave={this.removeColophonTrigger}
-          threshold={0}
-          class={'colophon-waypoint'}
-        />
         <div className='colophon-toggle'>
             <div className='front face'>
                 <button onClick={this.handleClick}>
