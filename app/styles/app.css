@@ -51,7 +51,7 @@ body {
   @media (--trenta)  { padding-top: 13rem; }
 }
 
-/* Header Waypoint */
+/* Waypoints */
 .header-waypoint {
   background: red;
   bottom: 0;
@@ -59,4 +59,3 @@ body {
   position: absolute;
   width: 100%;
 }
-

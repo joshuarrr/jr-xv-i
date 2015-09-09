@@ -19,13 +19,8 @@ var Main = React.createClass({
 
 
 var Colophon = React.createClass({
-  getInitialState: function() {
-    return {
-      scrollPos: window.scrollY,
-    };
-  },
-
-  componentDidMount() {
+  colophonTrigger() {
+    console.log('I can see the colophon.');
     window.addEventListener('keyup', this.handleKeyup);
   },
 
@@ -35,6 +30,10 @@ var Colophon = React.createClass({
           store.isColophonShowing = !store.isColophonShowing;
       }
     }
+  },
+
+  removeColophonTrigger: function() {
+    window.removeEventListener('keyup', this.handleKeyup);
   },
 
   componentWillUnmount: function() {
@@ -50,6 +49,12 @@ var Colophon = React.createClass({
 
     return (
       <div className={'colophon'  + colophonStyles}>
+        <Waypoint
+          onEnter={this.colophonTrigger}
+          onLeave={this.removeColophonTrigger}
+          threshold={0}
+          class={'colophon-waypoint'}
+        />
         <div className='colophon-toggle'>
             <div className='front face'>
                 <button onClick={this.handleClick}>
