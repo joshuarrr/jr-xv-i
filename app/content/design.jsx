@@ -35,7 +35,7 @@ var EtcProjects = React.createClass({
 
     return (
       <div className='etc-projects-wrap'>
-        <h3 className='sub-project-title'>et cetera</h3>
+        <h3 className='sub-project-title'>{ this.props.etcTitle}</h3>
         <div className='etc-projects text-measure'>
           { etcProjects }
         </div>
@@ -302,7 +302,7 @@ var ProjectDetails = React.createClass({
               />
               { this.hasRoleOrTech() }
               <SubProjects index={this.props.index} />
-              <EtcProjects index={this.props.index} />
+              <EtcProjects index={this.props.index} etcTitle={this.props.etcTitle} />
             </div>
           </div>
         }
@@ -388,13 +388,14 @@ var Project = React.createClass({
 
           </Link>
           <ProjectDetails
+            description={ this.props.description }
+            etcTitle={ this.props.etcTitle }
+            expanded={ this.state.expanded }
             index={ this.props.index }
             key={ 'detailed-project-' + this.props.index }
-            description={ this.props.description }
             role={ this.props.role }
-            tech={ this.props.tech }
-            expanded={ this.state.expanded }
             src={ this.props.src }
+            tech={ this.props.tech }
           />
         </div>
       </div>
@@ -408,15 +409,16 @@ var Projects = React.createClass({
     var projects = projectList.map(function (p, i) {
       return (
         <Project
-          key={ 'project-' + i }
           class={ p.class }
-          title={ p.title }
           description={ p.description }
-          role={ p.role }
-          tech={ p.tech }
-          src={ p.file }
+          etcTitle={ p.etcTitle }
           id={ p.id }
           index={ i }
+          key={ 'project-' + i }
+          role={ p.role }
+          src={ p.file }
+          tech={ p.tech }
+          title={ p.title }
         />
       )
     });

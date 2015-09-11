@@ -42,6 +42,7 @@ export default [
         id: 'idealist-about'
       }
     ],
+    etcTitle: 'more',
     etcetera: [
       {
         title: 'working here',
