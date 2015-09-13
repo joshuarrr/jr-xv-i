@@ -190,7 +190,7 @@ var SubProject = React.createClass({
           className='img-link'
           onClick={ self.handleClick }
         >
-          <ResponsiveContainer class={isMoblie}>
+          <ResponsiveContainer class={ isMoblie }>
             <ResponsiveImage
               class={ 'img-wrap ' + this.props.class + projectClass + ' img-' + this.props.index}
               src={ this.props.src }
@@ -444,7 +444,7 @@ var Design = React.createClass({
           delay: 0
         }}
       >
-        <div className={'page design '} key='design'>
+        <div className={'page design '} key='design-page'>
           <div className='text-measure' key='intro'>
             <h1 className='intro'>design</h1>
             <p className='introduction'>
