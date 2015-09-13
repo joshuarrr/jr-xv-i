@@ -1,12 +1,12 @@
 export default [
   {
-    group: 'lines',
-    description: '',
     pieces: [
       {
+        groupTitle: 'lines',
+        groupDescription: ``,
         title: 'untitled 1',
         class: 'border',
-        description: '',
+        description: ``,
         id: 'lines-u1',
         date: 'August, 2015',
         file: 'lines-01.jpg'
@@ -14,7 +14,7 @@ export default [
       {
         title: 'untitled 7',
         class: 'border',
-        description: '',
+        description: ``,
         id: 'lines-u7',
         date: 'August, 2015',
         file: 'lines-07.jpg'
@@ -22,7 +22,7 @@ export default [
       {
         title: 'untitled 2',
         class: 'border',
-        description: '',
+        description: ``,
         id: 'lines-u2',
         date: 'August, 2015',
         file: 'lines-02.jpg'
@@ -30,7 +30,7 @@ export default [
       {
         title: 'untitled 9',
         class: 'border',
-        description: '',
+        description: ``,
         id: 'lines-u9',
         date: 'August, 2015',
         file: 'lines-09.jpg'
@@ -38,7 +38,7 @@ export default [
       {
         title: 'untitled 8',
         class: 'border',
-        description: '',
+        description: ``,
         id: 'lines-u8',
         date: 'August, 2015',
         file: 'lines-08.jpg'
@@ -46,7 +46,7 @@ export default [
       {
         title: 'untitled 6',
         class: 'border',
-        description: '',
+        description: ``,
         id: 'lines-u6',
         date: 'August, 2015',
         file: 'lines-06.jpg'
@@ -54,7 +54,7 @@ export default [
       {
         title: 'untitled 5',
         class: 'border',
-        description: '',
+        description: ``,
         id: 'lines-u5',
         date: 'August, 2015',
         file: 'lines-05.jpg'

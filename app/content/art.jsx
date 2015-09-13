@@ -47,6 +47,12 @@ var Piece = React.createClass({
     return (
       <div className='project-wrap'>
         <div className={'project' + projectClass} ref='project'>
+            {
+              this.props.groupTitle &&
+              <h2 className='project-title'>
+                { this.props.groupTitle }
+              </h2>
+            }
           <Link
             to={ '/art#' + this.props.id }
             className='img-link'
@@ -97,13 +103,15 @@ var Group = React.createClass({
       var pieces = hasPieces.map(function (p, i) {
         return (
           <Piece
-            key={ 'piece-' + i }
             class={ p.class }
-            title={ p.title }
             description={ p.description }
-            src={ p.file }
+            groupTitle={ p.groupTitle }
+            groupDescription={ p.groupDescription }
             id={ p.id }
             index={ i }
+            key={ 'piece-' + i }
+            src={ p.file }
+            title={ p.title }
           />
         )
       });
@@ -111,9 +119,6 @@ var Group = React.createClass({
 
     return (
       <div className='group'>
-        <h2 className='art-group-title project-title'>
-          { this.props.group }
-        </h2>
         { pieces }
       </div>
     );
@@ -126,9 +131,8 @@ var Groups = React.createClass({
       return (
         <Group
           index={ i }
-          group={ p.group }
-          pieces={ p.pieces }
           key={ 'group-' + i }
+          pieces={ p.pieces }
         />
       )
     });

@@ -6,48 +6,21 @@
 .art {
   .group {
     margin-top: 10vh;
-    position: relative;
-    text-align: center;
-
-    &:before {
-      background: $light-gray;
-      border-bottom: 1px solid rgba(255, 255, 255, .9);
-      content: "";
-      height: 1px;
-      left: 0;
-      position: absolute;
-      right: 0;
-      margin: auto;
-      top: 0;
-      transition:
-        width .6s;
-      width: 100%;
-      z-index: 1;
-
-      @media (--fablet)  {
-        width: 40vw;
-      }
-
-      @media (--laptop)  {
-        width: 30vw;
-      }
-
-      @media (--desktop)  {
-        width: 20vw;
-      }
-    }
   }
 
   .project-wrap {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
+
+    &:first-of-type {
+      .project:before {
+        content: '';
+      }
+    }
   }
 
   .project{
     &:before {
       content: none;
     }
-  }
-
-  .art-group-title {
   }
 }
