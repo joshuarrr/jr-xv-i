@@ -4,7 +4,25 @@ import VelocityTransitionGroup from 'VelocityTransitionGroup';
 import 'velocity-animate/velocity.ui';
 import store from '../store';
 import Loader from '../components/loader.jsx';
-import styles from '../styles/infinigram.css';
+import styles from '../styles/pictures.css';
+
+
+var FullFrameImages = React.createClass({
+  render: function() {
+    return (
+      <div className="full-frame-images">
+        <img className="full-frame-image" src="http://res.cloudinary.com/joshuar/image/upload/v1442210295/aro.jpg" />
+        <img className="full-frame-image" src="http://res.cloudinary.com/joshuar/image/upload/v1442210295/mask.jpg" />
+        <img className="full-frame-image" src="http://res.cloudinary.com/joshuar/image/upload/v1442210295/deepestBlue.jpg" />
+        <img className="full-frame-image" src="http://res.cloudinary.com/joshuar/image/upload/v1442210295/santa-monica.jpg" />
+        <img className="full-frame-image" src="http://res.cloudinary.com/joshuar/image/upload/v1442210295/beach.jpg" />
+        <img className="full-frame-image" src="http://res.cloudinary.com/joshuar/image/upload/v1442210295/paint.jpg" />
+      </div>
+    );
+  }
+});
+
+
 
 // Number of images to fetch per request
 var count = '1';
@@ -179,11 +197,16 @@ var Infinigram = React.createClass({
   render: function() {
     // console.log('(3) -'+ setNum + '- IG Infigramming store = ' + store.isInifigramming);
     return (
-      <div className='page infinigram'>
-        {this._renderLoader()}
+      <div className='page pictures infinigram'>
+          <div className='intro text-measure' key='intro'>
+            <h1 className='intro'>photography</h1>
+            <p className='introduction'></p>
+          </div>
+        <FullFrameImages />
+        { this._renderLoader() }
         <ul className='ig-picture-list'>
-          {this._renderItems()}
-          {this._renderWaypoint()}
+          { this._renderItems() }
+          { this._renderWaypoint() }
         </ul>
       </div>
     );

@@ -1,7 +1,7 @@
 export default [
   {
-    groupTitle: 'lineseses',
-    groupDescription: `poop`,
+    groupTitle: 'lines',
+    groupDescription: ``,
     pieces: [
       {
         title: 'untitled 1',

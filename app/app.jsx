@@ -107,13 +107,23 @@ var App = React.createClass({
       <MediaQuery key={'mq'} className={'main' + isExpanded + colophonIsShowing } component='main' screen={true}>
 
         {/* Mobile ----------------------------------------------------------*/}
-        <MediaQuery component='span' key={'mq-mobile'} maxWidth={768} and maxDeviceWidth={768} >
-          <Header class='header mobile' mq='mobile' />
+        <MediaQuery
+          component='span'
+          className='mq-wrap'
+          key={'mq-mobile'}
+          maxWidth={768} and maxDeviceWidth={768} >
+          <Header class='header mobile' mq='mobile'
+        />
           <Main mq='mobile' />
         </MediaQuery>
 
         {/* Desktop ---------------------------------------------------------*/}
-        <MediaQuery component='span' key={'mq-desktop'} minDeviceWidth={769}>
+        <MediaQuery
+          component='span'
+          className='mq-wrap'
+          key={'mq-desktop'}
+          minDeviceWidth={769}
+        >
           <Header class='header desktop' mq='desktop' />
           <Main mq='desktop' />
         </MediaQuery>
