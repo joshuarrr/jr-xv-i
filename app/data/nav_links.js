@@ -4,8 +4,8 @@ export default [
     title: 'words'
   },
   {
-    to: 'instagram',
-    title: 'pictures'
+    to: 'photography',
+    title: 'photography'
   },
   {
     to: 'design',

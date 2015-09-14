@@ -5,7 +5,7 @@ import App from './app.jsx';
 import Home from './content/home.jsx';
 import Art from './content/art.jsx';
 import Design from './content/design.jsx';
-import Infinigram from './content/infinigram.jsx';
+import Photography from './content/photography.jsx';
 import StyleGuide from './content/style-guide.jsx';
 import Words from './content/words.jsx';
 import NotFound from './content/not_found.jsx';
@@ -15,7 +15,7 @@ var Routes = (
   <Route name="art" handler={Art} />
   <Route name="design" handler={Design} />
   <Route name="guide" handler={StyleGuide} />
-  <Route name="instagram" handler={Infinigram} />
+  <Route name="photography" handler={Photography} />
   <Route name="words" handler={Words} />
   <DefaultRoute name="home" handler={Home} />
   <NotFoundRoute handler={NotFound} />

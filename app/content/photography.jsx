@@ -23,7 +23,6 @@ var FullFrameImages = React.createClass({
 });
 
 
-
 // Number of images to fetch per request
 var count = '1';
 
@@ -117,25 +116,25 @@ var Infinigram = React.createClass({
       if (p.type == 'video') {
         return (
           <VelocityTransitionGroup
-            key={index}
+            key={ index }
             className='ig-picture-li'
             component='li'
             enter="transition.fadeIn"
-            enterOptions={{delay: 100}}
+            enterOptions={ {delay: 100} }
             leave="transition.fadeOut"
-            defaults={{duration: 2000}}
+            defaults={ {duration: 2000} }
           >
             <video
               width="100%"
               height="100%"
               autoPlay='autoplay'
-              loop={true}
-              muted={true}
-              controls={true}
-                poster={p.images.standard_resolution.url}
+              loop={ true }
+              muted={ true }
+              controls={ true }
+                poster={ p.images.standard_resolution.url }
               className="ig-video">
               <source
-                src={p.videos.standard_resolution.url}
+                src={ p.videos.standard_resolution.url }
                 type="video/mp4"
               />
             </video>
@@ -145,19 +144,19 @@ var Infinigram = React.createClass({
       if (p.type == 'image') {
         return (
           <VelocityTransitionGroup
-            key={index}
+            key={ index }
             className='ig-picture-li'
             component='li'
             enter="transition.fadeIn"
-            enterOptions={{delay: 100}}
+            enterOptions={ {delay: 100} }
             leave="transition.fadeOut"
-            defaults={{duration: 1000}}
+            defaults={ {duration: 1000} }
           >
             <img
-              src={p.images.standard_resolution.url}
+              src={ p.images.standard_resolution.url }
               alt='image'
-              link={p.link}
-              title={p.caption ? p.caption.text : ''}
+              link={ p.link }
+              title={ p.caption ? p.caption.text : '' }
               className='ig-picture'
             />
           </VelocityTransitionGroup>
@@ -197,12 +196,7 @@ var Infinigram = React.createClass({
   render: function() {
     // console.log('(3) -'+ setNum + '- IG Infigramming store = ' + store.isInifigramming);
     return (
-      <div className='page pictures infinigram'>
-          <div className='intro text-measure' key='intro'>
-            <h1 className='intro'>photography</h1>
-            <p className='introduction'></p>
-          </div>
-        <FullFrameImages />
+      <div className='infinigram-wrap'>
         { this._renderLoader() }
         <ul className='ig-picture-list'>
           { this._renderItems() }
@@ -213,4 +207,20 @@ var Infinigram = React.createClass({
   }
 });
 
-module.exports = Infinigram;
+
+var Photography = React.createClass({
+  render: function() {
+    return (
+      <div className='page pictures infinigram'>
+        <div className='intro text-measure' key='intro'>
+          <h1 className='intro'>photography</h1>
+          <p className='introduction'></p>
+        </div>
+        <FullFrameImages />
+        <Infinigram />
+      </div>
+    );
+  }
+});
+
+module.exports = Photography;
