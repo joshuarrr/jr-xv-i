@@ -53,6 +53,12 @@ var Piece = React.createClass({
                 { this.props.groupTitle }
               </h2>
             }
+            {
+              this.props.groupDescription &&
+              <p>
+                { this.props.groupDescription }
+              </p>
+            }
           <Link
             to={ '/art#' + this.props.id }
             className='img-link'
@@ -95,18 +101,23 @@ var Piece = React.createClass({
 var Group = React.createClass({
   render: function() {
 
+    console.log('this.props.groupTitle = ' + this.props.groupTitle);
+
+    // I donno why i has to do this.
+    var self = this;
     var thisGroup = this.props.index;
 
     if (artList[thisGroup].pieces) {
       var hasPieces = artList[thisGroup].pieces;
-
       var pieces = hasPieces.map(function (p, i) {
+        if (i === 0) { var groupTitle = self.props.groupTitle }
+        if (i === 0) { var groupDescription = self.props.groupDescription }
         return (
           <Piece
+            groupTitle={ groupTitle }
+            groupDescription={ groupDescription }
             class={ p.class }
             description={ p.description }
-            groupTitle={ p.groupTitle }
-            groupDescription={ p.groupDescription }
             id={ p.id }
             index={ i }
             key={ 'piece-' + i }
@@ -128,11 +139,14 @@ var Group = React.createClass({
 var Groups = React.createClass({
   render: function() {
     var groups = artList.map(function (p, i) {
+
       return (
         <Group
           index={ i }
           key={ 'group-' + i }
           pieces={ p.pieces }
+          groupTitle={ p.groupTitle }
+          groupDescription={ p.groupDescription }
         />
       )
     });
