@@ -447,11 +447,11 @@ var Design = React.createClass({
         <div className={'page design '} key='design-page'>
           <div className='text-measure' key='intro'>
             <h1 className='intro'>design</h1>
+            <p>
+              At the ripe age of 9 years old, I bought my first copy of Dark Side of the Moon. I'd never heard of Pink Floyd, I just liked the cover: a ray of light entering a prism which divides into a rainbow of frequencies. I studied that cover for a hours and hours, and eventually went on to study light and optics because of it. I became a designer because images like that one captivate me.
+            </p>
             <p className='introduction'>
               I see design as problem solving. How can we best communicate complex ideas using simple tools such as color, shape, and text? How can we use imagination and creativity to make those ideas more compelling?
-            </p>
-            <p>
-              At the ripe age of 9 years old, I bought my first copy of Dark Side of the Moon. I'd never heard of Pink Floyd, I just liked the cover: a ray of light entering a prism, which divides the light into a rainbow of frequencies. I studied that cover for a long time, and eventually went on to study light and optics because of it. I became a designer because images like these captivate me.
             </p>
             <p>
               Design has heavily influenced who I am today. Below are some of my favorite efforts from the past dozen or so trips around the fat old sun.
