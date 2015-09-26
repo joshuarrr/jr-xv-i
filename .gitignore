@@ -24,4 +24,5 @@ _process/
 .scss/
 temp/
 build/
+dist/
 ngrok
